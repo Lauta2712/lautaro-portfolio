@@ -3,11 +3,11 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './About.module.css';
 
 const SOFT_SKILLS = [
-  { key: 'about.skills.collab',     icon: '🤝' },
-  { key: 'about.skills.ownership',  icon: '🎯' },
-  { key: 'about.skills.learning',   icon: '📚' },
-  { key: 'about.skills.async',      icon: '💬' },
-  { key: 'about.skills.attention',  icon: '🔍' },
+  'about.skills.collab',
+  'about.skills.ownership',
+  'about.skills.learning',
+  'about.skills.async',
+  'about.skills.attention',
 ];
 
 export default function About() {
@@ -36,9 +36,8 @@ export default function About() {
           <div className={`reveal ${styles.skills}`} style={{ '--delay': '0.1s' }}>
             <h3 className={styles.skillsTitle}>{t('about.softSkillsTitle')}</h3>
             <ul className={styles.skillList}>
-              {SOFT_SKILLS.map(({ key, icon }) => (
+              {SOFT_SKILLS.map((key) => (
                 <li key={key} className={styles.skillItem}>
-                  <span className={styles.skillIcon} aria-hidden="true">{icon}</span>
                   <span>{t(key)}</span>
                 </li>
               ))}
