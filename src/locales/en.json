@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "about":      "About",
+    "experience": "Experience",
+    "projects":   "Projects",
+    "tech":       "Tech Stack",
+    "contact":    "Contact"
+  },
+  "hero": {
+    "greeting":   "Hey, I'm",
+    "title":      "Full Stack Web Developer",
+    "tagline":    "Specialized in frontend. I build dashboards, web apps, AI automation workflows, and e-commerce — clean code, real results.",
+    "downloadCV": "Download CV",
+    "contactMe":  "Get in touch"
+  },
+  "about": {
+    "label":          "About me",
+    "title":          "A bit about me",
+    "bio1":           "I'm a full stack web developer based in San Juan, Argentina, with 3+ years building products that people actually use. I focus on frontend — React, Vite, CSS — but I'm comfortable across the stack.",
+    "bio2":           "I co-founded Pulso Studio, where we help businesses modernize their operations through custom web platforms and AI-powered automation. I'm also building GROOVY, an outdoor apparel e-commerce.",
+    "bio3":           "My English is C1. I work well in async international teams and document my work clearly.",
+    "focusLabel":     "Currently",
+    "focusValue":     "Pulso Studio + GROOVY E-commerce",
+    "softSkillsTitle":"How I work",
+    "skills": {
+      "collab":    "Collaborative — I work well with designers, PMs, and other devs",
+      "ownership": "Ownership mindset — I own my features end to end",
+      "learning":  "Fast learner — I pick up new tools and frameworks quickly",
+      "async":     "Clear async communicator — I write docs, not just code",
+      "attention": "Detail-oriented — I care about the edges, not just the happy path"
+    }
+  },
+  "exp": {
+    "label": "Experience",
+    "title": "Where I've worked",
+    "pulso": {
+      "role":   "Co-Founder & Full Stack Developer",
+      "period": "Feb 2026 — Present",
+      "desc":   "Running a digital studio for professionals and small businesses. Building websites and landing pages focused on lead generation, with form integrations, email automation, and light analytics. Hands-on with clients across content architecture and messaging."
+    },
+    "ant": {
+      "role": "Full Stack Developer",
+      "desc": "Built and maintained corporate dashboards and internal web applications in an Agile/Scrum environment. Worked across the full stack: React + Redux + Material UI on the frontend, C# + .NET + Entity Framework on the backend, SQL Server for data, and Docker for deployment. Used Jira and Bitbucket for team collaboration."
+    },
+    "coneq": {
+      "role": "Full Stack Developer",
+      "desc": "Developed the corporate site for an engineering and construction company. Implemented a multilanguage system with react-i18next, interactive map with LeafletJS, contact form via EmailJS, and full responsive design across mobile, tablet, and desktop."
+    },
+    "qxm": {
+      "role": "Frontend Developer",
+      "desc": "Built landing pages and interactive dashboards for a digital HR platform. Worked with React and Angular on the frontend, collaborating with a NestJS + SQL backend team."
+    }
+  },
+  "projects": {
+    "label": "Work",
+    "title": "Selected projects",
+    "code":  "Code",
+    "live":  "Live",
+    "status": {
+      "live":       "Live",
+      "inProgress": "In Progress",
+      "deployed":   "Deployed",
+      "tool":       "CLI Tool"
+    },
+    "crux": {
+      "desc": "Full-featured gym management system for Crux Escalada: member tracking, attendance, payment records, and admin dashboard. Built with Vite, React, and Supabase."
+    },
+    "groovy": {
+      "desc": "Outdoor apparel e-commerce with product catalog, cart, checkout flow, and Stripe integration. Dark mode, glassmorphism UI, built with Next.js App Router."
+    },
+    "agent": {
+      "desc": "Conversational AI agent for B2B sales automation. Integrates n8n workflows, Claude API for NLP, Salesforce CRM for lead management, and Telegram for client-facing interactions."
+    },
+    "landing": {
+      "desc": "High-conversion B2B landing page with dark mode, glassmorphism design, and smooth scroll animations. Built with React 19 and Vite, deployed on Vercel."
+    },
+    "insurance": {
+      "desc": "Insurance policy management platform: policy CRUD, client profiles, renewal tracking, and report generation. Built with React 19, Vite, and Supabase RLS."
+    },
+    "scraper": {
+      "desc": "Node.js CLI tool that scrapes Mountain Project for climbing route data. Uses Playwright for dynamic rendering and outputs structured JSON."
+    }
+  },
+  "tech": {
+    "label":    "Skills",
+    "title":    "Tech stack",
+    "frontend": "Frontend",
+    "backend":  "Backend",
+    "tools":    "Tools",
+    "ai":       "AI & Integrations"
+  },
+  "contact": {
+    "label":    "Contact",
+    "title":    "Let's work together",
+    "tagline":  "Open to freelance projects, collaborations, and full-time roles. If you have an interesting problem to solve, I'd love to hear about it.",
+    "location": "San Juan, Argentina",
+    "footer":   "Designed and built by Lautaro Rodriguez · 2025"
+  }
+}

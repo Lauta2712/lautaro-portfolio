@@ -1,0 +1,117 @@
+.contact {
+  background: var(--color-bg-2);
+  position: relative;
+  padding-bottom: 0;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-accent), transparent);
+}
+
+.inner {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+}
+
+.tagline {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 480px;
+}
+
+/* ── Email button ── */
+.emailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-base);
+}
+
+.emailBtn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+/* ── Social links ── */
+.socials {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+}
+
+.socialLink:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-accent);
+  background: var(--color-accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ── Location ── */
+.location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  font-family: var(--font-mono);
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: var(--space-20);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.footerText {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .socials {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .socialLink {
+    justify-content: center;
+  }
+
+  .emailBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
