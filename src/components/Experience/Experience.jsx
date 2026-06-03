@@ -10,6 +10,7 @@ const EXPERIENCE = [
     period: 'exp.pulso.period',
     desc: 'exp.pulso.desc',
     stack: ['React', 'Vite', 'CSS Modules', 'Supabase', 'n8n', 'Claude API'],
+    website: 'https://www.pulsostudio.site/',
     highlight: true,
   },
   {
@@ -76,10 +77,27 @@ export default function Experience() {
 
                 <p className={styles.desc}>{t(item.desc)}</p>
 
-                <div className={styles.stack}>
-                  {item.stack.map(tech => (
-                    <span key={tech} className={styles.badge}>{tech}</span>
-                  ))}
+                <div className={styles.stackRow}>
+                  <div className={styles.stack}>
+                    {item.stack.map(tech => (
+                      <span key={tech} className={styles.badge}>{tech}</span>
+                    ))}
+                  </div>
+                  {item.website && (
+                    <a
+                      href={item.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.websiteLink}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                      pulsostudio.site
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
