@@ -36,7 +36,7 @@ const PROJECTS = [
     descKey: 'projects.landing.desc',
     stack: ['React 19', 'Vite', 'CSS Modules'],
     github: 'https://github.com/Lauta2712',
-    live: 'https://lautaro-rodriguez-site.vercel.app',
+    live: 'https://monteca-landing.vercel.app/',
     status: 'projects.status.live',
   },
   {
@@ -44,7 +44,7 @@ const PROJECTS = [
     name: 'Insurance Policy System',
     descKey: 'projects.insurance.desc',
     stack: ['React 19', 'Vite', 'Supabase', 'PostgreSQL'],
-    github: 'https://github.com/Lauta2712',
+    github: null,
     live: null,
     status: 'projects.status.live',
   },
