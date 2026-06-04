@@ -2,7 +2,10 @@ import { useTranslation } from 'react-i18next';
 import styles from './Hero.module.css';
 
 export default function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const cvHref = i18n.language === 'en'
+    ? '/docs/Lautaro_Rodriguez_CV_EN.pdf'
+    : '/docs/Lautaro_Rodriguez_CV.pdf';
 
   return (
     <section id="hero" className={styles.hero}>
@@ -26,7 +29,7 @@ export default function Hero() {
 
         <div className={styles.cta}>
           <a
-            href="/cv-lautaro-rodriguez.pdf"
+            href={cvHref}
             download
             className={styles.btnPrimary}
           >
