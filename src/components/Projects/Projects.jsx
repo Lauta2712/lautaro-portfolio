@@ -9,7 +9,7 @@ const PROJECTS = [
     descKey: 'projects.crux.desc',
     stack: ['Vite', 'React', 'Supabase', 'PostgreSQL', 'CSS Modules'],
     github: 'https://github.com/Lauta2712',
-    live: 'https://cruxescalada-admin.vercel.app/',
+    live: null,
     status: 'projects.status.live',
   },
   // {
