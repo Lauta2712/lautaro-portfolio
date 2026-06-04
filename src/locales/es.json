@@ -17,10 +17,10 @@
     "label":          "Sobre mí",
     "title":          "Un poco sobre mí",
     "bio1":           "Soy un desarrollador web full stack radicado en San Juan, Argentina, con más de 3 años construyendo productos que la gente realmente usa. Me especializo en frontend — React, Vite, CSS — pero me manejo cómodo en toda la pila.",
-    "bio2":           "Co-fundé Pulso Studio, donde ayudamos a empresas a modernizar sus operaciones mediante plataformas web personalizadas y automatización con IA. También estoy construyendo GROOVY, un e-commerce de ropa outdoor.",
+    "bio2":           "Co-fundé Pulso Studio, donde ayudamos a empresas a modernizar sus operaciones mediante plataformas web personalizadas y automatización con IA.",
     "bio3":           "Mi inglés es C1. Trabajo bien en equipos internacionales asíncronos y documento mi trabajo de forma clara.",
     "focusLabel":     "Actualmente",
-    "focusValue":     "Pulso Studio + GROOVY E-commerce",
+    "focusValue":     "Pulso Studio",
     "softSkillsTitle":"Cómo trabajo",
     "skills": {
       "collab":    "Colaborativo — trabajo bien con diseñadores, PMs y otros devs",
@@ -64,9 +64,6 @@
     },
     "crux": {
       "desc": "Sistema completo de gestión para el gimnasio Crux Escalada: seguimiento de socios, asistencia, registros de pagos y panel de administración. Construido con Vite, React y Supabase."
-    },
-    "groovy": {
-      "desc": "E-commerce de ropa outdoor con catálogo de productos, carrito, flujo de checkout e integración con Stripe. Modo oscuro, UI glassmorphism, construido con Next.js App Router."
     },
     "agent": {
       "desc": "Agente de IA conversacional para automatización de ventas B2B. Integra flujos n8n, Claude API para NLP, CRM Salesforce para gestión de leads y Telegram para interacciones con clientes."
