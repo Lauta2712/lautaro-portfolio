@@ -4,6 +4,15 @@ import styles from './Projects.module.css';
 
 const PROJECTS = [
   {
+    id: 'pulso',
+    name: 'Pulso CRM',
+    descKey: 'projects.pulso.desc',
+    stack: ['React 19', 'Vite', 'Supabase', 'Zustand', 'TanStack Query', '@dnd-kit'],
+    github: null,
+    live: 'https://pulsostudio-crm.vercel.app/',
+    status: 'projects.status.live',
+  },
+  {
     id: 'crux',
     name: 'Crux Escalada',
     descKey: 'projects.crux.desc',

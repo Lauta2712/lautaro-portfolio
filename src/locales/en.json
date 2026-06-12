@@ -62,6 +62,9 @@
       "deployed":   "Deployed",
       "tool":       "CLI Tool"
     },
+    "pulso": {
+      "desc": "Internal dashboard for a digital agency: client CRM, agile project management with drag-and-drop kanban, and a financial module. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
+    },
     "crux": {
       "desc": "Full-featured gym management system for Crux Escalada: member tracking, attendance, payment records, and admin dashboard. Built with Vite, React, and Supabase."
     },
