@@ -62,6 +62,9 @@
       "deployed":   "Desplegado",
       "tool":       "Herramienta CLI"
     },
+    "brief": {
+      "desc": "Your daily Brief — un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias — sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
+    },
     "pulso": {
       "desc": "Dashboard interno para una agencia digital: CRM de clientes, gestión ágil de proyectos con kanban (drag & drop) y módulo financiero. Construido con React 19, Vite, Supabase (Postgres + Auth + RLS) y Zustand."
     },

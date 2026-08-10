@@ -4,6 +4,15 @@ import styles from './Projects.module.css';
 
 const PROJECTS = [
   {
+    id: 'brief',
+    name: 'Brief.',
+    descKey: 'projects.brief.desc',
+    stack: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS 4', 'React Router 7', 'Supabase', 'n8n'],
+    github: null,
+    live: 'https://hibrief.vercel.app/',
+    status: 'projects.status.live',
+  },
+  {
     id: 'pulso',
     name: 'Pulso CRM',
     descKey: 'projects.pulso.desc',
