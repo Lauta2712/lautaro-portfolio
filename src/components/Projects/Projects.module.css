@@ -13,62 +13,145 @@
   background: linear-gradient(90deg, transparent, var(--color-border-accent), transparent);
 }
 
+/* ── Bento grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-6);
 }
 
+.span1 { grid-column: span 1; }
+.span2 { grid-column: span 2; }
+
 /* ── Card ── */
 .card {
+  position: relative;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  overflow: hidden;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
   transition:
     border-color var(--transition-base),
     box-shadow var(--transition-base),
     transform var(--transition-base);
-  transition-delay: var(--delay, 0s);
 }
 
 .card:hover {
   border-color: var(--color-border-accent);
-  box-shadow: var(--shadow-card), 0 0 20px rgba(99, 102, 241, 0.12);
+  box-shadow: var(--shadow-card), 0 0 24px rgba(99, 102, 241, 0.12);
   transform: translateY(-4px);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ── Cursor spotlight ── */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(99, 102, 241, 0.16), transparent 70%);
+}
+
+.card:hover .spotlight {
+  opacity: 1;
+}
+
+/* ── Cover ── */
+.cover {
+  position: relative;
+  width: 100%;
+}
+
+.coverImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-bg-2);
+}
+
+.coverImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .coverImage img {
+  transform: scale(1.05);
+}
+
+.chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-inline: 10px;
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.chrome span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dotRed   { background: var(--color-rose); }
+.dotAmber { background: var(--color-amber); }
+.dotGreen { background: var(--color-green); }
+
+.coverAbstract {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 12% 15%, hsla(var(--hue), 85%, 65%, 0.32), transparent 55%),
+    radial-gradient(120% 140% at 88% 85%, hsla(calc(var(--hue) + 40), 80%, 60%, 0.22), transparent 55%),
+    var(--color-bg-2);
+}
+
+.coverAbstract svg {
+  width: 34%;
+  height: 34%;
+  opacity: 0.14;
+  color: hsl(var(--hue), 85%, 72%);
+}
+
+/* ── Body ── */
+.body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.iconWrap {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-accent-glow);
-  border: 1px solid var(--color-border-accent);
-  border-radius: var(--radius-sm);
-  color: var(--color-accent-2);
-}
-
-.status {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-green);
-  background: rgba(52, 211, 153, 0.08);
-  border: 1px solid rgba(52, 211, 153, 0.2);
-  padding: 2px var(--space-2);
-  border-radius: var(--radius-full);
+  align-items: flex-start;
+  gap: var(--space-2);
 }
 
 .name {
@@ -79,11 +162,29 @@
   line-height: var(--leading-snug);
 }
 
+.status {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
 .desc {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .stack {
@@ -142,5 +243,9 @@
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .span1, .span2 {
+    grid-column: span 1;
   }
 }

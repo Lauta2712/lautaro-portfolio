@@ -1,8 +1,36 @@
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { motion, AnimatePresence } from 'framer-motion';
+import ProjectModal from './ProjectModal';
+import compassImg from '../../assets/projects/compass.webp';
+import crewImg from '../../assets/projects/crew.webp';
 import styles from './Projects.module.css';
 
 const PROJECTS = [
+  {
+    id: 'crew',
+    name: 'Crew',
+    descKey: 'projects.crew.desc',
+    stack: ['Vite', 'React', 'Supabase', 'PostgreSQL', 'CSS Modules'],
+    github: null,
+    live: 'https://crew-ps.vercel.app/',
+    status: 'projects.status.inProgress',
+    span: 2,
+    cover: 'image',
+    image: crewImg,
+  },
+  {
+    id: 'pulso',
+    name: 'Compass',
+    descKey: 'projects.pulso.desc',
+    stack: ['React 19', 'Vite', 'Supabase', 'Zustand', 'TanStack Query', '@dnd-kit'],
+    github: null,
+    live: 'https://compass-ps.vercel.app/',
+    status: 'projects.status.live',
+    span: 2,
+    cover: 'image',
+    image: compassImg,
+  },
   {
     id: 'brief',
     name: 'Brief.',
@@ -11,15 +39,8 @@ const PROJECTS = [
     github: null,
     live: 'https://hibrief.vercel.app/',
     status: 'projects.status.live',
-  },
-  {
-    id: 'pulso',
-    name: 'Pulso CRM',
-    descKey: 'projects.pulso.desc',
-    stack: ['React 19', 'Vite', 'Supabase', 'Zustand', 'TanStack Query', '@dnd-kit'],
-    github: null,
-    live: 'https://pulsostudio-crm.vercel.app/',
-    status: 'projects.status.live',
+    span: 2,
+    cover: 'abstract',
   },
   {
     id: 'crux',
@@ -29,16 +50,9 @@ const PROJECTS = [
     github: 'https://github.com/Lauta2712',
     live: null,
     status: 'projects.status.live',
+    span: 1,
+    cover: 'abstract',
   },
-  // {
-  //   id: 'groovy',
-  //   name: 'GROOVY E-commerce',
-  //   descKey: 'projects.groovy.desc',
-  //   stack: ['Next.js', 'Tailwind CSS', 'Zustand', 'Mercado Pago'],
-  //   github: 'https://github.com/Lauta2712',
-  //   live: 'https://groovysj.vercel.app/',
-  //   status: 'projects.status.inProgress',
-  // },
   {
     id: 'agent',
     name: 'Agente Conversacional B2B',
@@ -47,6 +61,8 @@ const PROJECTS = [
     github: null,
     live: null,
     status: 'projects.status.deployed',
+    span: 1,
+    cover: 'abstract',
   },
   {
     id: 'landing',
@@ -56,6 +72,8 @@ const PROJECTS = [
     github: 'https://github.com/Lauta2712',
     live: 'https://monteca-landing.vercel.app/',
     status: 'projects.status.live',
+    span: 2,
+    cover: 'abstract',
   },
   {
     id: 'insurance',
@@ -65,6 +83,8 @@ const PROJECTS = [
     github: null,
     live: null,
     status: 'projects.status.live',
+    span: 1,
+    cover: 'abstract',
   },
   {
     id: 'scraper',
@@ -74,8 +94,16 @@ const PROJECTS = [
     github: 'https://github.com/Lauta2712',
     live: null,
     status: 'projects.status.tool',
+    span: 1,
+    cover: 'abstract',
   },
 ];
+
+function hueFromId(id) {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) % 360;
+  return hash;
+}
 
 function GitHubIcon() {
   return (
@@ -95,73 +123,139 @@ function ExternalIcon() {
   );
 }
 
+export function CompassMark() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  );
+}
+
+function handleSpotlight(e) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  e.currentTarget.style.setProperty('--mx', `${x}%`);
+  e.currentTarget.style.setProperty('--my', `${y}%`);
+}
+
 export default function Projects() {
   const { t } = useTranslation();
-  const ref = useScrollReveal();
+  const [selected, setSelected] = useState(null);
+  const triggerRef = useRef(null);
+
+  function openModal(project, e) {
+    triggerRef.current = e?.currentTarget ?? null;
+    setSelected(project);
+  }
+
+  function closeModal() {
+    setSelected(null);
+    triggerRef.current?.focus?.();
+  }
 
   return (
     <section id="projects" className={`section ${styles.projects}`}>
-      <div className="container" ref={ref}>
+      <div className="container">
         <p className="section-label">{t('projects.label')}</p>
         <h2 className="section-title">{t('projects.title')}</h2>
         <div className="section-divider" />
 
         <div className={styles.grid}>
           {PROJECTS.map((project, i) => (
-            <article
+            <motion.article
               key={project.id}
-              className={`reveal ${styles.card}`}
-              style={{ '--delay': `${i * 0.08}s` }}
+              className={`${styles.card} ${styles[`span${project.span}`]}`}
+              role="button"
+              tabIndex={0}
+              aria-label={`${t('projects.viewDetails')} ${project.name}`}
+              onClick={e => openModal(project, e)}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openModal(project, e);
+                }
+              }}
+              onMouseMove={handleSpotlight}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: (i % 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className={styles.cardHeader}>
-                <div className={styles.iconWrap} aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg>
+              <span className={styles.spotlight} aria-hidden="true" />
+
+              <div className={styles.cover}>
+                {project.cover === 'image' ? (
+                  <div className={styles.coverImage}>
+                    <div className={styles.chrome} aria-hidden="true">
+                      <span className={styles.dotRed} />
+                      <span className={styles.dotAmber} />
+                      <span className={styles.dotGreen} />
+                    </div>
+                    <img src={project.image} alt="" loading="lazy" />
+                  </div>
+                ) : (
+                  <div className={styles.coverAbstract} style={{ '--hue': hueFromId(project.id) }}>
+                    <CompassMark />
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.body}>
+                <div className={styles.cardHeader}>
+                  <h3 className={styles.name}>{project.name}</h3>
+                  <span className={styles.status}>{t(project.status)}</span>
                 </div>
-                <span className={styles.status}>{t(project.status)}</span>
-              </div>
 
-              <h3 className={styles.name}>{project.name}</h3>
-              <p className={styles.desc}>{t(project.descKey)}</p>
+                <p className={styles.desc}>{t(project.descKey)}</p>
 
-              <div className={styles.stack}>
-                {project.stack.map(tech => (
-                  <span key={tech} className={styles.badge}>{tech}</span>
-                ))}
-              </div>
+                <div className={styles.stack}>
+                  {project.stack.slice(0, 4).map(tech => (
+                    <span key={tech} className={styles.badge}>{tech}</span>
+                  ))}
+                  {project.stack.length > 4 && (
+                    <span className={styles.badge}>+{project.stack.length - 4}</span>
+                  )}
+                </div>
 
-              <div className={styles.links}>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.link}
-                    aria-label={`${project.name} GitHub`}
-                  >
-                    <GitHubIcon />
-                    <span>{t('projects.code')}</span>
-                  </a>
-                )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`${styles.link} ${styles.linkLive}`}
-                    aria-label={`${project.name} live demo`}
-                  >
-                    <ExternalIcon />
-                    <span>{t('projects.live')}</span>
-                  </a>
-                )}
+                <div className={styles.links}>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.link}
+                      aria-label={`${project.name} GitHub`}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <GitHubIcon />
+                      <span>{t('projects.code')}</span>
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${styles.link} ${styles.linkLive}`}
+                      aria-label={`${project.name} live demo`}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <ExternalIcon />
+                      <span>{t('projects.live')}</span>
+                    </a>
+                  )}
+                </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selected && <ProjectModal project={selected} onClose={closeModal} />}
+      </AnimatePresence>
     </section>
   );
 }

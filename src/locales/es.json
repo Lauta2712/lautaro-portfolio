@@ -56,6 +56,8 @@
     "title": "Proyectos seleccionados",
     "code":  "Código",
     "live":  "Ver sitio",
+    "viewDetails": "Ver detalle de",
+    "close": "Cerrar",
     "status": {
       "live":       "En producción",
       "inProgress": "En desarrollo",
@@ -66,10 +68,13 @@
       "desc": "Your daily Brief — un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias — sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
     },
     "pulso": {
-      "desc": "Dashboard interno para una agencia digital: CRM de clientes, gestión ágil de proyectos con kanban (drag & drop) y módulo financiero. Construido con React 19, Vite, Supabase (Postgres + Auth + RLS) y Zustand."
+      "desc": "CRM multi-agencia (antes uso interno como Pulso CRM, ahora ofrecido a otras agencias con branding propio): clientes, gestión ágil de proyectos con kanban (drag & drop), finanzas y documentos. Construido con React 19, Vite, Supabase (Postgres + Auth + RLS) y Zustand."
     },
     "crux": {
       "desc": "Sistema completo de gestión para el gimnasio Crux Escalada: seguimiento de socios, asistencia, registros de pagos y panel de administración. Construido con Vite, React y Supabase."
+    },
+    "crew": {
+      "desc": "Evolución de Crux Escalada como producto SaaS para distintos tipos de gimnasio: check-in por QR, gestión de clases y pagos, con planes e identidad visual propia por gimnasio. Construido con Vite, React y Supabase."
     },
     "agent": {
       "desc": "Agente de IA conversacional para automatización de ventas B2B. Integra flujos n8n, Claude API para NLP, CRM Salesforce para gestión de leads y Telegram para interacciones con clientes."

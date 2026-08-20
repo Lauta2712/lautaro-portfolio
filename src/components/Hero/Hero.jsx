@@ -1,4 +1,7 @@
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useMagnetic } from '../../hooks/useMagnetic';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -7,11 +10,22 @@ export default function Hero() {
     ? '/docs/Lautaro_Rodriguez_CV_EN.pdf'
     : '/docs/Lautaro_Rodriguez_CV.pdf';
 
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const blob1Y = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
+  const cta = useMagnetic(0.3, 50);
+
   return (
-    <section id="hero" className={styles.hero}>
+    <section id="hero" className={styles.hero} ref={heroRef}>
       <div className={styles.bg} aria-hidden="true">
-        <div className={styles.blob1} />
-        <div className={styles.blob2} />
+        <motion.div className={styles.blobWrap} style={{ y: blob1Y }}>
+          <div className={styles.blob1} />
+        </motion.div>
+        <motion.div className={styles.blobWrap} style={{ y: blob2Y }}>
+          <div className={styles.blob2} />
+        </motion.div>
         <div className={styles.grid} />
       </div>
 
@@ -28,10 +42,13 @@ export default function Hero() {
         <p className={styles.tagline}>{t('hero.tagline')}</p>
 
         <div className={styles.cta}>
-          <a
+          <motion.a
             href={cvHref}
             download
             className={styles.btnPrimary}
+            style={cta.style}
+            onMouseMove={cta.onMouseMove}
+            onMouseLeave={cta.onMouseLeave}
           >
             {t('hero.downloadCV')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -39,7 +56,7 @@ export default function Hero() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-          </a>
+          </motion.a>
           <a href="#contact" className={styles.btnSecondary}>
             {t('hero.contactMe')}
           </a>

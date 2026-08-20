@@ -1,0 +1,190 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: rgba(6, 6, 10, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(99, 102, 241, 0.18);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.close:hover {
+  background: rgba(10, 10, 15, 0.8);
+  transform: rotate(90deg);
+}
+
+.cover {
+  width: 100%;
+}
+
+.coverImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.coverAbstract {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background:
+    radial-gradient(120% 140% at 12% 15%, hsla(var(--hue), 85%, 65%, 0.32), transparent 55%),
+    radial-gradient(120% 140% at 88% 85%, hsla(calc(var(--hue) + 40), 80%, 60%, 0.22), transparent 55%),
+    var(--color-bg-2);
+}
+
+.coverAbstract svg {
+  width: 28%;
+  height: 28%;
+  opacity: 0.16;
+  color: hsl(var(--hue), 85%, 72%);
+}
+
+.content {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.name {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.status {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 3px var(--space-3);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.btnPrimary:hover {
+  background: var(--color-accent-hover);
+  box-shadow: var(--shadow-accent);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: transparent;
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-accent);
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.btnSecondary:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-glow);
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: var(--space-6);
+  }
+
+  .name {
+    font-size: var(--text-xl);
+  }
+}

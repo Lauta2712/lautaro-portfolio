@@ -56,6 +56,8 @@
     "title": "Selected projects",
     "code":  "Code",
     "live":  "Live",
+    "viewDetails": "View details for",
+    "close": "Close",
     "status": {
       "live":       "Live",
       "inProgress": "In Progress",
@@ -66,10 +68,13 @@
       "desc": "Your daily Brief — a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest — no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
     },
     "pulso": {
-      "desc": "Internal dashboard for a digital agency: client CRM, agile project management with drag-and-drop kanban, and a financial module. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
+      "desc": "Multi-agency CRM (formerly an internal tool called Pulso CRM, now offered to other agencies with their own branding): clients, agile project management with drag-and-drop kanban, finance, and docs. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
     },
     "crux": {
       "desc": "Full-featured gym management system for Crux Escalada: member tracking, attendance, payment records, and admin dashboard. Built with Vite, React, and Supabase."
+    },
+    "crew": {
+      "desc": "Evolution of Crux Escalada into a SaaS product for different types of gyms: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase."
     },
     "agent": {
       "desc": "Conversational AI agent for B2B sales automation. Integrates n8n workflows, Claude API for NLP, Salesforce CRM for lead management, and Telegram for client-facing interactions."
