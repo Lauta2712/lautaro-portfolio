@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { vertexShader, fragmentShader } from '../../shaders/particleField';
-import styles from './Hero.module.css';
+import styles from './GlobalField.module.css';
 
-const DENSITY = 1300;
-const MAX_POINTS = 2600;
-const MIN_POINTS = 260;
+// Ambient, viewport-fixed sibling of HeroCanvas — same shader, sparser than
+// the hero's own field and no pointer interaction. Gives the page continuity
+// after the hero instead of going flat once the hero's canvas scrolls out.
+const DENSITY = 3200;
+const MAX_POINTS = 900;
+const MIN_POINTS = 200;
 
-export default function HeroCanvas() {
+export default function GlobalField() {
   const mountRef = useRef(null);
 
   useEffect(() => {
@@ -36,8 +39,8 @@ export default function HeroCanvas() {
         uTime: { value: 0 },
         uMouse: { value: new THREE.Vector2(9999, 9999) },
         uPixelRatio: { value: dpr },
-        uColorBase: { value: new THREE.Color('#6b6b73') },
-        uColorAccent: { value: new THREE.Color('#ff6a3d') },
+        uColorBase: { value: new THREE.Color('#8a8a92') },
+        uColorAccent: { value: new THREE.Color('#8a8a92') },
       },
       vertexShader,
       fragmentShader,
@@ -51,9 +54,8 @@ export default function HeroCanvas() {
     let height = 0;
 
     function buildField() {
-      const rect = container.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
+      width = window.innerWidth;
+      height = window.innerHeight;
       if (width === 0 || height === 0) return;
 
       camera.left = -width / 2;
@@ -73,7 +75,7 @@ export default function HeroCanvas() {
         positions[i * 3 + 1] = (Math.random() - 0.5) * height * 1.1;
         positions[i * 3 + 2] = (Math.random() - 0.5) * 60;
         phases[i] = Math.random() * Math.PI * 2;
-        scales[i] = 1.2 + Math.random() * 2.1;
+        scales[i] = 1.8 + Math.random() * 2.2;
       }
 
       if (points) {
@@ -94,27 +96,11 @@ export default function HeroCanvas() {
 
     buildField();
 
-    const mouse = new THREE.Vector2(9999, 9999);
-    const targetMouse = new THREE.Vector2(9999, 9999);
-
-    function onPointerMove(e) {
-      const rect = container.getBoundingClientRect();
-      targetMouse.set(e.clientX - rect.left - width / 2, height / 2 - (e.clientY - rect.top));
-    }
-    function onPointerLeave() {
-      targetMouse.set(9999, 9999);
-    }
-
-    container.addEventListener('pointermove', onPointerMove);
-    container.addEventListener('pointerleave', onPointerLeave);
-
     const clock = new THREE.Clock();
     let rafId = null;
 
     function tick() {
       material.uniforms.uTime.value = clock.getElapsedTime();
-      mouse.lerp(targetMouse, 0.08);
-      material.uniforms.uMouse.value.copy(mouse);
       renderer.render(scene, camera);
       rafId = requestAnimationFrame(tick);
     }
@@ -136,18 +122,16 @@ export default function HeroCanvas() {
     }
     document.addEventListener('visibilitychange', onVisibilityChange);
 
-    const resizeObserver = new ResizeObserver(() => {
+    function onResize() {
       buildField();
       if (reduceMotion) renderer.render(scene, camera);
-    });
-    resizeObserver.observe(container);
+    }
+    window.addEventListener('resize', onResize);
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
-      resizeObserver.disconnect();
+      window.removeEventListener('resize', onResize);
       document.removeEventListener('visibilitychange', onVisibilityChange);
-      container.removeEventListener('pointermove', onPointerMove);
-      container.removeEventListener('pointerleave', onPointerLeave);
       geometry?.dispose();
       material.dispose();
       renderer.dispose();
@@ -157,5 +141,5 @@ export default function HeroCanvas() {
     };
   }, []);
 
-  return <div ref={mountRef} className={styles.canvasWrap} aria-hidden="true" />;
+  return <div ref={mountRef} className={styles.field} aria-hidden="true" />;
 }

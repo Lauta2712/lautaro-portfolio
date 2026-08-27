@@ -1,4 +1,5 @@
 import './styles/global.css';
+import GlobalField from './components/Background/GlobalField';
 import Navbar     from './components/Navbar/Navbar';
 import Hero       from './components/Hero/Hero';
 import About      from './components/About/About';
@@ -10,6 +11,7 @@ import Contact    from './components/Contact/Contact';
 export default function App() {
   return (
     <>
+      <GlobalField />
       <Navbar />
       <main>
         <Hero />

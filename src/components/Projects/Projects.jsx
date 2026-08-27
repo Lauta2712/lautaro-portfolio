@@ -99,6 +99,10 @@ const PROJECTS = [
   },
 ];
 
+function statusKind(status) {
+  return status.split('.').pop();
+}
+
 function hueFromId(id) {
   let hash = 0;
   for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) % 360;
@@ -206,7 +210,9 @@ export default function Projects() {
               <div className={styles.body}>
                 <div className={styles.cardHeader}>
                   <h3 className={styles.name}>{project.name}</h3>
-                  <span className={styles.status}>{t(project.status)}</span>
+                  <span className={`${styles.status} ${styles[`status--${statusKind(project.status)}`]}`}>
+                    {t(project.status)}
+                  </span>
                 </div>
 
                 <p className={styles.desc}>{t(project.descKey)}</p>

@@ -78,6 +78,14 @@
   width: 100%;
 }
 
+.link.active {
+  color: var(--color-text);
+}
+
+.link.active::after {
+  width: 100%;
+}
+
 .actions {
   display: flex;
   align-items: center;

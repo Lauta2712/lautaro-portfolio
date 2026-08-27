@@ -1,7 +1,9 @@
 :root {
   /* ── Colors — graphite + precision-orange palette ── */
   --color-bg:          #121214;
+  --color-bg-rgb:      18, 18, 20;
   --color-bg-2:        #17171a;
+  --color-bg-2-rgb:    23, 23, 26;
   --color-bg-card:     #1c1c20;
   --color-bg-card-hover: #232328;
   --color-border:      rgba(255, 255, 255, 0.09);
@@ -89,6 +91,7 @@
   --nav-height:    64px;
 
   /* ── Z-index layers ── */
+  --z-bg:      -1;
   --z-base:    0;
   --z-raised:  10;
   --z-overlay: 100;

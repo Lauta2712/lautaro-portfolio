@@ -1,5 +1,5 @@
 .projects {
-  background: var(--color-bg-2);
+  background: rgba(var(--color-bg-2-rgb), 0.6);
   position: relative;
 }
 
@@ -169,16 +169,54 @@
 
 .status {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-green);
-  background: rgba(52, 211, 153, 0.08);
-  border: 1px solid rgba(52, 211, 153, 0.2);
   padding: 2px var(--space-2);
   border-radius: var(--radius-full);
   white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* live: shipped and running in production */
+.status--live {
+  color: var(--color-green);
+  background: rgba(79, 216, 196, 0.08);
+  border-color: rgba(79, 216, 196, 0.25);
+}
+
+/* deployed: running, but internal/private (bot, agent, integration) */
+.status--deployed {
+  color: var(--color-accent-2);
+  background: rgba(var(--color-accent-rgb), 0.08);
+  border-color: rgba(var(--color-accent-rgb), 0.25);
+}
+
+/* inProgress: actively being built */
+.status--inProgress {
+  color: var(--color-amber);
+  background: rgba(245, 185, 66, 0.08);
+  border-color: rgba(245, 185, 66, 0.25);
+}
+
+/* tool: CLI / script, not a running service */
+.status--tool {
+  color: var(--color-text-faint);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--color-border);
 }
 
 .desc {

@@ -1,5 +1,5 @@
 .contact {
-  background: var(--color-bg-2);
+  background: rgba(var(--color-bg-2-rgb), 0.6);
   position: relative;
   padding-bottom: 0;
 }

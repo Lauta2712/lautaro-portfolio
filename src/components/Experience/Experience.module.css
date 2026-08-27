@@ -1,5 +1,5 @@
 .experience {
-  background: var(--color-bg);
+  background: rgba(var(--color-bg-rgb), 0.6);
 }
 
 .timeline {

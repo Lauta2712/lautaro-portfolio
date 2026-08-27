@@ -15,11 +15,32 @@ export default function Navbar() {
   const { t } = useTranslation();
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
+  const [active, setActive]       = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = NAV_LINKS
+      .map(({ href }) => document.querySelector(href))
+      .filter(Boolean);
+    if (sections.length === 0) return undefined;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(entry => entry.isIntersecting);
+        if (visible.length === 0) return;
+        const topMost = visible.reduce((a, b) => (a.boundingClientRect.top <= b.boundingClientRect.top ? a : b));
+        setActive(`#${topMost.target.id}`);
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+
+    sections.forEach(section => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   const close = () => setMenuOpen(false);
@@ -34,7 +55,13 @@ export default function Navbar() {
 
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
           {NAV_LINKS.map(({ key, href }) => (
-            <a key={key} href={href} className={styles.link} onClick={close}>
+            <a
+              key={key}
+              href={href}
+              className={`${styles.link} ${active === href ? styles.active : ''}`}
+              aria-current={active === href ? 'true' : undefined}
+              onClick={close}
+            >
               {t(key)}
             </a>
           ))}
