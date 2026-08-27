@@ -65,6 +65,7 @@ export default function Experience() {
               </div>
 
               <div className={styles.card}>
+                <span className="reg-corners" aria-hidden="true" />
                 <div className={styles.cardTop}>
                   <div>
                     <h3 className={styles.company}>{item.company}</h3>

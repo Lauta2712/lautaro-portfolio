@@ -8,10 +8,18 @@
   },
   "hero": {
     "greeting":   "Hola, soy",
-    "title":      "Desarrollador Web Full Stack",
-    "tagline":    "Especializado en frontend. Construyo dashboards, aplicaciones web, flujos de automatización con IA, e-commerce y más.",
+    "title":      "Desarrollador de Software",
+    "tagline":    "Diseño y desarrollo software de punta a punta: dashboards, aplicaciones web, APIs backend y automatización de procesos, con foco en código prolijo y escalable.",
     "downloadCV": "Descargar CV",
-    "contactMe":  "Contactarme"
+    "contactMe":  "Contactarme",
+    "panel": {
+      "title":     "Perfil",
+      "role":      "Rol",
+      "stack":     "Stack",
+      "status":    "Estado",
+      "base":      "Base",
+      "available": "Disponible"
+    }
   },
   "about": {
     "label":          "Sobre mí",

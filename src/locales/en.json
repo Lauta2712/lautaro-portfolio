@@ -8,10 +8,18 @@
   },
   "hero": {
     "greeting":   "Hey, I'm",
-    "title":      "Full Stack Web Developer",
-    "tagline":    "Specialized in frontend. I build dashboards, web apps, AI automation workflows, and e-commerce — clean code, real results.",
+    "title":      "Software Developer",
+    "tagline":    "I design and build software end to end — dashboards, web apps, backend APIs, and process automation — with a focus on clean, scalable code.",
     "downloadCV": "Download CV",
-    "contactMe":  "Get in touch"
+    "contactMe":  "Get in touch",
+    "panel": {
+      "title":     "Profile",
+      "role":      "Role",
+      "stack":     "Stack",
+      "status":    "Status",
+      "base":      "Base",
+      "available": "Open to work"
+    }
   },
   "about": {
     "label":          "About me",

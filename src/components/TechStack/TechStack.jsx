@@ -39,6 +39,7 @@ export default function TechStack() {
               className={`reveal ${styles.group}`}
               style={{ '--delay': `${i * 0.08}s` }}
             >
+              <span className="reg-corners" aria-hidden="true" />
               <h3 className={styles.category}>{t(group.categoryKey)}</h3>
               <ul className={styles.list}>
                 {group.items.map(item => (

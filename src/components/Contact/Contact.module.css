@@ -27,6 +27,8 @@
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
   max-width: 480px;
+  text-align: justify;
+  text-align-last: left;
 }
 
 /* ── Email button ── */

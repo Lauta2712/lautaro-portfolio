@@ -10,6 +10,7 @@
 
 /* ── Group ── */
 .group {
+  position: relative;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -22,7 +23,11 @@
 
 .group:hover {
   border-color: var(--color-border-accent);
-  transform: translateY(-3px);
+  transform: translate(-3px, -3px);
+}
+
+.group:hover :global(.reg-corners) {
+  opacity: 1;
 }
 
 .category {

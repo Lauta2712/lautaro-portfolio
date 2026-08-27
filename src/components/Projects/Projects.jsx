@@ -184,6 +184,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: (i % 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className={styles.spotlight} aria-hidden="true" />
+              <span className="reg-corners" aria-hidden="true" />
 
               <div className={styles.cover}>
                 {project.cover === 'image' ? (

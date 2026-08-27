@@ -41,8 +41,12 @@
 
 .card:hover {
   border-color: var(--color-border-accent);
-  box-shadow: var(--shadow-card), 0 0 24px rgba(99, 102, 241, 0.12);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), var(--shadow-accent);
+  transform: translate(-3px, -3px);
+}
+
+.card:hover :global(.reg-corners) {
+  opacity: 1;
 }
 
 .card:focus-visible {
@@ -58,7 +62,7 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity var(--transition-base);
-  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(99, 102, 241, 0.16), transparent 70%);
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--color-accent-rgb), 0.1), transparent 70%);
 }
 
 .card:hover .spotlight {
@@ -102,7 +106,7 @@
   align-items: center;
   gap: 6px;
   padding-inline: 10px;
-  background: rgba(10, 10, 15, 0.55);
+  background: rgba(18, 18, 20, 0.55);
   backdrop-filter: blur(4px);
 }
 
@@ -155,10 +159,11 @@
 }
 
 .name {
+  font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: var(--weight-bold);
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: var(--leading-snug);
 }
 
@@ -185,6 +190,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-align: justify;
 }
 
 .stack {
@@ -231,7 +237,7 @@
 }
 
 .linkLive:hover {
-  color: #a5b4fc;
+  color: var(--color-accent);
 }
 
 @media (max-width: 1024px) {
