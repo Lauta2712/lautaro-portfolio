@@ -82,13 +82,13 @@ ${snoise}
 void main() {
   vec3 pos = position;
 
-  float n = snoise(vec3(position.x * 0.006, position.y * 0.006, uTime * 0.06 + aPhase));
-  pos.x += n * 14.0;
-  pos.y += n * 10.0;
+  float n = snoise(vec3(position.x * 0.006, position.y * 0.006, uTime * 0.05 + aPhase));
+  pos.x += n * 8.0;
+  pos.y += n * 6.0;
 
   float d = distance(pos.xy, uMouse);
   float influence = 1.0 - smoothstep(0.0, 160.0, d);
-  pos.z += influence * 26.0;
+  pos.z += influence * 14.0;
 
   vInfluence = influence;
   vDepth = clamp((position.z + 30.0) / 60.0, 0.0, 1.0);
@@ -97,7 +97,7 @@ void main() {
   gl_Position = projectionMatrix * mvPosition;
 
   float depthSize = mix(0.8, 1.5, vDepth);
-  gl_PointSize = aScale * uPixelRatio * depthSize * (1.0 + influence * 1.6);
+  gl_PointSize = aScale * uPixelRatio * depthSize * (1.0 + influence * 0.8);
 }
 `;
 
@@ -114,9 +114,9 @@ void main() {
   if (d > 0.5) discard;
 
   float alpha = 1.0 - smoothstep(0.0, 0.5, d);
-  alpha *= mix(0.22, 0.62, vDepth) * mix(1.0, 1.45, vInfluence);
+  alpha *= mix(0.10, 0.30, vDepth) * mix(1.0, 1.15, vInfluence);
 
-  vec3 color = mix(uColorBase, uColorAccent, clamp(vInfluence * 1.4, 0.0, 1.0));
+  vec3 color = mix(uColorBase, uColorAccent, clamp(vInfluence * 0.8, 0.0, 1.0));
 
   gl_FragColor = vec4(color, alpha);
 }

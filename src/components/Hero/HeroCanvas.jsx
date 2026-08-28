@@ -3,9 +3,9 @@ import * as THREE from 'three';
 import { vertexShader, fragmentShader } from '../../shaders/particleField';
 import styles from './Hero.module.css';
 
-const DENSITY = 1300;
-const MAX_POINTS = 2600;
-const MIN_POINTS = 260;
+const DENSITY = 2200;
+const MAX_POINTS = 1400;
+const MIN_POINTS = 160;
 
 export default function HeroCanvas() {
   const mountRef = useRef(null);
