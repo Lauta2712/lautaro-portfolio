@@ -125,13 +125,6 @@ export default function Hero() {
             <span className={styles.panelValue}>React · Python · Docker</span>
           </div>
           <div className={styles.panelRow}>
-            <span className={styles.panelLabel}>{t('hero.panel.status')}</span>
-            <span className={styles.panelValue}>
-              <span className={styles.statusDot} aria-hidden="true" />
-              {t('hero.panel.available')}
-            </span>
-          </div>
-          <div className={styles.panelRow}>
             <span className={styles.panelLabel}>{t('hero.panel.base')}</span>
             <span className={styles.panelValue}>{t('contact.location')}</span>
           </div>

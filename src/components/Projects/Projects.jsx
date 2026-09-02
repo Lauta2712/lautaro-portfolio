@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ProjectModal from './ProjectModal';
 import compassImg from '../../assets/projects/compass.webp';
 import crewImg from '../../assets/projects/crew.webp';
+import briefImg from '../../assets/projects/brief.webp';
+import montecaImg from '../../assets/projects/monteca.webp';
 import styles from './Projects.module.css';
 
 const PROJECTS = [
@@ -40,24 +42,26 @@ const PROJECTS = [
     live: 'https://hibrief.vercel.app/',
     status: 'projects.status.live',
     span: 2,
-    cover: 'abstract',
+    cover: 'image',
+    image: briefImg,
   },
   {
-    id: 'crux',
-    name: 'Crux Escalada',
-    descKey: 'projects.crux.desc',
-    stack: ['Vite', 'React', 'Supabase', 'PostgreSQL', 'CSS Modules'],
-    github: 'https://github.com/Lauta2712',
-    live: null,
+    id: 'monteca',
+    name: 'Monteca',
+    descKey: 'projects.insurance.desc',
+    stack: ['React 19', 'Vite', 'Supabase', 'PostgreSQL'],
+    github: null,
+    live: 'https://monteca-system.vercel.app/',
     status: 'projects.status.live',
-    span: 1,
-    cover: 'abstract',
+    span: 2,
+    cover: 'image',
+    image: montecaImg,
   },
   {
     id: 'agent',
     name: 'Agente Conversacional B2B',
     descKey: 'projects.agent.desc',
-    stack: ['n8n', 'Claude API', 'Salesforce', 'Telegram Bot', 'Webhooks'],
+    stack: ['n8n', 'Claude API', 'Salesforce', 'Telegram Bot'],
     github: null,
     live: null,
     status: 'projects.status.deployed',
@@ -73,17 +77,6 @@ const PROJECTS = [
     live: 'https://monteca-landing.vercel.app/',
     status: 'projects.status.live',
     span: 2,
-    cover: 'abstract',
-  },
-  {
-    id: 'insurance',
-    name: 'Insurance Policy System',
-    descKey: 'projects.insurance.desc',
-    stack: ['React 19', 'Vite', 'Supabase', 'PostgreSQL'],
-    github: null,
-    live: null,
-    status: 'projects.status.live',
-    span: 1,
     cover: 'abstract',
   },
   {

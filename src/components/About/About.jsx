@@ -26,11 +26,6 @@ export default function About() {
             <p>{t('about.bio1')}</p>
             <p>{t('about.bio2')}</p>
             <p>{t('about.bio3')}</p>
-
-            <div className={styles.focus}>
-              <span className={styles.focusLabel}>{t('about.focusLabel')}</span>
-              <span className={styles.focusValue}>{t('about.focusValue')}</span>
-            </div>
           </div>
 
           <div className={`reveal ${styles.skills}`} style={{ '--delay': '0.1s' }}>

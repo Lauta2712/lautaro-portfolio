@@ -245,15 +245,6 @@
   color: var(--color-text);
 }
 
-.statusDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-green);
-  box-shadow: 0 0 0 3px rgba(79, 216, 196, 0.15);
-  flex-shrink: 0;
-}
-
 /* ── Socials ── */
 .socials {
   display: flex;

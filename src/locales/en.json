@@ -16,9 +16,7 @@
       "title":     "Profile",
       "role":      "Role",
       "stack":     "Stack",
-      "status":    "Status",
-      "base":      "Base",
-      "available": "Open to work"
+      "base":      "Base"
     }
   },
   "about": {
@@ -27,8 +25,6 @@
     "bio1":           "I'm a full stack web developer based in San Juan, Argentina, with 3+ years building products that people actually use. I focus on frontend — React, Vite, CSS — but I'm comfortable across the stack.",
     "bio2":           "I co-founded Pulso Studio, where we help businesses modernize their operations through custom web platforms and AI-powered automation.",
     "bio3":           "My English is C1. I work well in async international teams and document my work clearly.",
-    "focusLabel":     "Currently",
-    "focusValue":     "Pulso Studio",
     "softSkillsTitle":"How I work",
     "skills": {
       "collab":    "Collaborative — I work well with designers, PMs, and other devs",
@@ -78,20 +74,17 @@
     "pulso": {
       "desc": "Multi-agency CRM (formerly an internal tool called Pulso CRM, now offered to other agencies with their own branding): clients, agile project management with drag-and-drop kanban, finance, and docs. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
     },
-    "crux": {
-      "desc": "Full-featured gym management system for Crux Escalada: member tracking, attendance, payment records, and admin dashboard. Built with Vite, React, and Supabase."
-    },
     "crew": {
       "desc": "Evolution of Crux Escalada into a SaaS product for different types of gyms: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase."
     },
     "agent": {
-      "desc": "Conversational AI agent for B2B sales automation. Integrates n8n workflows, Claude API for NLP, Salesforce CRM for lead management, and Telegram for client-facing interactions."
+      "desc": "Conversational AI agent for B2B sales automation, integrated with CRM and messaging."
     },
     "landing": {
       "desc": "High-conversion B2B landing page with dark mode, glassmorphism design, and smooth scroll animations. Built with React 19 and Vite, deployed on Vercel."
     },
     "insurance": {
-      "desc": "Insurance policy management platform: policy CRUD, client profiles, renewal tracking, and report generation. Built with React 19, Vite, and Supabase RLS."
+      "desc": "Internal management system for Monteca, insurance advisors: centralized client, vehicle, and policy administration, always available. Built with React 19, Vite, and Supabase RLS."
     },
     "scraper": {
       "desc": "Node.js CLI tool that scrapes Mountain Project for climbing route data. Uses Playwright for dynamic rendering and outputs structured JSON."
