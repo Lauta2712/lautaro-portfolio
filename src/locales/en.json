@@ -9,7 +9,7 @@
   "hero": {
     "greeting":   "Hey, I'm",
     "title":      "Software Developer",
-    "tagline":    "I design and build software end to end — dashboards, web apps, backend APIs, and process automation — with a focus on clean, scalable code.",
+    "tagline":    "I design and build software end to end  dashboards, web apps, backend APIs, and process automation  with a focus on clean, scalable code.",
     "downloadCV": "Download CV",
     "contactMe":  "Get in touch",
     "panel": {
@@ -22,16 +22,16 @@
   "about": {
     "label":          "About me",
     "title":          "A bit about me",
-    "bio1":           "I'm a full stack web developer based in San Juan, Argentina, with 3+ years building products that people actually use. I focus on frontend — React, Vite, CSS — but I'm comfortable across the stack.",
+    "bio1":           "I'm a full stack web developer based in San Juan, Argentina, with 3+ years building products that people actually use. I focus on frontend  React, Vite, CSS  but I'm comfortable across the stack.",
     "bio2":           "I co-founded Pulso Studio, where we help businesses modernize their operations through custom web platforms and AI-powered automation.",
     "bio3":           "My English is C1. I work well in async international teams and document my work clearly.",
     "softSkillsTitle":"How I work",
     "skills": {
-      "collab":    "Collaborative — I work well with designers, PMs, and other devs",
-      "ownership": "Ownership mindset — I own my features end to end",
-      "learning":  "Fast learner — I pick up new tools and frameworks quickly",
-      "async":     "Clear async communicator — I write docs, not just code",
-      "attention": "Detail-oriented — I care about the edges, not just the happy path"
+      "collab":    "Collaborative  I work well with designers, PMs, and other devs",
+      "ownership": "Ownership mindset  I own my features end to end",
+      "learning":  "Fast learner  I pick up new tools and frameworks quickly",
+      "async":     "Clear async communicator  I write docs, not just code",
+      "attention": "Detail-oriented  I care about the edges, not just the happy path"
     }
   },
   "exp": {
@@ -39,7 +39,7 @@
     "title": "Where I've worked",
     "pulso": {
       "role":   "Co-Founder & Full Stack Developer",
-      "period": "Feb 2026 — Present",
+      "period": "Feb 2026  Present",
       "desc":   "Running a digital studio for professionals and small businesses. Building websites and landing pages focused on lead generation, with form integrations, email automation, and light analytics. Hands-on with clients across content architecture and messaging."
     },
     "ant": {
@@ -69,19 +69,19 @@
       "tool":       "CLI Tool"
     },
     "brief": {
-      "desc": "Your daily Brief — a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest — no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
+      "desc": "Your daily Brief  a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest  no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
     },
     "pulso": {
       "desc": "Multi-agency CRM (formerly an internal tool called Pulso CRM, now offered to other agencies with their own branding): clients, agile project management with drag-and-drop kanban, finance, and docs. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
     },
     "crew": {
-      "desc": "Evolution of Crux Escalada into a SaaS product for different types of gyms: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase."
+      "desc": "SaaS platform for gym management: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase."
     },
     "agent": {
       "desc": "Conversational AI agent for B2B sales automation, integrated with CRM and messaging."
     },
     "landing": {
-      "desc": "High-conversion B2B landing page with dark mode, glassmorphism design, and smooth scroll animations. Built with React 19 and Vite, deployed on Vercel."
+      "desc": "Marketing landing page for MonteCa, auto and fleet insurance advisors: quote request form, services section, and lead capture. Built with React 19 and Vite, deployed on Vercel."
     },
     "insurance": {
       "desc": "Internal management system for Monteca, insurance advisors: centralized client, vehicle, and policy administration, always available. Built with React 19, Vite, and Supabase RLS."

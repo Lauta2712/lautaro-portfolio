@@ -155,7 +155,7 @@ button {
   margin-bottom: var(--space-12);
 }
 
-/* ── Registration corners — technical bracket marks, revealed on hover/focus ── */
+/* ── Registration corners  technical bracket marks, revealed on hover/focus ── */
 .reg-corners {
   position: absolute;
   inset: 0;

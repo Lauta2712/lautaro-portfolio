@@ -6,6 +6,7 @@ import compassImg from '../../assets/projects/compass.webp';
 import crewImg from '../../assets/projects/crew.webp';
 import briefImg from '../../assets/projects/brief.webp';
 import montecaImg from '../../assets/projects/monteca.webp';
+import landingImg from '../../assets/projects/landing.webp';
 import styles from './Projects.module.css';
 
 const PROJECTS = [
@@ -77,7 +78,8 @@ const PROJECTS = [
     live: 'https://monteca-landing.vercel.app/',
     status: 'projects.status.live',
     span: 2,
-    cover: 'abstract',
+    cover: 'image',
+    image: landingImg,
   },
   {
     id: 'scraper',

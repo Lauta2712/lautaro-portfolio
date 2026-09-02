@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { vertexShader, fragmentShader } from '../../shaders/particleField';
 import styles from './GlobalField.module.css';
 
-// Ambient, viewport-fixed sibling of HeroCanvas — same shader, sparser than
+// Ambient, viewport-fixed sibling of HeroCanvas  same shader, sparser than
 // the hero's own field and no pointer interaction. Gives the page continuity
 // after the hero instead of going flat once the hero's canvas scrolls out.
 const DENSITY = 3200;

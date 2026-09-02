@@ -27,11 +27,11 @@
     "bio3":           "Mi inglés es C1. Trabajo bien en equipos internacionales asíncronos y documento mi trabajo de forma clara.",
     "softSkillsTitle":"Cómo trabajo",
     "skills": {
-      "collab":    "Colaborativo — trabajo bien con diseñadores, PMs y otros devs",
-      "ownership": "Mentalidad de ownership — me hago cargo de mis features de punta a punta",
-      "learning":  "Aprendizaje rápido — adopto nuevas herramientas y frameworks con facilidad",
-      "async":     "Comunicador asíncrono claro — escribo docs, no solo código",
-      "attention": "Orientado al detalle — me importan los casos borde, no solo el happy path"
+      "collab":    "Colaborativo  trabajo bien con diseñadores, PMs y otros devs",
+      "ownership": "Mentalidad de ownership  me hago cargo de mis features de punta a punta",
+      "learning":  "Aprendizaje rápido  adopto nuevas herramientas y frameworks con facilidad",
+      "async":     "Comunicador asíncrono claro  escribo docs, no solo código",
+      "attention": "Orientado al detalle  me importan los casos borde, no solo el happy path"
     }
   },
   "exp": {
@@ -39,7 +39,7 @@
     "title": "Dónde trabajé",
     "pulso": {
       "role":   "Co-Fundador y Desarrollador Full Stack",
-      "period": "Feb 2026 — Presente",
+      "period": "Feb 2026  Presente",
       "desc":   "Estudio digital para profesionales y pequeñas empresas. Desarrollo de sitios web y landing pages enfocadas en generación de leads, con integraciones de formularios, automatización de emails y analíticas básicas. Trabajo directo con clientes en arquitectura de contenido y definición de mensajes."
     },
     "ant": {
@@ -69,19 +69,19 @@
       "tool":       "Herramienta CLI"
     },
     "brief": {
-      "desc": "Your daily Brief — un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias — sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
+      "desc": "Your daily Brief  un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias  sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
     },
     "pulso": {
       "desc": "CRM multi-agencia (antes uso interno como Pulso CRM, ahora ofrecido a otras agencias con branding propio): clientes, gestión ágil de proyectos con kanban (drag & drop), finanzas y documentos. Construido con React 19, Vite, Supabase (Postgres + Auth + RLS) y Zustand."
     },
     "crew": {
-      "desc": "Evolución de Crux Escalada como producto SaaS para distintos tipos de gimnasio: check-in por QR, gestión de clases y pagos, con planes e identidad visual propia por gimnasio. Construido con Vite, React y Supabase."
+      "desc": "Plataforma SaaS de gestión para gimnasios: check-in por QR, gestión de clases y pagos, con planes e identidad visual propia por gimnasio. Construido con Vite, React y Supabase."
     },
     "agent": {
       "desc": "Agente de IA conversacional para automatización de ventas B2B, integrado con CRM y mensajería."
     },
     "landing": {
-      "desc": "Landing page B2B de alta conversión con modo oscuro, diseño glassmorphism y animaciones de scroll suaves. Construida con React 19 y Vite, desplegada en Vercel."
+      "desc": "Landing page comercial para MonteCa, asesores de seguros automotores y de flotas: formulario de cotización, sección de servicios y captación de leads. Construida con React 19 y Vite, desplegada en Vercel."
     },
     "insurance": {
       "desc": "Sistema de gestión interna para Monteca, asesores de seguros: administración de clientes, vehículos y pólizas, todo centralizado y siempre disponible. Construido con React 19, Vite y Supabase RLS."

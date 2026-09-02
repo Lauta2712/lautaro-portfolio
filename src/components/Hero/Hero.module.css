@@ -7,7 +7,7 @@
   padding-top: var(--nav-height);
 }
 
-/* ── Background — generative particle field (Three.js, see HeroCanvas) ── */
+/* ── Background  generative particle field (Three.js, see HeroCanvas) ── */
 .canvasWrap {
   position: absolute;
   inset: 0;
@@ -30,7 +30,7 @@
     linear-gradient(to bottom, transparent 82%, var(--color-bg) 100%);
 }
 
-/* ── Registration corners — always-on framing device ── */
+/* ── Registration corners  always-on framing device ── */
 .cornerTL, .cornerBR {
   position: absolute;
   width: 22px;
@@ -183,7 +183,7 @@
   transform: translate(-3px, -3px);
 }
 
-/* ── Title-block panel — the hero's signature element ── */
+/* ── Title-block panel  the hero's signature element ── */
 .panel {
   position: relative;
   width: 250px;
