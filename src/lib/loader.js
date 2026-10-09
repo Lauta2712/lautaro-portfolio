@@ -16,8 +16,10 @@ const pageLoaded = () =>
 export function hideLoader() {
   const loader = document.getElementById('l20n-loader');
   const html = document.documentElement;
-  if (!loader || html.classList.contains('ll-seen')) {
+  // El taller es una herramienta interna: entra directo, sin animación.
+  if (!loader || html.classList.contains('ll-seen') || location.pathname.startsWith('/taller')) {
     loader?.remove();
+    html.classList.remove('is-loading');
     return;
   }
 

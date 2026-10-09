@@ -794,7 +794,7 @@ Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidi
 | --- | --- | --- |
 | Foto | **Elegida (9 de octubre de 2026):** el logo apilado L2 / 0N con el 0 en peso 450 (`public/brand/l20n-avatar-w450-1080.png`), para que el 0 se siga leyendo en tamaños chicos (32 px). | — |
 | Nombre (64 caracteres, aparece en la búsqueda) | Puede llevar la pista del alias y mi nombre, para que me encuentren. | Cómo lo escribo. |
-| Bio (150 caracteres) | **En prueba desde el 9 de octubre de 2026, por un par de semanas:** "just a curious chabón" o "just a curious dude". | Si queda o se cambia. |
+| Bio (150 caracteres) | **En prueba desde el 9 de octubre de 2026, por un par de semanas:** "enfocate loco", en minúscula y sin coma. Se burla de los múltiples intereses y "loco" es mi palabra de todos los días. Antes se pensaron "just a curious chabón" y "just a curious dude". | Si queda o se cambia. |
 | Mail | `l20n.archive@gmail.com` como botón de contacto, no escrito en la bio. También es el mail del portfolio. | — |
 | Links (hasta 5) | Portfolio, y más adelante YouTube y TikTok. | — |
 | Tipo de cuenta | Creador: da estadísticas y permite ocultar la etiqueta de categoría. | — |
@@ -807,7 +807,7 @@ Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidi
 - **Contenido:** crudo, sin filtro. El diseño vive en el marco.
 - **Para probar:** algunos posts sin marco (montaña, por ejemplo), para que la grilla no quede rígida.
 
-**Plantillas:** una página oculta en el portfolio (por ejemplo, /taller) para subir una imagen y descargar el post con la firma. Reusaría el componente de la firma.
+**Plantillas:** página oculta `/taller` en el portfolio (armada el 9 de octubre de 2026). Por ahora tiene la plantilla del carrusel de nombres descartados (#001): portada, un nombre tachado en línea fina por slide con su motivo, y cierre con la firma madre. Exporta PNG de 1080 × 1350. Falta la plantilla de marco para fotos.
 
 **Primeros posts (preguntas abiertas):**
 
