@@ -1,9 +1,9 @@
 # Marca personal — Concepto
 
-Oct 7, 2026 · @Lauta
+Oct 7, 2026 · @Lauta · actualizado el 9 de octubre de 2026
 
 > Copia en Markdown del doc vivo "Marca personal — Concepto": https://claude.ai/code/artifact/ec440cb6-f831-4074-be63-98ab0537dc96
-> Alias confirmado: **l20n**. Firma: **l5o**. Ver también [`GUIA_LEGAL.md`](GUIA_LEGAL.md) y [`PENDIENTES.md`](PENDIENTES.md).
+> Alias confirmado: **l20n**. Firma: **l5o**. Instagram: **@l20n.archive**. Ver también [`GUIA_LEGAL.md`](GUIA_LEGAL.md), [`PENDIENTES.md`](PENDIENTES.md) y [`CUENTAS_INSTAGRAM.md`](CUENTAS_INSTAGRAM.md).
 
 
 ## Punto de partida
@@ -631,7 +631,31 @@ Cada candidato tiene que tocar al menos tres hilos: el concepto (criterio, intui
 | l20n.io, l20n.xyz | Parecen libres |
 | l20n.ar, l20n.com.ar | Sin chequear |
 
-**Pendiente:** INPI, handles (Instagram, YouTube, TikTok, X) y dominios .ar.
+**Instagram (9 de octubre de 2026):** cuenta nueva con el handle **@l20n.archive**. Calza con el portfolio, que pasó a funcionar como archivo.
+
+**Pendiente:** INPI, handles (YouTube, TikTok, X) y dominios .ar.
+
+## Tono de los textos públicos (confirmado)
+
+**Decidido el 8 y 9 de octubre de 2026.** Aplica al portfolio, las bios y los epígrafes.
+
+- **Implícito e irreverente:** que se note cómo pienso por lo que hago y cómo lo digo, no porque lo explique. Corto, concreto y con humor sobre mí mismo.
+- **Nada de explicar:** ni de dónde sale L20N, ni el concepto ("criterio por encima de técnica"), ni frases de manifiesto. El concepto y las referencias viven solo en documentos internos como este.
+- **No citar autores:** suena arrogante.
+- **Sin etiquetas de rol:** nada que me ate a un oficio o una tecnología ("desarrollador", un stack).
+- **Por ahora no se nombran públicamente** el código ni el mapping.
+- **Los textos los escribo yo**, para que no suenen a IA. Claude pule y avisa si algo puede generar ruido o molestia, o lo pensamos juntos.
+
+## Intereses que entran en la marca
+
+Todos pesan lo mismo, sin que ninguno me encasille (9 de octubre de 2026):
+
+- **Lo de siempre:** curiosidad, aprender haciendo, diseñar proyectos que resuelvan problemas, estética y diseño, arte, música y filosofía.
+- **Montaña:** boulder en gimnasio y escalada deportiva en roca desde hace un año. Antes, trail running. El centro es estar en la montaña haciendo deporte.
+- **Fotografía:** me interesa desde chico y la montaña me lleva a ella. Pienso comprar una cámara pronto.
+- **Mapping:** me interesa mucho, pero todavía no lo hice y no sé por dónde empezar. No se nombra en público hasta que haya algo.
+- **Estos hobbies pueden volverse trabajo** y la idea es publicarlos también en el portfolio.
+- **Video:** planeo subir videos a YouTube y TikTok en el corto plazo.
 
 ## Manifiesto (borrador)
 
@@ -732,6 +756,14 @@ Lo de arriba se pensó para la etapa rayado/bardo. Esta ronda parte del alias.
 
 **Feedback del laboratorio (8 de octubre de 2026):** gustó el L20N grande con el 0 en línea fina. Preferencias: Roboto Flex, base pantalla y firma en blanco en vez de color. Se sigue puliendo este camino.
 
+**Bajada al portfolio (8 y 9 de octubre de 2026, en exploración):**
+
+- **Base:** negro y blanco, Roboto Flex para la marca y Recursive monoespaciada para los datos.
+- **Firma generativa:** un componente que dibuja la firma de cada pieza a partir de sus datos. El hero va rotando firmas.
+- **Logo de perfil:** L20N apilado en dos líneas (L2 / 0N), en blanco y en negro. También hay wordmark, favicon e imagen para compartir.
+- **El 0 fino:** no está decidido que el 0 del logo sea siempre la letra fina. Me gusta que vaya cambiando.
+- **El portfolio como archivo:** una intro que se arma con el scroll (la letra fina recorre L20N), una sola lista de piezas con tipo (proyecto, foto, video, nota) y filtros, una navbar que muestra la firma de la pieza en pantalla y un cierre con "Escribime". El CV pasó a una página aparte (/cv).
+
 **Reglas propuestas para la firma (en exploración):**
 
 1. La firma se dibuja con los datos de la pieza: colores, sonido o texto. Los mismos datos siempre dan la misma firma.
@@ -745,12 +777,45 @@ Cada medio funciona como una sección de la misma publicación, al estilo Popeye
 
 | Medio | Sección | Qué se publica |
 | --- | --- | --- |
-| YouTube | Ensayos | Videoensayos cortos sobre *cómo* se crea algo: Rubin con Johnny Cash, Jobs y el detalle invisible, mi propio proceso. Con cara y voz, en tono calmo. No son tutoriales. |
-| Instagram | El taller | Proceso, cables, pruebas de mapping, bocetos y lo que estoy escuchando, viendo o leyendo. La mano humana visible. |
+| YouTube y TikTok | Ensayos y video corto | Videoensayos cortos sobre *cómo* se crea algo: Rubin con Johnny Cash, Jobs y el detalle invisible, mi propio proceso. Con cara y voz, en tono calmo. No son tutoriales. |
+| Instagram (@l20n.archive) | El taller | Proceso, pruebas, bocetos, montaña, fotos y lo que estoy escuchando, viendo o leyendo. La mano humana visible. El mapping no se nombra hasta que haya algo hecho. |
 | Brief | La publicación | Pasa a ser la sección editorial del sello, bajo el mismo paraguas. |
 | Mapping y hardware | Ediciones especiales | Piezas grandes y poco frecuentes, documentadas como obra. Es lo que después se ofrece como servicio a artistas y marcas. |
 | Twitch (whitetrash) | Sesiones en vivo | Puede quedar como alter ego aparte o integrarse como sesiones de trabajo en vivo. |
-| Portfolio | El archivo | Se rediseña al final, cuando el concepto esté maduro. |
+| Portfolio | El archivo | Rediseñado como archivo de piezas el 9 de octubre de 2026. Se sigue puliendo. |
+
+## Instagram: @l20n.archive (en exploración)
+
+Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidido.
+
+**Perfil**
+
+| Campo | Propuesta | Falta decidir |
+| --- | --- | --- |
+| Foto | **Elegida (9 de octubre de 2026):** el logo apilado L2 / 0N con el 0 en peso 450 (`public/brand/l20n-avatar-w450-1080.png`), para que el 0 se siga leyendo en tamaños chicos (32 px). | — |
+| Nombre (64 caracteres, aparece en la búsqueda) | Puede llevar la pista del alias y mi nombre, para que me encuentren. | Cómo lo escribo. |
+| Bio (150 caracteres) | **En prueba desde el 9 de octubre de 2026, por un par de semanas:** "just a curious chabón" o "just a curious dude". | Si queda o se cambia. |
+| Mail | `l20n.archive@gmail.com` como botón de contacto, no escrito en la bio. También es el mail del portfolio. | — |
+| Links (hasta 5) | Portfolio, y más adelante YouTube y TikTok. | — |
+| Tipo de cuenta | Creador: da estadísticas y permite ocultar la etiqueta de categoría. | — |
+| Destacadas | Recién cuando haya material. | Si siguen en pie nombres como *mamarrachos* o *manijas*, que son de la época de bardo. |
+
+**Grilla**
+
+- **Formato:** 4:5 (1080 × 1350). El perfil muestra la grilla recortada a 3:4, así que nada importante puede ir pegado a los bordes de los costados.
+- **Marco:** una banda negra mínima con la firma generada a partir de la pieza y un número de archivo (#001), igual que en el portfolio.
+- **Contenido:** crudo, sin filtro. El diseño vive en el marco.
+- **Para probar:** algunos posts sin marco (montaña, por ejemplo), para que la grilla no quede rígida.
+
+**Plantillas:** una página oculta en el portfolio (por ejemplo, /taller) para subir una imagen y descargar el post con la firma. Reusaría el componente de la firma.
+
+**Primeros posts (preguntas abiertas):**
+
+- ¿Arranco con 3 posts juntos (una fila) o con uno solo?
+- ¿Qué mezcla? Algo hecho (como Brief, sin nombrar el código), algo de montaña y algo que me tenga manija.
+- **Ritmo:** algo sostenible, 1 o 2 por semana.
+
+**A quién seguir:** ver [`CUENTAS_INSTAGRAM.md`](CUENTAS_INSTAGRAM.md).
 
 ## Feedback y riesgos
 
@@ -781,7 +846,12 @@ La mirada externa (de Claude) es que el concepto tiene buena proyección: hay un
 
 - [x] Elegir el nombre: el alias es **l20n**.
 - [ ] Definir la dirección visual: cálido e ilustrado (Popeye), austero (Apple y diseño japonés) o analógico de estudio de grabación (cinta, VU meters, papel).
-- [ ] Reescribir el manifiesto con mi voz.
+- [ ] Reescribir el manifiesto con mi voz. Ojo: el borrador actual es explícito ("Sé escribir código") y choca con el tono confirmado para los textos públicos.
+- [x] Abrir Instagram: **@l20n.archive**.
+- [ ] Armar el perfil de Instagram: foto, nombre, bio y links.
+- [ ] Definir el look de la grilla y armar la plantilla de posts.
+- [ ] Elegir los primeros posts.
+- [ ] Completar la lista de cuentas para seguir (sobre todo argentinas y sanjuaninas).
 - [ ] Definir las secciones fijas de la "revista" y la numeración de las piezas.
 - [ ] Pensar la primera pieza de mapping y hardware como "edición especial" n.º 1.
 - [ ] Leer en paralelo: la lista está en `Lecturas.md`, en el Escritorio.

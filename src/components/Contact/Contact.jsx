@@ -5,7 +5,7 @@ import Signature from '../Signature/Signature';
 import { MOTHER } from '../../data/pieces';
 import styles from './Contact.module.css';
 
-const EMAIL = 'lautarorodriguez887@gmail.com';
+const EMAIL = 'l20n.archive@gmail.com';
 
 // Las letras se ensanchan y engordan cerca del puntero.
 function WideWord({ text }) {
