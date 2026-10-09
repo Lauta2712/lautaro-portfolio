@@ -55,7 +55,7 @@ export default function Contact() {
           <ul className={styles.links}>
             <li><a href="https://github.com/Lauta2712" target="_blank" rel="noreferrer">GitHub ↗</a></li>
             <li><a href="https://linkedin.com/in/lautaro-rodriguez-marcon" target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
-            <li><a href="/cv">{t('nav.cv')} →</a></li>
+            <li><a href="/cv">{t('nav.cv')}</a></li>
           </ul>
         </div>
       </div>

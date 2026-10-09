@@ -47,14 +47,14 @@ export default function About() {
           ))}
         </p>
 
-        <div className={styles.lately}>
+        {/* <div className={styles.lately}>
           <p className={styles.label}>{t('about.softSkillsTitle')}</p>
           <ul>
             {LATELY.map(key => (
               <li key={key}>{t(key)}</li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -13,7 +13,6 @@ const HOME_LINKS = [
   { key: 'nav.cv',       href: '/cv' },
 ];
 
-// La firma del navbar es la de la pieza que estás mirando.
 export default function Navbar({ page = 'home' }) {
   const { t } = useTranslation();
   const piece = useCurrentPiece();
@@ -60,6 +59,7 @@ export default function Navbar({ page = 'home' }) {
         <div className={styles.actions}>
           <LanguageSwitcher />
           <button
+            type="button"
             className={styles.burger}
             onClick={() => setMenuOpen(v => !v)}
             aria-label="Menu"
