@@ -90,6 +90,9 @@
 
   /* ── Layout ── */
   --container-max: 1100px;
+  --wrap-max:      1600px;
+  --gutter:        clamp(1rem, 3vw, 2.5rem);
+  --grid-gap:      clamp(0.75rem, 1.6vw, 1.5rem);
   --nav-height:    64px;
 
   /* ── Z-index layers ── */

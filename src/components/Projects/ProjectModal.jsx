@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useMagnetic } from '../../hooks/useMagnetic';
 import Signature from '../Signature/Signature';
+import { pauseScroll, resumeScroll } from '../../lib/lenis';
 import styles from './ProjectModal.module.css';
 
 function GitHubIcon() {
@@ -42,6 +43,7 @@ export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    pauseScroll();
     closeBtnRef.current?.focus();
 
     function onKeyDown(e) {
@@ -51,6 +53,7 @@ export default function ProjectModal({ project, onClose }) {
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      resumeScroll();
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [onClose]);
@@ -67,6 +70,7 @@ export default function ProjectModal({ project, onClose }) {
       <motion.div
         ref={panelRef}
         className={styles.panel}
+        data-lenis-prevent
         role="dialog"
         aria-modal="true"
         aria-label={project.name}

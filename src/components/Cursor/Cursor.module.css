@@ -1,0 +1,33 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-modal);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-mono);
+  font-size: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.2s;
+}
+
+.big {
+  width: 84px;
+  height: 84px;
+  font-size: 0.7rem;
+}

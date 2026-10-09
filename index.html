@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L20N · Lautaro Rodriguez Marcon</title>
-    <meta name="description" content="Hago cosas con código. Algunas sirven." />
+    <meta name="description" content="Hago cosas. Algunas sirven." />
     <meta name="author" content="Lautaro Rodriguez Marcon" />
     <meta name="theme-color" content="#0B0B0B" />
     <meta name="color-scheme" content="dark" />
@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="L20N" />
     <meta property="og:url" content="https://l20n.vercel.app/" />
     <meta property="og:title" content="L20N · Lautaro Rodriguez Marcon" />
-    <meta property="og:description" content="Hago cosas con código. Algunas sirven." />
+    <meta property="og:description" content="Hago cosas. Algunas sirven." />
     <meta property="og:image" content="https://l20n.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -28,10 +28,94 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="L20N · Lautaro Rodriguez Marcon" />
-    <meta name="twitter:description" content="Hago cosas con código. Algunas sirven." />
+    <meta name="twitter:description" content="Hago cosas. Algunas sirven." />
     <meta name="twitter:image" content="https://l20n.vercel.app/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:wght,MONO@300..800,1&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap" />
+
+    <!-- Loader: va inline para que se pinte antes que el bundle.
+         La letra fina da vueltas mientras carga y termina en la firma madre. -->
+    <style>
+      html.is-loading { overflow: hidden; }
+      #l20n-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #0B0B0B;
+        color: #F5F5F5;
+        clip-path: inset(0 0 0 0);
+        transition: clip-path 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+        /* Si el JS nunca llega, se va solo */
+        animation: ll-failsafe 0.01s 7s forwards;
+      }
+      html.ll-seen #l20n-loader { display: none; }
+      #l20n-loader.is-hidden { clip-path: inset(0 0 100% 0); }
+      .ll-mark {
+        display: flex;
+        align-items: baseline;
+        font-family: 'Roboto Flex', 'Arial Narrow', sans-serif;
+        font-size: clamp(4.5rem, 16vw, 11rem);
+        line-height: 0.78;
+        transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.6s;
+      }
+      #l20n-loader.is-hidden .ll-mark { transform: translateY(-30vh); opacity: 0; }
+      .ll-mark span {
+        display: inline-block;
+        font-variation-settings: "wght" var(--w), "wdth" var(--d), "opsz" 144;
+        opacity: 0;
+        transform: translateY(0.35em);
+        transition: font-variation-settings 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .ll-mark span:nth-child(1) { --w: 1000; --d: 101; --i: 0; }
+      .ll-mark span:nth-child(2) { --w: 1000; --d: 101; --i: 1; }
+      .ll-mark span:nth-child(3) { --w: 1000; --d: 125; --i: 2; }
+      .ll-mark span:nth-child(4) { --w: 950;  --d: 101; --i: 3; }
+      /* Entra cuando la fuente está lista: nunca se ve la de reemplazo */
+      html.ll-font .ll-mark span {
+        animation:
+          ll-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i) * 70ms) forwards,
+          ll-thin 1.6s ease-in-out calc(0.5s + var(--i) * 0.4s) infinite;
+      }
+      /* Al terminar queda la firma madre: el 0 fino */
+      #l20n-loader.is-settled .ll-mark span { animation: none; opacity: 1; transform: none; }
+      #l20n-loader.is-settled .ll-mark span:nth-child(3) { --w: 140; }
+      @keyframes ll-rise { to { opacity: 1; transform: none; } }
+      @keyframes ll-thin {
+        0%, 40%, 100% { font-variation-settings: "wght" var(--w), "wdth" var(--d), "opsz" 144; }
+        14% { font-variation-settings: "wght" 140, "wdth" calc(var(--d) + 24), "opsz" 144; }
+      }
+      @keyframes ll-failsafe { to { visibility: hidden; } }
+      @media (prefers-reduced-motion: reduce) {
+        #l20n-loader, .ll-mark { transition-duration: 0.01s; }
+        html.ll-font .ll-mark span { animation: none; opacity: 1; transform: none; }
+        .ll-mark span:nth-child(3) { --w: 140; }
+      }
+    </style>
+    <noscript><style>#l20n-loader { display: none; } html.is-loading { overflow: auto; }</style></noscript>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var seen = false;
+        try { seen = sessionStorage.getItem('l20n:loader') === '1'; } catch (e) {}
+        if (seen) { html.classList.add('ll-seen'); return; }
+        html.classList.add('is-loading');
+        var show = function () { html.classList.add('ll-font'); };
+        if (document.fonts && document.fonts.load) {
+          document.fonts.load('900 1em "Roboto Flex"', 'L20N').then(show, show);
+          setTimeout(show, 2500);
+        } else {
+          show();
+        }
+      })();
+    </script>
   </head>
   <body>
+    <div id="l20n-loader" aria-hidden="true">
+      <div class="ll-mark"><span>L</span><span>2</span><span>0</span><span>N</span></div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

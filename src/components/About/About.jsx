@@ -1,8 +1,9 @@
+import { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { useScroll, useMotionValueEvent, useReducedMotion } from 'framer-motion';
 import styles from './About.module.css';
 
-const SOFT_SKILLS = [
+const LATELY = [
   'about.skills.collab',
   'about.skills.ownership',
   'about.skills.learning',
@@ -10,34 +11,49 @@ const SOFT_SKILLS = [
   'about.skills.attention',
 ];
 
+// El texto se va prendiendo palabra por palabra a medida que bajás.
 export default function About() {
   const { t } = useTranslation();
-  const ref = useScrollReveal();
+  const reduceMotion = useReducedMotion();
+  const textRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: textRef, offset: ['start 85%', 'end 45%'] });
+
+  const words = ['about.bio1', 'about.bio2', 'about.bio3']
+    .map(key => t(key).split(' '))
+    .flatMap((list, block) => list.map((word, i) => ({ word, br: block > 0 && i === 0 })));
+
+  function apply(p) {
+    const spans = textRef.current?.querySelectorAll('[data-word]') ?? [];
+    const lit = reduceMotion ? spans.length : p * spans.length;
+    spans.forEach((el, i) => {
+      el.style.opacity = String(0.14 + 0.86 * Math.min(1, Math.max(0, lit - i)));
+    });
+  }
+
+  useLayoutEffect(() => apply(scrollYProgress.get()));
+  useMotionValueEvent(scrollYProgress, 'change', apply);
 
   return (
-    <section id="about" className={`section ${styles.about}`}>
-      <div className="container" ref={ref}>
-        <p className="section-label">{t('about.label')}</p>
-        <h2 className="section-title">{t('about.title')}</h2>
-        <div className="section-divider" />
+    <section id="info" className={styles.about}>
+      <div className={`wrap ${styles.grid}`}>
+        <p className={styles.label}>{t('about.label')}</p>
 
-        <div className={styles.grid}>
-          <div className={`reveal ${styles.bio}`}>
-            <p>{t('about.bio1')}</p>
-            <p>{t('about.bio2')}</p>
-            <p>{t('about.bio3')}</p>
-          </div>
+        <p ref={textRef} className={styles.text}>
+          {words.map(({ word, br }, i) => (
+            <span key={i}>
+              {br && <span className={styles.pilcrow} aria-hidden="true"> / </span>}
+              <span data-word>{word}</span>{' '}
+            </span>
+          ))}
+        </p>
 
-          <div className={`reveal ${styles.skills}`} style={{ '--delay': '0.1s' }}>
-            <h3 className={styles.skillsTitle}>{t('about.softSkillsTitle')}</h3>
-            <ul className={styles.skillList}>
-              {SOFT_SKILLS.map((key) => (
-                <li key={key} className={styles.skillItem}>
-                  <span>{t(key)}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className={styles.lately}>
+          <p className={styles.label}>{t('about.softSkillsTitle')}</p>
+          <ul>
+            {LATELY.map(key => (
+              <li key={key}>{t(key)}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

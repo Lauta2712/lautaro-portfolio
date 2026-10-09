@@ -1,31 +1,32 @@
 {
   "nav": {
-    "about": "Sobre mí",
+    "about": "Info",
     "experience": "Experiencia",
     "projects": "Archivo",
     "tech": "Herramientas",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "cv": "CV"
   },
   "hero": {
     "signatureOf": "Firma de",
-    "title": "Hago cosas con código. Algunas sirven.",
-    "tagline": "Webs, sistemas, alguna que otra luz proyectada en una pared que no era para eso, y lo que vaya apareciendo. Lo que funciona queda acá. Lo que no, también.",
+    "title": "Hago cosas. Algunas sirven.",
+    "tagline": "Algunas resuelven un problema, otras no resuelven nada pero quedaron lindas. Lo que funciona queda acá. Lo que no, también.",
     "downloadCV": "Descargar CV",
     "contactMe": "Escribime"
   },
   "about": {
-    "label": "Sobre mí",
+    "label": "Info",
     "title": "Más o menos esto",
-    "bio1": "San Juan, Argentina. El único sanjuanino de la familia, así que hablo raro hasta en mi casa.",
-    "bio2": "Programo hace unos años. Co-fundé Pulso Studio, armé un diario que se escribe solo y un par de sistemas que la gente usa todos los días sin saber que existo.",
-    "bio3": "Ahora ando metido con luz, sensores y proyectores. No sé bien a dónde va. Esa es la parte divertida.",
+    "bio1": "Hola, soy Lauta. Me gusta aprender cosas nuevas: un paradigma de programación, un patrón de diseño, un framework, o algún hobby que no tiene nada que ver y termina dándome ideas.",
+    "bio2": "Aprendo haciendo. Me engancho mucho con lo que acabo de descubrir y pregunto bastante. Lo que más disfruto es trabajar con gente talentosa de otras profesiones: juntos llegamos a lugares a los que solo no sé si llegaría.",
+    "bio3": "Hablo inglés y estoy aprendiendo alemán (voy por el A1). Los idiomas me fascinan: cada uno es una forma distinta de mirar el mundo. Si de acá sale algo para hacer juntos, bienvenido.",
     "softSkillsTitle": "Últimamente",
     "skills": {
       "collab": "Rompiendo cosas para ver cómo andan.",
       "ownership": "Borrando más de lo que agrego.",
-      "learning": "Subiendo el proceso, errores incluidos.",
-      "async": "Escuchando más música de la que debería mientras programo.",
-      "attention": "Preguntando mucho."
+      "learning": "Escalando más de lo que debería.",
+      "async": "Escuchando discos enteros, de principio a fin.",
+      "attention": "Leyendo cosas que no termino de entender."
     }
   },
   "exp": {
@@ -33,7 +34,7 @@
     "title": "Dónde trabajé",
     "pulso": {
       "role": "Co-Fundador y Desarrollador Full Stack",
-      "period": "Feb 2026  Presente",
+      "period": "Feb 2026 – Presente",
       "desc": "Estudio digital para profesionales y pequeñas empresas. Desarrollo de sitios web y landing pages enfocadas en generación de leads, con integraciones de formularios, automatización de emails y analíticas básicas. Trabajo directo con clientes en arquitectura de contenido y definición de mensajes."
     },
     "ant": {
@@ -63,7 +64,7 @@
       "tool": "Herramienta CLI"
     },
     "brief": {
-      "desc": "Your daily Brief  un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias  sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
+      "desc": "Your daily Brief — un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias — sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
     },
     "pulso": {
       "desc": "CRM multi-agencia (antes uso interno como Pulso CRM, ahora ofrecido a otras agencias con branding propio): clientes, gestión ágil de proyectos con kanban (drag & drop), finanzas y documentos. Construido con React 19, Vite, Supabase (Postgres + Auth + RLS) y Zustand."
@@ -98,5 +99,31 @@
     "tagline": "Si tenés una idea rara, un proyecto a medio armar o ganas de charlar, escribime. Contesto.",
     "location": "San Juan, Argentina",
     "footer": "L20N · Lautaro Rodriguez Marcon · 2026"
+  },
+  "intro": {
+    "scroll": "Bajá"
+  },
+  "archive": {
+    "title": "Archivo",
+    "all": "Todo",
+    "filter": "Filtrar por tipo",
+    "open": "Ver",
+    "go": "Ir",
+    "write": "Escribir",
+    "types": {
+      "project": "Proyecto",
+      "photo": "Foto",
+      "video": "Video",
+      "note": "Nota"
+    },
+    "plural": {
+      "project": "Proyectos",
+      "photo": "Fotos",
+      "video": "Videos",
+      "note": "Notas"
+    }
+  },
+  "cv": {
+    "back": "Volver"
   }
 }

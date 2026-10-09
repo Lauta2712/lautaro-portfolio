@@ -1,0 +1,57 @@
+.page {
+  padding-top: calc(var(--nav-height) + var(--space-12));
+}
+
+.head {
+  display: grid;
+  gap: var(--space-6);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.back {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  justify-self: start;
+}
+
+.back:hover {
+  color: var(--color-text);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 12rem);
+  font-weight: 900;
+  font-stretch: 130%;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+}
+
+.downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.downloads a {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-accent);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.downloads a:hover {
+  background: var(--color-text);
+  color: var(--color-on-accent);
+}
+
+/* Las secciones del CV usan la misma retícula ancha que el resto */
+.page :global(.container) {
+  max-width: var(--wrap-max);
+  padding-inline: var(--gutter);
+}

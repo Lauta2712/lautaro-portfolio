@@ -28,12 +28,13 @@ export function dataFromSeed(seed) {
   return Array.from({ length: 8 }, () => rand());
 }
 
-export function signatureLetters(data, { shared = false } = {}) {
+// Las firmas chicas usan una línea fina más gruesa para que no desaparezca.
+export function signatureLetters(data, { shared = false, thinWeight = 140 } = {}) {
   const first = data.slice(0, 4);
   const thinIndex = first.indexOf(Math.min(...first));
   return [...'L20N'].map((letter, i) => {
     const thin = shared || i === thinIndex;
-    const wght = thin ? 140 : 500 + data[i] * 500;
+    const wght = thin ? thinWeight : 500 + data[i] * 500;
     const wdth = 40 + data[(i + 4) % 8] * 111;
     return {
       letter,

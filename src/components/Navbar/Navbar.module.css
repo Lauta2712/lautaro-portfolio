@@ -9,7 +9,7 @@
   border-bottom: 1px solid transparent;
 }
 
-.header.scrolled {
+.header.past {
   background: rgba(var(--color-bg-rgb), 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -27,17 +27,14 @@
 .logo {
   display: inline-flex;
   flex-shrink: 0;
-  transition: opacity var(--transition-fast);
+  font-size: 1.85rem;
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
-.logo img {
-  display: block;
-  height: 22px;
-  width: auto;
-}
-
-.logo:hover {
-  opacity: 0.7;
+.header:not(.past) .logo {
+  opacity: 0;
+  transform: translateY(-0.4rem);
+  pointer-events: none;
 }
 
 .nav {
@@ -47,8 +44,10 @@
 }
 
 .link {
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
   transition: color var(--transition-fast);
   position: relative;

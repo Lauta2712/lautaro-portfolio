@@ -1,6 +1,6 @@
 # Referencias
 
-Lista armada el 8 de octubre de 2026 para L20N. Junta documentación para subir el nivel de frontend, mapping, lecturas, revistas, estudios y personas para seguir o contactar.
+Lista armada el 8 de octubre de 2026 para L20N. Junta documentación para subir el nivel de frontend, mapping, lecturas, revistas, estudios, personas para seguir o contactar y cuentas de Instagram.
 
 Complementa [`~/Escritorio/Lecturas.md`](../../Escritorio/Lecturas.md) y no repite lo que ya está ahí. Marcá lo que vayas leyendo.
 
@@ -211,6 +211,91 @@ La idea es escribirle a gente con trayectoria grande, pero que todavía conteste
 
 ---
 
+## 7. Instagram: cuentas para seguir
+
+Agregado el 9 de octubre de 2026. Instagram no deja revisar perfiles sin iniciar sesión, así que no pude comprobar todos los usuarios:
+
+- **✓** = encontré el usuario citado en una fuente externa.
+- El resto lo anoté de memoria. Si alguno no aparece, buscalo por nombre.
+
+### Montaña, escalada y trail
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @adam.ondra ✓ | Adam Ondra | Escalada deportiva al máximo nivel, entrenamiento explicado |
+| @janja_garnbret | Janja Garnbret | Boulder y competencia |
+| @magmidt | Magnus Midtbø | Escalada con humor, mucho video: buena referencia para YouTube |
+| @alexhonnold | Alex Honnold | Escalada libre y proyectos largos |
+| @jimmychin ✓ | Jimmy Chin | Fotógrafo y director de montaña (*Free Solo*, *Meru*) |
+| @renan_ozturk ✓ | Renan Ozturk | Fotografía y cine de expedición, muy pictórico |
+| @kilianjornet ✓ | Kilian Jornet | Trail y montaña: tu pasado de corredor |
+| @paulzizkaphoto ✓ | Paul Zizka | Paisaje de montaña y fotografía nocturna |
+| @reelrock | Reel Rock | Festival de cine de escalada |
+| @patagonia | Patagonia | Outdoor con postura y muy buena fotografía documental |
+| @arcteryx | Arc'teryx | Cine de montaña y diseño de producto impecable |
+
+### Fotografía
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @magnumphotos | Magnum Photos | Fotoperiodismo y fotografía de autor: la escuela clásica |
+| @aperturefnd | Aperture | Libros y ensayos sobre fotografía |
+| @natgeo | National Geographic | Expedición y naturaleza |
+| @leica_camera | Leica | Fotografía callejera y documental (y para cuando elijas cámara) |
+
+### Arte con código y visuales
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @zachlieberman | Zach Lieberman | Un sketch de código por día desde hace años |
+| @mattdesl_art ✓ | Matt DesLauriers | Arte generativo, plotters y corte láser |
+| @patriciogonzalezvivo | Patricio Gonzalez Vivo | Shaders y arte con datos. Argentino |
+| @tylerxhobbs | Tyler Hobbs | Arte generativo y plotters |
+| @refikanadol | Refik Anadol | Instalaciones con datos a gran escala |
+| @universaleverything | Universal Everything | Animación generativa |
+| @momentfactory | Moment Factory | Experiencias inmersivas, luz y espacio |
+
+### Diseño, tipografía y web
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @itsnicethat | It's Nice That | Lo nuevo en diseño, todos los días |
+| @pentagram | Pentagram | Identidades grandes, bien explicadas |
+| @dinamodarkroom | Dinamo | Fundición tipográfica experimental |
+| @grillitype | Grilli Type | Tipografía suiza contemporánea |
+| @experimentaljetset | Experimental Jetset | Identidad visual con concepto |
+| @teenage.engineering | Teenage Engineering | Diseño de producto, música y humor |
+
+### Revistas y cultura
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @popeye_magazine_official ✓ | Popeye | La referencia de tono que mencionaste |
+| @apartamentomagazine ✓ | Apartamento | Vida real, fotos crudas |
+| @032c | 032c | Moda, arte y teoría desde Berlín |
+| @fantasticman y @thegentlewoman | Fantastic Man y The Gentlewoman | Retrato editorial |
+| @kinfolk | Kinfolk | Pausa, diseño y fotografía cálida |
+
+### Música
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @boilerroomtv | Boiler Room | Sets en vivo y escenas de todo el mundo |
+| @nts_live | NTS Radio | Radio independiente con curaduría rarísima |
+| @rickrubin | Rick Rubin | Producción y proceso creativo, poco texto |
+
+### Gente que armó lo suyo
+
+| Cuenta | Quién | Por qué |
+| --- | --- | --- |
+| @vanschneider | Tobias van Schneider | Diseñador que armó sus propios productos (Semplice, Carrd) y escribe sobre hacerlo solo |
+| @levelsio | Pieter Levels | Productos hechos por una sola persona, todo en público |
+| @getpeid | Carl Pei | Fundador de Nothing: marca y producto juntos |
+
+> Ojo con el algoritmo: seguí pocas cuentas grandes y muchas chicas. Las chicas son las que te contestan y con las que se arma comunidad.
+
+---
+
 ## Fuentes consultadas para la sección de contactos
 
 - [Manuel Matuzović, About me](https://matuzo.at/about-me)
@@ -225,3 +310,4 @@ La idea es escribirle a gente con trayectoria grande, pero que todavía conteste
 - [Lee Robinson](https://www.leerob.com)
 - [Mono.Kultur, Wikipedia](https://en.wikipedia.org/wiki/Mono.Kultur)
 - [Ars Electronica Festival](https://ars.electronica.art/festival/en/)
+- Instagram: [adventure influencers (Amra & Elma)](https://www.amraandelma.com/adventure-influencers-with-rock-climbing-basics/), [Kilian Jornet en HypeAuditor](https://hypeauditor.com/instagram/kilianjornet/), [Renan Ozturk, The Daily Beast](https://www.thedailybeast.com/instagrammer-of-the-week-renan-ozturk/), [Much Better Adventures](https://muchbetteradventures.com/magazine/adventure-outdoor-photography-instagram-best), [Kadenze, creative coding](https://blog.kadenze.com/?p=50772), [Apartamento (Dore)](https://wp.wearedore.com/theminis/apartamentomagazine/), [Popeye, ifanr](https://www.ifanr.com/app/1486008)
