@@ -1,0 +1,12 @@
+{
+  "name": "L20N · Lautaro Rodriguez Marcon",
+  "short_name": "L20N",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" },
+    { "src": "/brand/l20n-perfil-1080.png", "type": "image/png", "sizes": "1080x1080" }
+  ],
+  "theme_color": "#0B0B0B",
+  "background_color": "#0B0B0B",
+  "display": "standalone"
+}

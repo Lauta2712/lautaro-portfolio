@@ -1,46 +1,40 @@
 {
   "nav": {
-    "about":      "About",
+    "about": "About",
     "experience": "Experience",
-    "projects":   "Projects",
-    "tech":       "Tech Stack",
-    "contact":    "Contact"
+    "projects": "Archive",
+    "tech": "Tools",
+    "contact": "Contact"
   },
   "hero": {
-    "greeting":   "Hey, I'm",
-    "title":      "Software Developer",
-    "tagline":    "I design and build software end to end  dashboards, web apps, backend APIs, and process automation  with a focus on clean, scalable code.",
+    "signatureOf": "Signature of",
+    "title": "I make things with code. Some of them work.",
+    "tagline": "Websites, systems, the odd light projected on a wall that wasn't meant for it, and whatever comes next. What works stays here. What doesn't, too.",
     "downloadCV": "Download CV",
-    "contactMe":  "Get in touch",
-    "panel": {
-      "title":     "Profile",
-      "role":      "Role",
-      "stack":     "Stack",
-      "base":      "Base"
-    }
+    "contactMe": "Write to me"
   },
   "about": {
-    "label":          "About me",
-    "title":          "A bit about me",
-    "bio1":           "I'm a full stack web developer based in San Juan, Argentina, with 3+ years building products that people actually use. I focus on frontend  React, Vite, CSS  but I'm comfortable across the stack.",
-    "bio2":           "I co-founded Pulso Studio, where we help businesses modernize their operations through custom web platforms and AI-powered automation.",
-    "bio3":           "My English is C1. I work well in async international teams and document my work clearly.",
-    "softSkillsTitle":"How I work",
+    "label": "About me",
+    "title": "Roughly this",
+    "bio1": "San Juan, Argentina. The only one in my family born there, so I talk funny even at home.",
+    "bio2": "I've been programming for a few years. I co-founded Pulso Studio, built a newspaper that writes itself and a couple of systems people use every day without knowing I exist.",
+    "bio3": "Lately I'm into light, sensors and projectors. Not sure where it's going. That's the fun part.",
+    "softSkillsTitle": "Lately",
     "skills": {
-      "collab":    "Collaborative  I work well with designers, PMs, and other devs",
-      "ownership": "Ownership mindset  I own my features end to end",
-      "learning":  "Fast learner  I pick up new tools and frameworks quickly",
-      "async":     "Clear async communicator  I write docs, not just code",
-      "attention": "Detail-oriented  I care about the edges, not just the happy path"
+      "collab": "Breaking things to see how they work.",
+      "ownership": "Deleting more than I add.",
+      "learning": "Posting the process, mistakes included.",
+      "async": "Listening to more music than I should while I code.",
+      "attention": "Asking a lot of questions."
     }
   },
   "exp": {
     "label": "Experience",
     "title": "Where I've worked",
     "pulso": {
-      "role":   "Co-Founder & Full Stack Developer",
+      "role": "Co-Founder & Full Stack Developer",
       "period": "Feb 2026  Present",
-      "desc":   "Running a digital studio for professionals and small businesses. Building websites and landing pages focused on lead generation, with form integrations, email automation, and light analytics. Hands-on with clients across content architecture and messaging."
+      "desc": "Running a digital studio for professionals and small businesses. Building websites and landing pages focused on lead generation, with form integrations, email automation, and light analytics. Hands-on with clients across content architecture and messaging."
     },
     "ant": {
       "role": "Full Stack Developer",
@@ -56,17 +50,17 @@
     }
   },
   "projects": {
-    "label": "Work",
-    "title": "Selected projects",
-    "code":  "Code",
-    "live":  "Live",
+    "label": "Archive",
+    "title": "Things I made",
+    "code": "Code",
+    "live": "Live",
     "viewDetails": "View details for",
     "close": "Close",
     "status": {
-      "live":       "Live",
+      "live": "Live",
       "inProgress": "In Progress",
-      "deployed":   "Deployed",
-      "tool":       "CLI Tool"
+      "deployed": "Deployed",
+      "tool": "CLI Tool"
     },
     "brief": {
       "desc": "Your daily Brief  a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest  no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
@@ -91,18 +85,18 @@
     }
   },
   "tech": {
-    "label":    "Skills",
-    "title":    "Tech stack",
+    "label": "Tools",
+    "title": "The toolbox",
     "frontend": "Frontend",
-    "backend":  "Backend",
-    "tools":    "Tools",
-    "ai":       "AI & Integrations"
+    "backend": "Backend",
+    "tools": "Tools",
+    "ai": "AI & Integrations"
   },
   "contact": {
-    "label":    "Contact",
-    "title":    "Let's work together",
-    "tagline":  "Open to freelance projects, collaborations, and full-time roles. If you have an interesting problem to solve, I'd love to hear about it.",
+    "label": "Contact",
+    "title": "Let's talk",
+    "tagline": "If you've got a weird idea, a half-built project or just want to talk, write to me. I answer.",
     "location": "San Juan, Argentina",
-    "footer":   "Designed and built by Lautaro Rodriguez · 2025"
+    "footer": "L20N · Lautaro Rodriguez Marcon · 2026"
   }
 }

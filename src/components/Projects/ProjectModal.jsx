@@ -3,14 +3,8 @@ import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useMagnetic } from '../../hooks/useMagnetic';
-import { CompassMark } from './Projects';
+import Signature from '../Signature/Signature';
 import styles from './ProjectModal.module.css';
-
-function hueFromId(id) {
-  let hash = 0;
-  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) % 360;
-  return hash;
-}
 
 function GitHubIcon() {
   return (
@@ -96,8 +90,8 @@ export default function ProjectModal({ project, onClose }) {
           {project.cover === 'image' ? (
             <img src={project.image} alt="" className={styles.coverImage} />
           ) : (
-            <div className={styles.coverAbstract} style={{ '--hue': hueFromId(project.id) }}>
-              <CompassMark />
+            <div className={styles.coverAbstract}>
+              <Signature seed={project.name} />
             </div>
           )}
         </div>

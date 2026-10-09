@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProjectModal from './ProjectModal';
+import Signature from '../Signature/Signature';
 import compassImg from '../../assets/projects/compass.webp';
 import crewImg from '../../assets/projects/crew.webp';
 import briefImg from '../../assets/projects/brief.webp';
@@ -98,12 +99,6 @@ function statusKind(status) {
   return status.split('.').pop();
 }
 
-function hueFromId(id) {
-  let hash = 0;
-  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) % 360;
-  return hash;
-}
-
 function GitHubIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -118,15 +113,6 @@ function ExternalIcon() {
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
       <polyline points="15 3 21 3 21 9" />
       <line x1="10" y1="14" x2="21" y2="3" />
-    </svg>
-  );
-}
-
-export function CompassMark() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
     </svg>
   );
 }
@@ -188,16 +174,11 @@ export default function Projects() {
               <div className={styles.cover}>
                 {project.cover === 'image' ? (
                   <div className={styles.coverImage}>
-                    <div className={styles.chrome} aria-hidden="true">
-                      <span className={styles.dotRed} />
-                      <span className={styles.dotAmber} />
-                      <span className={styles.dotGreen} />
-                    </div>
                     <img src={project.image} alt="" loading="lazy" />
                   </div>
                 ) : (
-                  <div className={styles.coverAbstract} style={{ '--hue': hueFromId(project.id) }}>
-                    <CompassMark />
+                  <div className={styles.coverAbstract}>
+                    <Signature seed={project.name} />
                   </div>
                 )}
               </div>

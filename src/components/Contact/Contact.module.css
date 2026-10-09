@@ -38,7 +38,7 @@
   gap: var(--space-3);
   padding: var(--space-4) var(--space-6);
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-on-accent);
   font-weight: var(--weight-semibold);
   font-size: var(--text-base);
   border-radius: var(--radius-md);

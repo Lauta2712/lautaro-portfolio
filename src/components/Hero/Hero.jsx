@@ -1,8 +1,10 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useMagnetic } from '../../hooks/useMagnetic';
 import HeroCanvas from './HeroCanvas';
+import Signature from '../Signature/Signature';
+import { dataFromSeed } from '../Signature/signature';
 import styles from './Hero.module.css';
 
 function SplitChars({ text, startDelay = 0, className, reduceMotion }) {
@@ -24,6 +26,22 @@ function SplitChars({ text, startDelay = 0, className, reduceMotion }) {
   );
 }
 
+// La firma madre (la del logo, con el 0 fino) y después las de cada proyecto.
+const SIGNATURES = [
+  { label: 'L20N', data: [1, 1, 0, 0.9, 0.55, 0.55, 0.77, 0.55] },
+  ...['Crew', 'Compass', 'Brief.', 'Monteca'].map(name => ({ label: name, data: dataFromSeed(name) })),
+];
+
+function useCycle(length, ms, enabled) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    if (!enabled) return undefined;
+    const id = setInterval(() => setIndex(i => (i + 1) % length), ms);
+    return () => clearInterval(id);
+  }, [length, ms, enabled]);
+  return index;
+}
+
 export default function Hero() {
   const { t, i18n } = useTranslation();
   const cvHref = i18n.language === 'en'
@@ -33,6 +51,8 @@ export default function Hero() {
   const heroRef = useRef(null);
   const cta = useMagnetic(0.3, 50);
   const reduceMotion = useReducedMotion();
+  const sigIndex = useCycle(SIGNATURES.length, 2800, !reduceMotion);
+  const current = SIGNATURES[sigIndex];
 
   return (
     <section id="hero" className={styles.hero} ref={heroRef}>
@@ -41,16 +61,18 @@ export default function Hero() {
 
       <div className={`container ${styles.content}`}>
         <div className={styles.mainCol}>
-          <p className={styles.eyebrow}>
-            <span className={styles.eyebrowChip}>PL.00</span>
-            {t('hero.greeting')}
-          </p>
 
           <h1 className={styles.name}>
-            <SplitChars text="Lautaro" reduceMotion={reduceMotion} />
-            <br />
-            <SplitChars text="Rodriguez" startDelay={0.32} className={styles.nameAccent} reduceMotion={reduceMotion} />
+            <Signature data={current.data} className={styles.signature} />
           </h1>
+
+          <p className={styles.sigCaption} aria-live="off">
+            {t('hero.signatureOf')} <span>{current.label}</span>
+          </p>
+
+          <p className={styles.fullName}>
+            <SplitChars text="Lautaro Rodriguez Marcon" startDelay={0.1} reduceMotion={reduceMotion} />
+          </p>
 
           <h2 className={styles.title}>{t('hero.title')}</h2>
 
@@ -113,22 +135,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <aside className={styles.panel}>
-          <span className="reg-corners" aria-hidden="true" />
-          <p className={styles.panelHeader}>{t('hero.panel.title')}</p>
-          <div className={styles.panelRow}>
-            <span className={styles.panelLabel}>{t('hero.panel.role')}</span>
-            <span className={styles.panelValue}>{t('hero.title')}</span>
-          </div>
-          <div className={styles.panelRow}>
-            <span className={styles.panelLabel}>{t('hero.panel.stack')}</span>
-            <span className={styles.panelValue}>React · Python · Docker</span>
-          </div>
-          <div className={styles.panelRow}>
-            <span className={styles.panelLabel}>{t('hero.panel.base')}</span>
-            <span className={styles.panelValue}>{t('contact.location')}</span>
-          </div>
-        </aside>
       </div>
 
       <span className={styles.cornerTL} aria-hidden="true" />

@@ -1,0 +1,19 @@
+.signature {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  line-height: 0.8;
+  white-space: nowrap;
+  color: inherit;
+}
+
+.letter {
+  display: inline-block;
+  transition: font-variation-settings 0.9s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter {
+    transition: none;
+  }
+}

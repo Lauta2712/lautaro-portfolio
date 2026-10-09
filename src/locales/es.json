@@ -1,46 +1,40 @@
 {
   "nav": {
-    "about":      "Sobre mí",
+    "about": "Sobre mí",
     "experience": "Experiencia",
-    "projects":   "Proyectos",
-    "tech":       "Tecnologías",
-    "contact":    "Contacto"
+    "projects": "Archivo",
+    "tech": "Herramientas",
+    "contact": "Contacto"
   },
   "hero": {
-    "greeting":   "Hola, soy",
-    "title":      "Desarrollador de Software",
-    "tagline":    "Diseño y desarrollo software de punta a punta: dashboards, aplicaciones web, APIs backend y automatización de procesos, con foco en código prolijo y escalable.",
+    "signatureOf": "Firma de",
+    "title": "Hago cosas con código. Algunas sirven.",
+    "tagline": "Webs, sistemas, alguna que otra luz proyectada en una pared que no era para eso, y lo que vaya apareciendo. Lo que funciona queda acá. Lo que no, también.",
     "downloadCV": "Descargar CV",
-    "contactMe":  "Contactarme",
-    "panel": {
-      "title":     "Perfil",
-      "role":      "Rol",
-      "stack":     "Stack",
-      "base":      "Base"
-    }
+    "contactMe": "Escribime"
   },
   "about": {
-    "label":          "Sobre mí",
-    "title":          "Un poco sobre mí",
-    "bio1":           "Soy un desarrollador web full stack radicado en Argentina.",
-    "bio2":           "Co-fundé Pulso Studio, donde ayudamos a empresas a modernizar sus operaciones mediante plataformas web personalizadas y automatización con IA.",
-    "bio3":           "Mi inglés es C1. Trabajo bien en equipos internacionales asíncronos y documento mi trabajo de forma clara.",
-    "softSkillsTitle":"Cómo trabajo",
+    "label": "Sobre mí",
+    "title": "Más o menos esto",
+    "bio1": "San Juan, Argentina. El único sanjuanino de la familia, así que hablo raro hasta en mi casa.",
+    "bio2": "Programo hace unos años. Co-fundé Pulso Studio, armé un diario que se escribe solo y un par de sistemas que la gente usa todos los días sin saber que existo.",
+    "bio3": "Ahora ando metido con luz, sensores y proyectores. No sé bien a dónde va. Esa es la parte divertida.",
+    "softSkillsTitle": "Últimamente",
     "skills": {
-      "collab":    "Colaborativo  trabajo bien con diseñadores, PMs y otros devs",
-      "ownership": "Mentalidad de ownership  me hago cargo de mis features de punta a punta",
-      "learning":  "Aprendizaje rápido  adopto nuevas herramientas y frameworks con facilidad",
-      "async":     "Comunicador asíncrono claro  escribo docs, no solo código",
-      "attention": "Orientado al detalle  me importan los casos borde, no solo el happy path"
+      "collab": "Rompiendo cosas para ver cómo andan.",
+      "ownership": "Borrando más de lo que agrego.",
+      "learning": "Subiendo el proceso, errores incluidos.",
+      "async": "Escuchando más música de la que debería mientras programo.",
+      "attention": "Preguntando mucho."
     }
   },
   "exp": {
     "label": "Experiencia",
     "title": "Dónde trabajé",
     "pulso": {
-      "role":   "Co-Fundador y Desarrollador Full Stack",
+      "role": "Co-Fundador y Desarrollador Full Stack",
       "period": "Feb 2026  Presente",
-      "desc":   "Estudio digital para profesionales y pequeñas empresas. Desarrollo de sitios web y landing pages enfocadas en generación de leads, con integraciones de formularios, automatización de emails y analíticas básicas. Trabajo directo con clientes en arquitectura de contenido y definición de mensajes."
+      "desc": "Estudio digital para profesionales y pequeñas empresas. Desarrollo de sitios web y landing pages enfocadas en generación de leads, con integraciones de formularios, automatización de emails y analíticas básicas. Trabajo directo con clientes en arquitectura de contenido y definición de mensajes."
     },
     "ant": {
       "role": "Desarrollador Full Stack",
@@ -56,17 +50,17 @@
     }
   },
   "projects": {
-    "label": "Trabajo",
-    "title": "Proyectos seleccionados",
-    "code":  "Código",
-    "live":  "Ver sitio",
+    "label": "Archivo",
+    "title": "Cosas que hice",
+    "code": "Código",
+    "live": "Ver sitio",
     "viewDetails": "Ver detalle de",
     "close": "Cerrar",
     "status": {
-      "live":       "En producción",
+      "live": "En producción",
       "inProgress": "En desarrollo",
-      "deployed":   "Desplegado",
-      "tool":       "Herramienta CLI"
+      "deployed": "Desplegado",
+      "tool": "Herramienta CLI"
     },
     "brief": {
       "desc": "Your daily Brief  un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias  sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
@@ -91,18 +85,18 @@
     }
   },
   "tech": {
-    "label":    "Habilidades",
-    "title":    "Tecnologías",
+    "label": "Herramientas",
+    "title": "La caja de herramientas",
     "frontend": "Frontend",
-    "backend":  "Backend",
-    "tools":    "Herramientas",
-    "ai":       "IA e Integraciones"
+    "backend": "Backend",
+    "tools": "Herramientas",
+    "ai": "IA e Integraciones"
   },
   "contact": {
-    "label":    "Contacto",
-    "title":    "Trabajemos juntos",
-    "tagline":  "Abierto a proyectos freelance, colaboraciones y posiciones full-time. Si tenés un problema interesante para resolver, me encantaría escucharlo.",
+    "label": "Contacto",
+    "title": "Hablemos",
+    "tagline": "Si tenés una idea rara, un proyecto a medio armar o ganas de charlar, escribime. Contesto.",
     "location": "San Juan, Argentina",
-    "footer":   "Diseñado y desarrollado por Lautaro Rodriguez · 2025"
+    "footer": "L20N · Lautaro Rodriguez Marcon · 2026"
   }
 }

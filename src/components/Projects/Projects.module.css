@@ -95,49 +95,23 @@
   transform: scale(1.05);
 }
 
-.chrome {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 22px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding-inline: 10px;
-  background: rgba(18, 18, 20, 0.55);
-  backdrop-filter: blur(4px);
-}
-
-.chrome span {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-}
-
-.dotRed   { background: var(--color-rose); }
-.dotAmber { background: var(--color-amber); }
-.dotGreen { background: var(--color-green); }
 
 .coverAbstract {
+  container-type: inline-size;
   width: 100%;
   aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background:
-    radial-gradient(120% 140% at 12% 15%, hsla(var(--hue), 85%, 65%, 0.32), transparent 55%),
-    radial-gradient(120% 140% at 88% 85%, hsla(calc(var(--hue) + 40), 80%, 60%, 0.22), transparent 55%),
-    var(--color-bg-2);
+  background: var(--color-bg-2);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 
-.coverAbstract svg {
-  width: 34%;
-  height: 34%;
-  opacity: 0.14;
-  color: hsl(var(--hue), 85%, 72%);
+/* cqw se mide contra este contenedor, así que el tamaño va en el hijo */
+.coverAbstract > * {
+  font-size: 20cqw;
 }
 
 /* ── Body ── */
@@ -192,31 +166,29 @@
   flex-shrink: 0;
 }
 
+/* Sin color de marca: el estado se lee por el trazo, no por el tono. */
 /* live: shipped and running in production */
 .status--live {
-  color: var(--color-green);
-  background: rgba(79, 216, 196, 0.08);
-  border-color: rgba(79, 216, 196, 0.25);
+  color: var(--color-text);
+  border-color: var(--color-border-accent);
 }
 
 /* deployed: running, but internal/private (bot, agent, integration) */
 .status--deployed {
-  color: var(--color-accent-2);
-  background: rgba(var(--color-accent-rgb), 0.08);
-  border-color: rgba(var(--color-accent-rgb), 0.25);
+  color: var(--color-text-muted);
+  border-color: var(--color-border-accent);
 }
 
 /* inProgress: actively being built */
 .status--inProgress {
-  color: var(--color-amber);
-  background: rgba(245, 185, 66, 0.08);
-  border-color: rgba(245, 185, 66, 0.25);
+  color: var(--color-text-muted);
+  border-color: var(--color-border-accent);
+  border-style: dashed;
 }
 
 /* tool: CLI / script, not a running service */
 .status--tool {
   color: var(--color-text-faint);
-  background: rgba(255, 255, 255, 0.04);
   border-color: var(--color-border);
 }
 

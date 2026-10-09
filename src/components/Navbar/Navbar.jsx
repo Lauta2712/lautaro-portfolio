@@ -49,8 +49,7 @@ export default function Navbar() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a href="#hero" className={styles.logo} onClick={close}>
-          <span className={styles.logoAccent}>{'<'}</span>LR
-          <span className={styles.logoAccent}>{'/>'}</span>
+          <img src="/brand/l20n-blanco.svg" alt="L20N" width="74" height="22" />
         </a>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
