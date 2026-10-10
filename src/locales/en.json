@@ -134,6 +134,12 @@
     },
     "compass": {
       "tagline": "Clients, projects, tasks and finances in one place. For agencies."
+    },
+    "noodle": {
+      "tagline": "Play, improvise, compose."
+    },
+    "ziel": {
+      "tagline": "Spaces to organize anything: tasks, notes, files, dates and places."
     }
   }
 }

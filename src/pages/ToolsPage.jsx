@@ -49,6 +49,7 @@ export default function ToolsPage() {
               </p>
             </div>
 
+            {tool.shots.length > 0 && (
             <div className={styles.shots}>
               {tool.shots.map(shot => (
                 <a key={shot.image} href={tool.url} target="_blank" rel="noreferrer" className={styles.shot} data-cursor={t('archive.go')}>
@@ -56,6 +57,7 @@ export default function ToolsPage() {
                 </a>
               ))}
             </div>
+            )}
           </article>
         ))}
       </div>

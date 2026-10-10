@@ -134,6 +134,12 @@
     },
     "compass": {
       "tagline": "Clientes, proyectos, tareas y finanzas en un solo lugar. Para agencias."
+    },
+    "noodle": {
+      "tagline": "Tocar, improvisar, componer."
+    },
+    "ziel": {
+      "tagline": "Espacios para ordenar lo que sea: tareas, notas, archivos, fechas y lugares."
     }
   }
 }
