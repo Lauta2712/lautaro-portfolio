@@ -1,7 +1,7 @@
 import compassImg from '../assets/projects/compass.webp';
 import compassAppImg from '../assets/projects/compass-app.webp';
-import noodleImg from '../assets/projects/noodle.webp';
-import noodleAppImg from '../assets/projects/noodle-app.webp';
+import noodleLandingImg from '../assets/projects/noodle-landing.webp';
+import zielImg from '../assets/projects/ziel.webp';
 
 // Las herramientas que se pueden usar hoy, con link para entrar.
 // Cada una: nombre, estado, para qué sirve (taglineKey), qué trae
@@ -29,8 +29,7 @@ export const TOOLS = [
     stack: ['React 19', 'Vite', 'TypeScript', 'Tailwind', 'Dexie', 'PWA'],
     url: 'https://noodle-music.vercel.app/',
     shots: [
-      { image: noodleImg, alt: 'Noodle: escalas sobre el diapasón' },
-      { image: noodleAppImg, alt: 'Noodle: compositor de progresiones' },
+      { image: noodleLandingImg, alt: 'Noodle: portada con la cuerda' },
     ],
   },
   {
@@ -41,6 +40,8 @@ export const TOOLS = [
     features: ['Tareas', 'Checklists', 'Notas', 'Links', 'Eventos', 'Archivos', 'Calendario', 'Mapa'],
     stack: ['React 19', 'Vite', 'TypeScript', 'Supabase', 'Leaflet', 'PWA'],
     url: 'https://ziel-l20n.vercel.app/',
-    shots: [],
+    shots: [
+      { image: zielImg, alt: 'Ziel: pantalla de acceso' },
+    ],
   },
 ];
