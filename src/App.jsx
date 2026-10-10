@@ -7,6 +7,7 @@ import About   from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Cursor  from './components/Cursor/Cursor';
 import CvPage  from './pages/CvPage';
+import ToolsPage from './pages/ToolsPage';
 import { startLenis, stopLenis } from './lib/lenis';
 
 // El taller (posteos de Instagram) es una herramienta interna: va aparte del bundle.
@@ -24,7 +25,7 @@ function Gridlines() {
 
 export default function App() {
   const path = window.location.pathname.replace(/\/+$/, '');
-  const page = path === '/cv' ? 'cv' : path === '/taller' ? 'taller' : 'home';
+  const page = path === '/cv' ? 'cv' : path === '/tools' ? 'tools' : path === '/taller' ? 'taller' : 'home';
 
   useEffect(() => {
     if (page === 'taller') return;
@@ -48,6 +49,8 @@ export default function App() {
       <main>
         {page === 'cv' ? (
           <CvPage />
+        ) : page === 'tools' ? (
+          <ToolsPage />
         ) : (
           <>
             <Intro />

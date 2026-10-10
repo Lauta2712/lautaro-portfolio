@@ -10,6 +10,7 @@ const HOME_LINKS = [
   { key: 'nav.projects', href: '/#archivo' },
   { key: 'nav.about',    href: '/#info' },
   { key: 'nav.contact',  href: '/#contacto' },
+  { key: 'nav.tools',    href: '/tools' },
   { key: 'nav.cv',       href: '/cv' },
 ];
 
@@ -44,8 +45,8 @@ export default function Navbar({ page = 'home' }) {
             <a
               key={key}
               href={href}
-              className={`${styles.link} ${page === 'cv' && href === '/cv' ? styles.active : ''}`}
-              aria-current={page === 'cv' && href === '/cv' ? 'page' : undefined}
+              className={`${styles.link} ${href === `/${page}` ? styles.active : ''}`}
+              aria-current={href === `/${page}` ? 'page' : undefined}
               onClick={close}
             >
               {t(key)}

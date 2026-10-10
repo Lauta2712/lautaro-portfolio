@@ -5,7 +5,8 @@
     "projects": "Archivo",
     "tech": "Herramientas",
     "contact": "Contacto",
-    "cv": "CV"
+    "cv": "CV",
+    "tools": "Tools"
   },
   "hero": {
     "signatureOf": "Firma de",
@@ -125,5 +126,14 @@
   },
   "cv": {
     "back": "Volver"
+  },
+  "tools": {
+    "open": "Abrir",
+    "status": {
+      "beta": "Beta pública"
+    },
+    "compass": {
+      "tagline": "Clientes, proyectos, tareas y finanzas en un solo lugar. Para agencias."
+    }
   }
 }

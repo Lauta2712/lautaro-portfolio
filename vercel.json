@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/cv", "destination": "/index.html" },
+    { "source": "/tools", "destination": "/index.html" },
     { "source": "/taller", "destination": "/index.html" }
   ]
 }
