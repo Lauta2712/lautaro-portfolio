@@ -9,17 +9,19 @@ const pad = n => String(n).padStart(2, '0');
 export default function ToolsPage() {
   const { t } = useTranslation();
 
+  const title = t('nav.tools');
+
   useEffect(() => {
     const previous = document.title;
-    document.title = 'Tools · L20N';
+    document.title = `${title} · L20N`;
     return () => { document.title = previous; };
-  }, []);
+  }, [title]);
 
   return (
     <div className={styles.page}>
       <header className={`wrap ${styles.head}`}>
         <a href="/" className={styles.back}>← {t('cv.back')}</a>
-        <h1 className={styles.title}>{t('nav.tools')}</h1>
+        <h1 className={styles.title}>{title}</h1>
         <p className={styles.intro}>{t('tools.intro')}</p>
       </header>
 

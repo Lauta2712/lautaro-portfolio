@@ -807,7 +807,7 @@ Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidi
 - **Contenido:** crudo, sin filtro. El diseño vive en el marco.
 - **Para probar:** algunos posts sin marco (montaña, por ejemplo), para que la grilla no quede rígida.
 
-**Plantillas:** página oculta `/taller` en el portfolio (armada el 9 de octubre de 2026). Por ahora tiene la plantilla del carrusel de nombres descartados (#001): portada, un nombre tachado en línea fina por slide con su motivo, y cierre con la firma madre. Exporta PNG de 1080 × 1350. Falta la plantilla de marco para fotos.
+**Plantillas:** se arman en Compass. La página `/taller` del portfolio (9 al 11 de octubre de 2026) se borró el 11 de octubre para no duplicar herramientas; la plantilla del carrusel de nombres (#001) queda en el historial de git.
 
 **Primeros posts (preguntas abiertas):**
 

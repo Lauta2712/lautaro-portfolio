@@ -30,6 +30,8 @@
   font-stretch: 130%;
   line-height: 0.8;
   letter-spacing: -0.03em;
+  /* Lugar para los acentos (Útiles), que el interlineado apretado no cubre. */
+  padding-top: 0.2em;
 }
 
 .intro {
@@ -183,8 +185,33 @@
     grid-column: 1 / -1;
   }
 
+  /* En una columna: número y nombre, la captura y después la descripción.
+     La meta se disuelve para poder intercalar la captura entre sus partes. */
+  .tool {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+  }
+
   .meta {
-    position: static;
-    margin-bottom: var(--space-8);
+    display: contents;
+  }
+
+  .number,
+  .kind,
+  .name {
+    order: -2;
+  }
+
+  .shots {
+    order: -1;
+    margin-block: var(--space-4);
+  }
+
+  .number,
+  .kind,
+  .cta {
+    align-self: flex-start;
   }
 }
