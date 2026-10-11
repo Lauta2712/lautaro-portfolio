@@ -61,6 +61,7 @@
     "status": {
       "live": "Live",
       "inProgress": "In Progress",
+      "building": "Under construction",
       "deployed": "Deployed",
       "tool": "CLI Tool"
     },
@@ -71,7 +72,7 @@
       "desc": "Multi-agency CRM (formerly an internal tool called Pulso CRM, now offered to other agencies with their own branding): clients, agile project management with drag-and-drop kanban, finance, and docs. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
     },
     "crew": {
-      "desc": "SaaS platform for gym management: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase."
+      "desc": "SaaS platform for gym management: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase. Under construction: payments still need testing."
     },
     "agent": {
       "desc": "Conversational AI agent for B2B sales automation, integrated with CRM and messaging."
