@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import './styles/global.css';
 import Navbar  from './components/Navbar/Navbar';
 import Intro   from './components/Intro/Intro';
@@ -9,6 +9,9 @@ import Cursor  from './components/Cursor/Cursor';
 import CvPage  from './pages/CvPage';
 import ToolsPage from './pages/ToolsPage';
 import { startLenis, stopLenis } from './lib/lenis';
+
+// Fondos trae la librería de exportación a PNG: carga aparte del resto.
+const WallpapersPage = lazy(() => import('./pages/WallpapersPage'));
 
 function Gridlines() {
   return (
@@ -22,7 +25,8 @@ function Gridlines() {
 
 export default function App() {
   const path = window.location.pathname.replace(/\/+$/, '');
-  const page = path === '/cv' ? 'cv' : path === '/tools' ? 'tools' : 'home';
+  const PAGES = { '/cv': 'cv', '/tools': 'tools', '/fondos': 'fondos' };
+  const page = PAGES[path] ?? 'home';
 
   useEffect(() => {
     startLenis();
@@ -39,6 +43,10 @@ export default function App() {
           <CvPage />
         ) : page === 'tools' ? (
           <ToolsPage />
+        ) : page === 'fondos' ? (
+          <Suspense fallback={null}>
+            <WallpapersPage />
+          </Suspense>
         ) : (
           <>
             <Intro />

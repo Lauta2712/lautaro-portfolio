@@ -33,7 +33,7 @@ const EXPERIENCE = [
   },
   {
     id: 'qxm',
-    company: 'QXM — Quien x Mi',
+    company: 'QXM (Quien x Mi)',
     role: 'exp.qxm.role',
     period: 'Sep 2023 – Dec 2023',
     desc: 'exp.qxm.desc',

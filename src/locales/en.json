@@ -66,7 +66,7 @@
       "tool": "CLI Tool"
     },
     "brief": {
-      "desc": "Your daily Brief — a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest — no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
+      "desc": "Your daily Brief: a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest, with no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
     },
     "pulso": {
       "desc": "Multi-agency CRM (formerly an internal tool called Pulso CRM, now offered to other agencies with their own branding): clients, agile project management with drag-and-drop kanban, finance, and docs. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
@@ -142,5 +142,31 @@
     "ziel": {
       "tagline": "Spaces to organize anything: tasks, notes, files, dates and places."
     }
+  },
+  "wallpapers": {
+    "title": "Wallpapers",
+    "seed": "Signature of",
+    "another": "Another",
+    "form": "Shape",
+    "forms": {
+      "line": "Line",
+      "stacked": "Stacked",
+      "column": "Column"
+    },
+    "bg": "Background",
+    "bgs": {
+      "dark": "Black",
+      "light": "White"
+    },
+    "size": "Size",
+    "sizes": {
+      "screen": "This screen",
+      "phone": "iPhone",
+      "android": "Android",
+      "desktop": "Desktop",
+      "4k": "4K"
+    },
+    "download": "Download",
+    "busy": "Generating…"
   }
 }

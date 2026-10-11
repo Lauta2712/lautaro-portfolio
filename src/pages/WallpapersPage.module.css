@@ -1,0 +1,213 @@
+.page {
+  padding-top: calc(var(--nav-height) + var(--space-12));
+  padding-bottom: var(--space-24);
+}
+
+.head {
+  display: grid;
+  gap: var(--space-6);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.back {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  justify-self: start;
+}
+
+.back:hover {
+  color: var(--color-text);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 12rem);
+  font-weight: 900;
+  font-stretch: 130%;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  padding-top: 0.2em;
+}
+
+/* ── Vista previa a la izquierda, controles a la derecha ── */
+.body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+  padding-top: var(--space-16);
+}
+
+.stage {
+  grid-column: 1 / span 8;
+  display: flex;
+  justify-content: center;
+}
+
+/* La caja mide lo mismo que el fondo escalado (se calcula en el JSX). */
+.box {
+  position: relative;
+  overflow: hidden;
+  outline: 1px solid var(--color-border);
+}
+
+.scaler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+}
+
+.controls {
+  grid-column: 9 / span 4;
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-8));
+  display: grid;
+  gap: var(--space-6);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.label,
+.dims {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.seedRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.seedRow input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: var(--color-bg-2);
+  border: 1px solid var(--color-border);
+}
+
+.seedRow input:focus {
+  outline: none;
+  border-color: var(--color-border-accent);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.on,
+.off {
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.off {
+  color: var(--color-text-muted);
+  background: transparent;
+}
+
+.off:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-faint);
+}
+
+.on {
+  color: var(--color-on-accent);
+  background: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.cta {
+  justify-self: start;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-text);
+  color: var(--color-on-accent);
+  border: 0;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.cta:hover {
+  background: var(--color-accent-hover);
+}
+
+.cta:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* ── El fondo en sí: se exporta tal cual. Solo negro y blanco. ── */
+.wallpaper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.dark {
+  background: #0B0B0B;
+  color: #F5F5F5;
+}
+
+.light {
+  background: #F5F5F5;
+  color: #0B0B0B;
+}
+
+.sig {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--font-display);
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+}
+
+.seed {
+  position: absolute;
+  left: 5%;
+  bottom: 4%;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+}
+
+@media (max-width: 900px) {
+  .stage,
+  .controls {
+    grid-column: 1 / -1;
+  }
+
+  .controls {
+    position: static;
+    margin-top: var(--space-8);
+  }
+}
