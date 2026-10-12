@@ -1,0 +1,59 @@
+BÚSQUEDAS DE TRABAJO EN LINKEDIN
+================================
+
+Sintaxis
+--------
+- AND / OR / NOT siempre en MAYÚSCULA (si no, los toma como palabras).
+- "comillas" = frase exacta.
+- (paréntesis) = agrupar.
+
+
+PESTAÑA POSTS  (ordenar por Latest; escribirle directo a quien publica)
+-----------------------------------------------------------------------
+
+Full stack / frontend:
+("full stack" OR fullstack OR frontend) AND React AND (hiring OR "we're hiring" OR "join our team")
+
+Automatización / IA:
+(automation OR n8n OR "AI engineer" OR "AI agents") AND (hiring OR "looking for")
+
+Alemania (posts en inglés y alemán):
+(React OR TypeScript) AND (hiring OR "wir suchen" OR "wir stellen ein") AND (Berlin OR München OR Hamburg OR Germany)
+
+.NET + React:
+(".NET" OR "C#") AND React AND (hiring OR "looking for a developer")
+
+Startups / primer dev:
+(startup OR founder) AND ("first engineer" OR "founding engineer") AND hiring
+
+
+PESTAÑA JOBS  (guardar cada una con "Set alert")
+------------------------------------------------
+
+Full stack / frontend (sin senior; sacar el NOT para probar puestos más altos):
+("full stack" OR fullstack OR "frontend developer") AND (React OR TypeScript) NOT (senior OR lead OR principal)
+
+Automatización / IA:
+("automation engineer" OR "AI engineer" OR "workflow automation" OR n8n OR "LLM")
+
+Puestos que mezclan código y diseño:
+("product engineer" OR "design engineer" OR "creative developer")
+
+Alemania, equipos en inglés (filtra avisos que piden alemán fluido):
+(React OR "full stack") AND (English) NOT (German OR Deutsch OR "fließend")
+
+
+Filtros
+-------
+- Date posted: Past week (o Past 24 hours si buscás todos los días)
+- Location: Germany + Remote
+- Experience: Entry + Associate + Mid-Senior
+- Easy Apply: solo si querés volumen
+
+
+Notas
+-----
+- "Product engineer" y "design engineer" son los puestos que más encajan con el perfil
+  (código con criterio de diseño; el portfolio L20N lo demuestra).
+- Permiso de trabajo en Alemania: aclarar
+  "Working Holiday Visa, work permit included" para que no te descarten.
