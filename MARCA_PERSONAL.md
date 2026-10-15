@@ -809,11 +809,23 @@ Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidi
 
 **Plantillas:** se arman en Compass. La página `/taller` del portfolio (9 al 11 de octubre de 2026) se borró el 11 de octubre para no duplicar herramientas; la plantilla del carrusel de nombres (#001) queda en el historial de git.
 
-**Primeros posts (preguntas abiertas):**
+**Primeros posts (en exploración, 15 de octubre de 2026):**
 
-- ¿Arranco con 3 posts juntos (una fila) o con uno solo?
-- ¿Qué mezcla? Algo hecho (como Brief, sin nombrar el código), algo de montaña y algo que me tenga manija.
+- **Arranque:** 3 posts juntos para llenar la primera fila. Instagram pone el último arriba a la izquierda, así que la fila queda `[ #003 ] [ #002 ] [ #001 ]`.
+- **#001 · Presentación informal:** carrusel de 4 o 5 fotos mías, crudas (montaña, guitarra, compu, alguna random). Marco solo en la primera, o en ninguna. Epígrafe corto en el tono de la bio: que hablen las fotos y no enumerar intereses.
+- **#002 · Brief, crudo:** un solo proyecto por post, no un carrusel de portfolio. Foto con el celu o video corto, sin nombrar el código. Compass y Monteca quedan para posts propios más adelante.
+- **#003 · Noodle (me gusta, capaz lo hago):** video corto tocando la guitarra con Noodle abierto. Mete la música y un proyecto que no es "de laburo", y equilibra con Brief. Otras opciones que quedaron: montaña sin marco, o algo de otra persona (disco, libro, cuenta) con la firma toda en línea fina.
+- **Descartado por ahora:** el carrusel con el proceso de los nombres. No me interesa mostrarlo.
+- **Dirección de la grilla (en exploración, 15 de octubre de 2026): portada tipográfica.** La primera slide de cada post es una placa negra con una sola palabra en blanco (por ejemplo "intro" para el #001). Adentro del carrusel va lo crudo: fotos mías, de proyectos o ambas. Al entrar al perfil, la grilla se lee como un índice de placas, como el índice de una revista o el archivo del portfolio. Afuera prolijo, adentro crudo.
+  - **Contra la monotonía:** cada palabra tiene su propia forma tipográfica. Roboto Flex con peso, ancho y posición variando según la pieza, igual que la firma viva: coherentes, pero ninguna placa igual a otra.
+  - **La palabra:** una sola, en minúscula y en mi voz. Mejor que nombre el momento que el proyecto (más "mañanas" que "brief").
+  - **Recorte 3:4:** el texto no toca los costados.
+  - **Feed:** al que no me sigue le aparece primero la placa. Instagram suele volver a mostrar el carrusel desde la segunda slide, así que las fotos llegan igual. Al principio pesa más la coherencia del perfil que el alcance.
+  - **Romper la regla a propósito:** de vez en cuando, una foto sin placa (montaña, por ejemplo) en medio de la grilla.
+  - **Ojo:** que las placas no se vuelvan frases motivacionales ni de manifiesto.
 - **Ritmo:** algo sostenible, 1 o 2 por semana.
+- **Destacadas:** no armarlas para el lanzamiento. Primero juntar 2 o 3 semanas de historias del taller y después agrupar. Como mucho 3 o 4 secciones, por ejemplo proceso, montaña, lo que suena o leo y hecho; los nombres los pongo yo. Portadas: la firma de cada sección en blanco sobre negro, sin íconos.
+- **Pendiente:** decidir si la numeración (#001…) se comparte con LinkedIn, donde #002 es el rebranding y #003 es Brief.
 
 **A quién seguir:** ver [`CUENTAS_INSTAGRAM.md`](CUENTAS_INSTAGRAM.md).
 
