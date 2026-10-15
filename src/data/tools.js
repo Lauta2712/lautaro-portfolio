@@ -13,7 +13,7 @@ export const TOOLS = [
     statusKey: 'tools.status.beta',
     taglineKey: 'tools.compass.tagline',
     features: ['Clientes', 'Proyectos', 'Board', 'Finanzas', 'Cuentas', 'Docs'],
-    stack: ['React 19', 'Vite', 'Supabase', 'Zustand', 'TanStack Query', '@dnd-kit'],
+    stack: ['React 19', 'Vite', 'Supabase', 'TanStack Query', 'Zustand', '@dnd-kit', 'react-konva'],
     url: 'https://compass-ps.vercel.app/',
     shots: [
       { image: compassImg, alt: 'Compass: portada con funciones y precios' },

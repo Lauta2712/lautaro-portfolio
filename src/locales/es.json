@@ -62,29 +62,22 @@
       "live": "En producción",
       "inProgress": "En desarrollo",
       "building": "En construcción",
-      "deployed": "Desplegado",
-      "tool": "Herramienta CLI"
+      "beta": "En beta"
     },
     "brief": {
-      "desc": "Your daily Brief: un agregador de noticias que lee múltiples fuentes RSS, categoriza y resume cada artículo con IA, y publica un digest limpio y multi-idioma. Todo el pipeline de contenido corre solo: un workflow de n8n programado trae artículos nuevos de 5 fuentes RSS en paralelo, itera sobre cada uno para categorizarlo y resumirlo con IA, lo guarda en Supabase y termina enviando un email diario con el resumen de noticias, sin intervención manual. Construido con React 19, TypeScript, Vite, Tailwind CSS 4 y Supabase."
+      "desc": "Your daily Brief: noticias de varias fuentes, categorizadas y resumidas con IA, en un digest diario en español e inglés. Un workflow de n8n trae los artículos, los procesa y los guarda solo, sin intervención manual. El sitio se puede leer offline y genera sus propias imágenes para compartir."
     },
     "pulso": {
-      "desc": "CRM multi-agencia (antes uso interno como Pulso CRM, ahora ofrecido a otras agencias con branding propio): clientes, gestión ágil de proyectos con kanban (drag & drop), finanzas y documentos. Construido con React 19, Vite, Supabase (Postgres + Auth + RLS) y Zustand."
+      "desc": "Plataforma para agencias: clientes y prospectos, gestión ágil de proyectos con kanban y sprints, finanzas, calendario de contenido, campañas de ads y biblioteca de medios. Suma un Studio con brand kit por cliente y un editor visual para armar piezas de diseño."
     },
     "crew": {
-      "desc": "Plataforma SaaS de gestión para gimnasios: check-in por QR, gestión de clases y pagos, con planes e identidad visual propia por gimnasio. Construido con Vite, React y Supabase. En construcción: falta probar el método de pago."
-    },
-    "agent": {
-      "desc": "Agente de IA conversacional para automatización de ventas B2B, integrado con CRM y mensajería."
-    },
-    "landing": {
-      "desc": "Landing page comercial para MonteCa, asesores de seguros automotores y de flotas: formulario de cotización, sección de servicios y captación de leads. Construida con React 19 y Vite, desplegada en Vercel."
+      "desc": "Plataforma para gimnasios boutique (escalada, crossfit, yoga): check-in por QR, clases, planes y pagos, con identidad visual propia por gimnasio. Multi-tenant, con suscripción vía Mercado Pago."
     },
     "insurance": {
-      "desc": "Sistema de gestión interna para Monteca, asesores de seguros: administración de clientes, vehículos y pólizas, todo centralizado y siempre disponible. Construido con React 19, Vite y Supabase RLS."
+      "desc": "Sistema de gestión para Monteca, asesores de seguros: clientes, vehículos, contratos y pólizas, recibos en PDF con código de barras, caja y roles por nivel. Un servicio aparte avisa todos los días por email y WhatsApp las cuotas y pólizas por vencer. También tiene su landing para captar clientes."
     },
-    "scraper": {
-      "desc": "Herramienta CLI en Node.js que extrae datos de rutas de escalada de Mountain Project. Usa Playwright para renderizado dinámico y genera JSON estructurado."
+    "noodle": {
+      "desc": "Para aprender guitarra y teoría musical tocando de oído: afinador, diapasón interactivo con escalas, teoría, cancionero con transposición y un entrenador de oído. Funciona offline y se instala como app."
     }
   },
   "tech": {

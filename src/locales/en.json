@@ -62,29 +62,22 @@
       "live": "Live",
       "inProgress": "In Progress",
       "building": "Under construction",
-      "deployed": "Deployed",
-      "tool": "CLI Tool"
+      "beta": "Beta"
     },
     "brief": {
-      "desc": "Your daily Brief: a news aggregator that reads multiple RSS feeds, categorizes and summarizes each article with AI, and publishes a clean, multi-language digest. The whole content pipeline runs on its own: a scheduled n8n workflow pulls new articles from 5 RSS sources in parallel, loops through each one to categorize and summarize it with AI, saves it to Supabase, and wraps up by emailing a daily news digest, with no manual intervention. Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Supabase."
+      "desc": "Your daily Brief: news from multiple sources, categorized and summarized with AI into a daily digest in Spanish and English. An n8n workflow pulls the articles, processes them and stores them on its own, with no manual intervention. The site works offline and generates its own share images."
     },
     "pulso": {
-      "desc": "Multi-agency CRM (formerly an internal tool called Pulso CRM, now offered to other agencies with their own branding): clients, agile project management with drag-and-drop kanban, finance, and docs. Built with React 19, Vite, Supabase (Postgres + Auth + RLS), and Zustand."
+      "desc": "A platform for agencies: clients and prospects, agile project management with kanban and sprints, finance, a content calendar, ad campaigns and a media library. Plus a Studio with a per-client brand kit and a visual editor for design pieces."
     },
     "crew": {
-      "desc": "SaaS platform for gym management: QR check-in, class scheduling, and payments, with pricing plans and per-gym branding. Built with Vite, React, and Supabase. Under construction: payments still need testing."
-    },
-    "agent": {
-      "desc": "Conversational AI agent for B2B sales automation, integrated with CRM and messaging."
-    },
-    "landing": {
-      "desc": "Marketing landing page for MonteCa, auto and fleet insurance advisors: quote request form, services section, and lead capture. Built with React 19 and Vite, deployed on Vercel."
+      "desc": "A platform for boutique gyms (climbing, crossfit, yoga): QR check-in, classes, plans and payments, with each gym's own branding. Multi-tenant, with subscriptions through Mercado Pago."
     },
     "insurance": {
-      "desc": "Internal management system for Monteca, insurance advisors: centralized client, vehicle, and policy administration, always available. Built with React 19, Vite, and Supabase RLS."
+      "desc": "Management system for Monteca, insurance advisors: clients, vehicles, contracts and policies, PDF receipts with barcodes, cash register and role-based access. A separate service sends daily email and WhatsApp reminders for upcoming installments and policy renewals. Plus its own landing page to bring in new clients."
     },
-    "scraper": {
-      "desc": "Node.js CLI tool that scrapes Mountain Project for climbing route data. Uses Playwright for dynamic rendering and outputs structured JSON."
+    "noodle": {
+      "desc": "For learning guitar and music theory by ear: tuner, interactive fretboard with scales, theory, a songbook with transposition and an ear trainer. Works offline and installs as an app."
     }
   },
   "tech": {
