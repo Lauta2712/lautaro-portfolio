@@ -21,7 +21,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  counter-reset: plate;
 }
 
 ::selection {
@@ -99,6 +98,7 @@ button {
 
 /* Líneas de la retícula, fijas detrás de todo */
 .gridlines {
+  /* display: none; */
   position: fixed;
   inset: 0;
   z-index: var(--z-bg);
@@ -131,7 +131,6 @@ button {
 /* ── Section base ── */
 .section {
   padding-block: var(--space-24);
-  counter-increment: plate;
 }
 
 @media (max-width: 768px) {
@@ -164,15 +163,6 @@ button {
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: var(--space-3);
-}
-
-.section-label::before {
-  content: 'N.º ' counter(plate, decimal-leading-zero);
-  color: var(--color-text-faint);
-  border: 1px solid var(--color-border);
-  padding: 1px var(--space-2);
-  border-radius: var(--radius-sm);
-  font-size: 0.7rem;
 }
 
 .section-title {
