@@ -3,6 +3,7 @@ import crewImg from '../assets/projects/crew.webp';
 import briefImg from '../assets/projects/brief.webp';
 import montecaImg from '../assets/projects/monteca.webp';
 import noodleImg from '../assets/projects/noodle-landing.webp';
+import blueprintImg from '../assets/projects/blueprint.webp';
 
 // La firma madre: la del logo, con el 0 fino.
 export const MOTHER = [1, 1, 0, 0.9, 0.55, 0.55, 0.77, 0.55];
@@ -14,6 +15,18 @@ export const MOTHER = [1, 1, 0, 0.9, 0.55, 0.55, 0.77, 0.55];
 //   note    → { text, url? }
 // Los filtros salen solos de los tipos que haya cargados.
 export const PIECES = [
+  {
+    id: 'blueprint',
+    type: 'project',
+    name: 'Blueprint',
+    descKey: 'projects.blueprint.desc',
+    stack: ['React 19', 'Vite', 'React Router', 'SVG', 'PWA'],
+    github: null,
+    live: 'https://blueprint-l20n.vercel.app/',
+    status: 'projects.status.beta',
+    cover: 'image',
+    image: blueprintImg,
+  },
   {
     id: 'brief',
     type: 'project',

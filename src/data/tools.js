@@ -2,6 +2,8 @@ import compassImg from '../assets/projects/compass.webp';
 import compassAppImg from '../assets/projects/compass-app.webp';
 import noodleLandingImg from '../assets/projects/noodle-landing.webp';
 import zielImg from '../assets/projects/ziel.webp';
+import blueprintImg from '../assets/projects/blueprint.webp';
+import blueprintLabImg from '../assets/projects/blueprint-lab.webp';
 
 // Las herramientas que se pueden usar hoy, con link para entrar.
 // Cada una: nombre, estado, para qué sirve (taglineKey), qué trae
@@ -42,6 +44,19 @@ export const TOOLS = [
     url: 'https://ziel-l20n.vercel.app/',
     shots: [
       { image: zielImg, alt: 'Ziel: pantalla de acceso' },
+    ],
+  },
+  {
+    id: 'blueprint',
+    name: 'Blueprint',
+    statusKey: 'tools.status.beta',
+    taglineKey: 'tools.blueprint.tagline',
+    features: ['Lab', 'Hojas', 'Plantillas', 'Patrones', 'Láminas', 'Manual'],
+    stack: ['React 19', 'Vite', 'React Router', 'SVG', 'PWA'],
+    url: 'https://blueprint-l20n.vercel.app/',
+    shots: [
+      { image: blueprintImg, alt: 'Blueprint: portada' },
+      { image: blueprintLabImg, alt: 'Blueprint: el Lab con piezas y plantillas' },
     ],
   },
 ];

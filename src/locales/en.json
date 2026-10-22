@@ -78,6 +78,9 @@
     },
     "noodle": {
       "desc": "For learning guitar and music theory by ear: tuner, interactive fretboard with scales, theory, a songbook with transposition and an ear trainer. Works offline and installs as an app."
+    },
+    "blueprint": {
+      "desc": "A canvas for drawing how a project is built, like a blueprint: architecture, frontend, wireframes, data and flows, each on its own sheet. Every piece carries its file, the pattern it uses and links to learn it. Comes with architecture and pattern templates, exports to JSON and works offline."
     }
   },
   "tech": {
@@ -134,6 +137,9 @@
     },
     "ziel": {
       "tagline": "From one traveler to another."
+    },
+    "blueprint": {
+      "tagline": "Think your software through before you write it."
     }
   },
   "wallpapers": {

@@ -807,7 +807,7 @@ Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidi
 - **Contenido:** crudo, sin filtro. El diseño vive en el marco.
 - **Para probar:** algunos posts sin marco (montaña, por ejemplo), para que la grilla no quede rígida.
 
-**Plantillas:** se arman en Compass. La página `/taller` del portfolio (9 al 11 de octubre de 2026) se borró el 11 de octubre para no duplicar herramientas; la plantilla del carrusel de nombres (#001) queda en el historial de git.
+**Plantillas:** se arman en Compass. La página `/taller` del portfolio (9 al 11 de octubre de 2026) se borró el 11 de octubre para no duplicar herramientas; la plantilla del carrusel de nombres (#001) queda en el historial de git. Desde el 18 de octubre de 2026 el Studio de Compass tiene los moldes **Portada tipográfica** y **Foto con marco** y una capa **Palabra viva**, que reproduce la regla de la firma: misma semilla, misma palabra, siempre una letra fina. El ancho de cada letra va en pasos (50 a 150%) en vez de continuo. Para seguir la serie conviene duplicar el diseño anterior desde el listado.
 
 **Primeros posts (en exploración, 15 de octubre de 2026):**
 
@@ -826,6 +826,23 @@ Cuenta nueva, abierta el 9 de octubre de 2026. Nada de lo que sigue está decidi
 - **Ritmo:** algo sostenible, 1 o 2 por semana.
 - **Destacadas:** no armarlas para el lanzamiento. Primero juntar 2 o 3 semanas de historias del taller y después agrupar. Como mucho 3 o 4 secciones, por ejemplo proceso, montaña, lo que suena o leo y hecho; los nombres los pongo yo. Portadas: la firma de cada sección en blanco sobre negro, sin íconos.
 - **Pendiente:** decidir si la numeración (#001…) se comparte con LinkedIn, donde #002 es el rebranding y #003 es Brief.
+
+**Un post por proyecto (en exploración, 22 de octubre de 2026):**
+
+Misma regla que la grilla: placa con una palabra que nombra el momento, adentro lo crudo, el código no se nombra. Los epígrafes los escribo yo; cada uno tiene una pregunta para arrancar.
+
+| Proyecto | Placa (opciones) | Adentro | Para el epígrafe | Ojo |
+| --- | --- | --- | --- | --- |
+| Brief (#002) | *mañanas*, *café*, *pestañas* | El celu con Brief en el desayuno, sin producir. Después, una imagen para compartir que genera solo. | ¿Qué hacía antes a la mañana para enterarme de las noticias, que ya no hago? | — |
+| Noodle (#003) | *de oído*, *cejilla*, *afinando* | Video tocando con Noodle abierto al lado. Si desafino, mejor. | ¿Qué canción no me salía? | — |
+| Compass | *lunes*, *pendientes* | Grabación de pantalla moviendo tarjetas en el board. Última slide: esta misma placa armándose en el Studio. No explica para qué sirve: se ve que lo uso. | ¿Lo armé por un caos propio o uno ajeno? | — |
+| Crew | *magnesio*, *pegue*, *proyecto* (la vía que todavía no sale) | Escalada en el gimnasio y, en el medio, el check-in por QR. Cruza la montaña con lo que hago. | ¿Qué vi en mi gimnasio que me dio la idea? | Está en beta: si ningún gimnasio lo usa todavía, mostrar el QR en mi pantalla, no en una entrada real. |
+| Ziel | *mochila*, *ruta*, *lista* | Fotos de un viaje o una salida a la montaña, con el mapa o el checklist de Ziel en una slide. Un post de viaje con la app de pasada. | Puede salir del tagline: "De un viajero, para otros". | — |
+| Blueprint | *servilleta*, *antes*, *plano* | Un boceto a mano en papel (el de verdad, feo) al lado del mismo proyecto dibujado en el Lab. La lámina 001 es el brief-pipeline: conecta con Brief sin decirlo. | ¿Qué me pasaba antes de escribir código que me hizo armarlo? | Antes de publicar, arreglar el 404 de `/lab` al entrar directo (falta el `vercel.json`). |
+| Monteca | *vencimientos*, *papeles* | Un recibo en PDF impreso o el recordatorio que llega por WhatsApp. | ¿Cómo era su trabajo antes del sistema? | Es un cliente real: tapar datos personales y pedirles permiso. Ver [`GUIA_LEGAL.md`](GUIA_LEGAL.md). |
+
+- **Orden:** alternar lo de laburo (Compass, Monteca) con lo personal (Crew y escalada, Ziel y montaña, Noodle y música) para que la grilla no se lea como portfolio. Entre medio, posts de montaña sin placa.
+- **Para decidir:** si estos son los destacados (¿Monteca entra, siendo de un cliente?) y si las herramientas de Útiles llevan algo tipo "está en el link". La voz de L20N es implícita, sin llamados a la acción; eso queda para Pulso.
 
 **A quién seguir:** ver [`CUENTAS_INSTAGRAM.md`](CUENTAS_INSTAGRAM.md).
 

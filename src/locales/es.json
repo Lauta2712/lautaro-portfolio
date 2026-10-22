@@ -78,6 +78,9 @@
     },
     "noodle": {
       "desc": "Para aprender guitarra y teoría musical tocando de oído: afinador, diapasón interactivo con escalas, teoría, cancionero con transposición y un entrenador de oído. Funciona offline y se instala como app."
+    },
+    "blueprint": {
+      "desc": "Un lienzo para dibujar cómo está hecho un proyecto, como si fuera un plano: arquitectura, frontend, bocetos, datos y flujos, cada uno en su hoja. Cada pieza lleva su archivo, el patrón que usa y links para aprenderlo. Trae plantillas de arquitecturas y patrones, exporta a JSON y funciona offline."
     }
   },
   "tech": {
@@ -134,6 +137,9 @@
     },
     "ziel": {
       "tagline": "De un viajero, para otros."
+    },
+    "blueprint": {
+      "tagline": "Pensá tu software antes de escribirlo."
     }
   },
   "wallpapers": {
