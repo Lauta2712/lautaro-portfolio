@@ -65,7 +65,7 @@
       "beta": "En beta"
     },
     "brief": {
-      "desc": "Your daily Brief: noticias de varias fuentes, categorizadas y resumidas con IA, en un digest diario en español e inglés. Un workflow de n8n trae los artículos, los procesa y los guarda solo, sin intervención manual. El sitio se puede leer offline y genera sus propias imágenes para compartir."
+      "desc": "Noticias de casi cuarenta medios, resumidas y clasificadas con IA, en un digest diario en español e inglés. Detrás hay un pipeline propio que corre solo tres veces por día, deja afuera los chimentos y a la mañana manda el newsletter. Cada nota lleva al artículo original: Brief no reemplaza a los medios, apunta hacia ellos."
     },
     "pulso": {
       "desc": "Plataforma para agencias: clientes y prospectos, gestión ágil de proyectos con kanban y sprints, finanzas, calendario de contenido, campañas de ads y biblioteca de medios. Suma un Studio con brand kit por cliente y un editor visual para armar piezas de diseño."
@@ -74,7 +74,7 @@
       "desc": "Plataforma para gimnasios boutique (escalada, crossfit, yoga): check-in por QR, clases, planes y pagos, con identidad visual propia por gimnasio. Multi-tenant, con suscripción vía Mercado Pago."
     },
     "insurance": {
-      "desc": "Sistema de gestión para Monteca, asesores de seguros: clientes, vehículos, contratos y pólizas, recibos en PDF con código de barras, caja y roles por nivel. Un servicio aparte avisa todos los días por email y WhatsApp las cuotas y pólizas por vencer. También tiene su landing para captar clientes."
+      "desc": "Sistema de gestión para asesores de seguros: clientes, vehículos, pólizas, recibos en PDF con código de barras, caja y roles. Aparte, un servicio que corre todos los días avisa por email lo que está por vencer, sin repetir un aviso nunca. Y una landing para conseguir clientes."
     },
     "noodle": {
       "desc": "Para aprender guitarra y teoría musical tocando de oído: afinador, diapasón interactivo con escalas, teoría, cancionero con transposición y un entrenador de oído. Funciona offline y se instala como app."

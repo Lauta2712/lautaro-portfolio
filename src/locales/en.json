@@ -65,7 +65,7 @@
       "beta": "Beta"
     },
     "brief": {
-      "desc": "Your daily Brief: news from multiple sources, categorized and summarized with AI into a daily digest in Spanish and English. An n8n workflow pulls the articles, processes them and stores them on its own, with no manual intervention. The site works offline and generates its own share images."
+      "desc": "News from almost forty outlets, summarized and classified with AI into a daily digest in Spanish and English. Behind it there's a pipeline of my own that runs by itself three times a day, leaves gossip out and sends the newsletter every morning. Every story links to the original article: Brief doesn't replace outlets, it points to them."
     },
     "pulso": {
       "desc": "A platform for agencies: clients and prospects, agile project management with kanban and sprints, finance, a content calendar, ad campaigns and a media library. Plus a Studio with a per-client brand kit and a visual editor for design pieces."
@@ -74,7 +74,7 @@
       "desc": "A platform for boutique gyms (climbing, crossfit, yoga): QR check-in, classes, plans and payments, with each gym's own branding. Multi-tenant, with subscriptions through Mercado Pago."
     },
     "insurance": {
-      "desc": "Management system for Monteca, insurance advisors: clients, vehicles, contracts and policies, PDF receipts with barcodes, cash register and role-based access. A separate service sends daily email and WhatsApp reminders for upcoming installments and policy renewals. Plus its own landing page to bring in new clients."
+      "desc": "Management system for insurance advisors: clients, vehicles, policies, PDF receipts with barcodes, cash register and roles. On the side, a service that runs every day emails clients about whatever is about to expire, never sending the same reminder twice. Plus a landing page to bring in new clients."
     },
     "noodle": {
       "desc": "For learning guitar and music theory by ear: tuner, interactive fretboard with scales, theory, a songbook with transposition and an ear trainer. Works offline and installs as an app."
