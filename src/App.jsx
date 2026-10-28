@@ -6,22 +6,14 @@ import Archive from './components/Archive/Archive';
 import About   from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Cursor  from './components/Cursor/Cursor';
+import Gridlines from './components/Gridlines/Gridlines';
+import CommandPalette from './components/CommandPalette/CommandPalette';
 import CvPage  from './pages/CvPage';
 import ToolsPage from './pages/ToolsPage';
 import { startLenis, stopLenis } from './lib/lenis';
 
 // Fondos trae la librería de exportación a PNG: carga aparte del resto.
 const WallpapersPage = lazy(() => import('./pages/WallpapersPage'));
-
-function Gridlines() {
-  return (
-    <div className="gridlines" aria-hidden="true">
-      <div className="wrap">
-        {Array.from({ length: 6 }, (_, i) => <span key={i} />)}
-      </div>
-    </div>
-  );
-}
 
 export default function App() {
   const path = window.location.pathname.replace(/\/+$/, '');
@@ -37,6 +29,7 @@ export default function App() {
     <>
       <Gridlines />
       <Cursor />
+      <CommandPalette />
       <Navbar page={page} />
       <main>
         {page === 'cv' ? (

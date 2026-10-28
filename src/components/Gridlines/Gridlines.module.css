@@ -1,0 +1,150 @@
+/* Retícula de la página, fija detrás de todo */
+.gridlines {
+  --row: 24px;
+  --cross: calc(var(--row) * 4);
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
+}
+
+.gridlines > :global(.wrap) {
+  height: 100%;
+}
+
+.cols {
+  position: relative;
+  height: 100%;
+}
+
+/* 7 bordes para 6 columnas; en mobile quedan 0, 3 y 6 (2 columnas) */
+.cols span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--i) / 6 * 100%);
+}
+
+.cols span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+  .cols span:not(:nth-child(3n + 1)) {
+    display: none;
+  }
+}
+
+/* ── base: líneas (original) ── */
+[data-base='lines'] .cols span::before {
+  width: 1px;
+  background: var(--color-grid-line);
+}
+
+/* ── base: puntos a ritmo de renglón ── */
+[data-base='dots'] .cols span::before {
+  width: 2px;
+  background: linear-gradient(var(--color-grid-dot) 2px, transparent 2px) 0 0 / 2px var(--row);
+}
+
+/* ── base: cruces cada 4 renglones ── */
+[data-base='cross'] .cols span::before {
+  width: 9px;
+  background:
+    linear-gradient(var(--color-grid-dot) 9px, transparent 9px) 4px calc(var(--row) * 2 - 4px) / 1px var(--cross) repeat-y,
+    linear-gradient(transparent 4px, var(--color-grid-dot) 4px 5px, transparent 5px) 0 calc(var(--row) * 2 - 4px) / 9px var(--cross) repeat-y;
+}
+
+/* ── field: matriz de puntos en todo el fondo ── */
+.field {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 1px 1px, rgba(245, 245, 245, 0.07) 1px, transparent 1.5px) 0 0 / calc(var(--row) / 2) var(--row);
+}
+
+/* ── coords: índice de columna y gutter numerado ── */
+.cols em {
+  position: absolute;
+  top: calc(var(--nav-height) + var(--space-2));
+  left: 6px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+  opacity: 0.6;
+}
+
+.cols em::after {
+  content: attr(data-d);
+}
+
+@media (max-width: 900px) {
+  .cols em::after {
+    content: attr(data-m);
+  }
+}
+
+.gutter {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--gutter);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: var(--row);
+  color: var(--color-text-faint);
+  opacity: 0.45;
+  text-align: center;
+}
+
+.gutter > div {
+  will-change: transform;
+}
+
+.gutter span {
+  display: block;
+  height: calc(var(--row) * 4);
+}
+
+@media (max-width: 640px) {
+  .gutter {
+    display: none;
+  }
+}
+
+/* ── scan: scanlines por encima de todo, casi invisibles ── */
+.scan {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(245, 245, 245, 0.018) 0 1px, transparent 1px 3px);
+}
+
+/* ── cursor: celda de terminal bajo el mouse ── */
+.block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--row) / 2);
+  height: var(--row);
+  background: rgba(245, 245, 245, 0.1);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { background: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block {
+    animation: none;
+  }
+}

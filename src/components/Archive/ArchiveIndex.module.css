@@ -1,0 +1,186 @@
+.index {
+  padding-top: var(--space-6);
+}
+
+.headRow,
+.row {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 4fr) minmax(0, 3fr) minmax(0, 4fr) 1.5rem;
+  column-gap: var(--grid-gap);
+  align-items: baseline;
+}
+
+.headRow {
+  padding-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.row {
+  width: 100%;
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+div.row {
+  cursor: default;
+}
+
+li:last-child .row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dim {
+  opacity: 0.35;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-xl), 2.6vw, var(--text-4xl));
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1;
+  transition: font-stretch var(--transition-slow), letter-spacing var(--transition-slow);
+}
+
+.row:hover .name,
+.row:focus-visible .name {
+  font-stretch: 125%;
+}
+
+.thumb {
+  display: none;
+}
+
+.kind,
+.stack {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kind {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+}
+
+.arrow {
+  justify-self: end;
+  font-family: var(--font-mono);
+  color: var(--color-text-faint);
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.row:hover .arrow {
+  color: var(--color-text);
+  transform: translateX(4px);
+}
+
+/* ── Preview que sigue al mouse ── */
+.preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-raised);
+  pointer-events: none;
+}
+
+.previewFrame {
+  position: absolute;
+  width: clamp(240px, 24vw, 380px);
+  aspect-ratio: 16 / 10;
+  --shift: 2.5rem;
+  transform: translate(var(--shift), -50%) scale(0.85);
+  transform-origin: left center;
+  opacity: 0;
+  overflow: hidden;
+  background: var(--color-bg-card);
+  transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.previewOn {
+  opacity: 1;
+  transform: translate(var(--shift), -50%) scale(1);
+}
+
+[data-side='left'] .previewFrame {
+  --shift: calc(-100% - 2.5rem);
+  transform-origin: right center;
+}
+
+.previewFrame img,
+.previewSig {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: swap 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.previewSig {
+  display: grid;
+  place-items: center;
+  container-type: inline-size;
+}
+
+.previewSig > * {
+  font-size: 22cqw;
+}
+
+@keyframes swap {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@media (max-width: 900px) {
+  .headRow {
+    display: none;
+  }
+  .row {
+    grid-template-columns: 2rem minmax(0, 1fr) 1.5rem;
+    row-gap: var(--space-2);
+  }
+  .number { grid-row: 1 / span 2; }
+  .name { grid-column: 2; }
+  .kind { grid-column: 2; grid-row: 2; }
+  .stack { display: none; }
+  .arrow { grid-column: 3; grid-row: 1; }
+  .thumb {
+    display: block;
+    width: 3.5rem;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .previewFrame img,
+  .previewSig {
+    animation: none;
+  }
+}

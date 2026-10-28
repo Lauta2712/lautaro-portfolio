@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { animate, motion, useReducedMotion } from 'framer-motion';
 import { useMagnetic } from '../../hooks/useMagnetic';
 import Signature from '../Signature/Signature';
 import { pauseScroll, resumeScroll } from '../../lib/lenis';
@@ -34,116 +34,230 @@ function CloseIcon() {
   );
 }
 
-export default function ProjectModal({ project, onClose }) {
+const EASE = [0.16, 1, 0.3, 1];
+const pad = n => String(n).padStart(2, '0');
+
+const rectOf = el => {
+  const r = el.getBoundingClientRect();
+  return { top: r.top, left: r.left, width: r.width, height: r.height };
+};
+
+function placeGhost(ghost, r, objectPosition) {
+  Object.assign(ghost.style, {
+    display: 'block',
+    top: `${r.top}px`,
+    left: `${r.left}px`,
+    width: `${r.width}px`,
+    height: `${r.height}px`,
+    objectPosition,
+  });
+}
+
+const onScreen = r => r.width > 0 && r.top < window.innerHeight && r.top + r.height > 0;
+
+export default function ProjectModal({ project, originRef, position, onPrev, onNext, onClose }) {
   const { t } = useTranslation();
+  const reduceMotion = useReducedMotion();
+  const backdropRef = useRef(null);
   const panelRef = useRef(null);
+  const coverRef = useRef(null);
+  const ghostRef = useRef(null);
   const closeBtnRef = useRef(null);
+  const closingRef = useRef(false);
+  const swipeRef = useRef(null);
+  const [dir, setDir] = useState(0);
   const liveCta = useMagnetic(0.25, 40);
+
+  // La imagen de la ficha sale de la imagen del archivo que tocaste, y vuelve ahí al cerrar.
+  const morphFrom = useCallback(() => {
+    const origin = originRef?.current;
+    if (reduceMotion || !project.image || origin?.dataset.morph === undefined) return null;
+    const r = rectOf(origin);
+    return onScreen(r) ? r : null;
+  }, [originRef, project.image, reduceMotion]);
+
+  useLayoutEffect(() => {
+    const from = morphFrom();
+    const cover = coverRef.current;
+    const ghost = ghostRef.current;
+    if (!from || !cover || !ghost) return;
+    const to = rectOf(cover);
+    cover.style.visibility = 'hidden';
+    placeGhost(ghost, from, '50% 50%');
+    animate(ghost, { ...to, objectPosition: '50% 0%' }, { duration: 0.7, ease: EASE }).then(() => {
+      cover.style.visibility = '';
+      ghost.style.display = 'none';
+    });
+    // Solo al abrir: al pasar de proyecto la imagen cambia sin viajar.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const requestClose = useCallback(async () => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    const to = morphFrom();
+    const cover = coverRef.current;
+    const ghost = ghostRef.current;
+    const fades = [
+      animate(backdropRef.current, { opacity: 0 }, { duration: to ? 0.55 : 0.2 }),
+      animate(panelRef.current, { opacity: 0 }, { duration: 0.2 }),
+    ];
+    if (to && cover && ghost) {
+      const from = rectOf(cover);
+      placeGhost(ghost, from, '50% 0%');
+      cover.style.visibility = 'hidden';
+      fades.push(animate(ghost, { ...to, objectPosition: '50% 50%' }, { duration: 0.6, ease: EASE }));
+    }
+    await Promise.all(fades);
+    onClose();
+  }, [morphFrom, onClose]);
+
+  const go = useCallback(d => {
+    if (!position) return;
+    setDir(d);
+    (d > 0 ? onNext : onPrev)();
+  }, [position, onNext, onPrev]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     pauseScroll();
-    closeBtnRef.current?.focus();
-
-    function onKeyDown(e) {
-      if (e.key === 'Escape') onClose();
-    }
-    window.addEventListener('keydown', onKeyDown);
-
+    closeBtnRef.current?.focus({ preventScroll: true });
     return () => {
       document.body.style.overflow = previousOverflow;
       resumeScroll();
-      window.removeEventListener('keydown', onKeyDown);
     };
-  }, [onClose]);
+  }, []);
+
+  useEffect(() => {
+    function onKeyDown(e) {
+      if (e.key === 'Escape') requestClose();
+      else if (e.key === 'ArrowRight') go(1);
+      else if (e.key === 'ArrowLeft') go(-1);
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [requestClose, go]);
+
+  // Swipe horizontal en pantallas táctiles: pasa de proyecto.
+  function onPointerDown(e) {
+    if (e.pointerType === 'touch') swipeRef.current = { x: e.clientX, y: e.clientY };
+  }
+  function onPointerUp(e) {
+    const start = swipeRef.current;
+    swipeRef.current = null;
+    if (!start) return;
+    const dx = e.clientX - start.x;
+    const dy = e.clientY - start.y;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+  }
 
   return createPortal(
-    <motion.div
-      className={styles.backdrop}
-      onClick={onClose}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-    >
+    <>
       <motion.div
-        ref={panelRef}
-        className={styles.panel}
-        data-lenis-prevent
-        role="dialog"
-        aria-modal="true"
-        aria-label={project.name}
-        onClick={e => e.stopPropagation()}
-        initial={{ opacity: 0, scale: 0.94, y: 16 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.96, y: 8 }}
-        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        ref={backdropRef}
+        className={styles.backdrop}
+        onClick={requestClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
-        <button
-          ref={closeBtnRef}
-          type="button"
-          className={styles.close}
-          onClick={onClose}
-          aria-label={t('projects.close')}
+        <motion.div
+          ref={panelRef}
+          className={styles.panel}
+          data-lenis-prevent
+          role="dialog"
+          aria-modal="true"
+          aria-label={project.name}
+          onClick={e => e.stopPropagation()}
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerUp}
+          onPointerCancel={() => { swipeRef.current = null; }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35, delay: 0.1 }}
         >
-          <CloseIcon />
-        </button>
+          <button
+            ref={closeBtnRef}
+            type="button"
+            className={styles.close}
+            onClick={requestClose}
+            aria-label={t('projects.close')}
+          >
+            <CloseIcon />
+          </button>
 
-        <div className={styles.cover}>
-          {project.cover === 'image' ? (
-            <img src={project.image} alt="" className={styles.coverImage} />
-          ) : (
-            <div className={styles.coverAbstract}>
-              <Signature seed={project.name} />
+          <motion.div
+            key={project.id}
+            initial={dir ? { opacity: 0, x: dir * 32 } : false}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, ease: EASE }}
+          >
+            <div className={styles.cover}>
+              {project.cover === 'image' ? (
+                <img ref={coverRef} src={project.image} alt="" className={styles.coverImage} />
+              ) : (
+                <div className={styles.coverAbstract}>
+                  <Signature seed={project.name} />
+                </div>
+              )}
             </div>
+
+            <div className={styles.content}>
+              <div className={styles.header}>
+                <h3 className={styles.name}>{project.name}</h3>
+                <span className={styles.status}>{t(project.status)}</span>
+              </div>
+
+              <p className={styles.desc}>{t(project.descKey)}</p>
+
+              <div className={styles.stack}>
+                {project.stack.map(tech => (
+                  <span key={tech} className={styles.badge}>{tech}</span>
+                ))}
+              </div>
+
+              <div className={styles.links}>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.btnSecondary}
+                  >
+                    <GitHubIcon />
+                    <span>{t('projects.code')}</span>
+                  </a>
+                )}
+                {project.live && (
+                  <motion.a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.btnPrimary}
+                    style={liveCta.style}
+                    onMouseMove={liveCta.onMouseMove}
+                    onMouseLeave={liveCta.onMouseLeave}
+                  >
+                    <ExternalIcon />
+                    <span>{t('projects.live')}</span>
+                  </motion.a>
+                )}
+              </div>
+            </div>
+          </motion.div>
+
+          {position && (
+            <nav className={styles.pager} aria-label={t('projects.pager')}>
+              <button type="button" onClick={() => go(-1)}>← {t('projects.prev')}</button>
+              <span>{pad(position[0])} / {pad(position[1])}</span>
+              <button type="button" onClick={() => go(1)}>{t('projects.next')} →</button>
+            </nav>
           )}
-        </div>
-
-        <div className={styles.content}>
-          <div className={styles.header}>
-            <h3 className={styles.name}>{project.name}</h3>
-            <span className={styles.status}>{t(project.status)}</span>
-          </div>
-
-          <p className={styles.desc}>{t(project.descKey)}</p>
-
-          <div className={styles.stack}>
-            {project.stack.map(tech => (
-              <span key={tech} className={styles.badge}>{tech}</span>
-            ))}
-          </div>
-
-          <div className={styles.links}>
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.btnSecondary}
-              >
-                <GitHubIcon />
-                <span>{t('projects.code')}</span>
-              </a>
-            )}
-            {project.live && (
-              <motion.a
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.btnPrimary}
-                style={liveCta.style}
-                onMouseMove={liveCta.onMouseMove}
-                onMouseLeave={liveCta.onMouseLeave}
-              >
-                <ExternalIcon />
-                <span>{t('projects.live')}</span>
-              </motion.a>
-            )}
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
-    </motion.div>,
+      <img ref={ghostRef} src={project.image} alt="" className={styles.ghost} aria-hidden="true" />
+    </>,
     document.body
   );
 }

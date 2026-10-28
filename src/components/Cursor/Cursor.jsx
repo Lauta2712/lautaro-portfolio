@@ -15,12 +15,23 @@ export default function Cursor() {
     const pos = { x: -100, y: -100 };
     const shown = { x: -100, y: -100 };
     let frame;
+    let last = null;
+
+    function read() {
+      const target = last?.closest?.('[data-cursor]');
+      setLabel(target ? target.dataset.cursor : '');
+    }
 
     function onMove(e) {
       pos.x = e.clientX;
       pos.y = e.clientY;
-      const target = e.target.closest?.('[data-cursor]');
-      setLabel(target ? target.dataset.cursor : '');
+      last = e.target;
+      read();
+    }
+
+    // Después de un clic la etiqueta puede cambiar (por ejemplo, "copiado").
+    function onClick() {
+      setTimeout(read, 50);
     }
 
     function tick() {
@@ -31,9 +42,11 @@ export default function Cursor() {
     }
 
     window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('click', onClick);
     frame = requestAnimationFrame(tick);
     return () => {
       window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('click', onClick);
       cancelAnimationFrame(frame);
     };
   }, [enabled]);

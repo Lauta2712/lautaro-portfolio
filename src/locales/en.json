@@ -81,7 +81,10 @@
     },
     "blueprint": {
       "desc": "A canvas for drawing how a project is built, like a blueprint: architecture, frontend, wireframes, data and flows, each on its own sheet. Every piece carries its file, the pattern it uses and links to learn it. Comes with architecture and pattern templates, exports to JSON and works offline."
-    }
+    },
+    "prev": "Previous",
+    "next": "Next",
+    "pager": "Other projects"
   },
   "tech": {
     "label": "Tools",
@@ -96,7 +99,10 @@
     "title": "Let's talk",
     "tagline": "If you've got a weird idea, a half-built project or just want to talk, write to me. I answer.",
     "location": "San Juan, Argentina",
-    "footer": "L20N · Lautaro Rodriguez Marcon · 2026"
+    "footer": "L20N · Lautaro Rodriguez Marcon · 2026",
+    "copy": "Copy",
+    "copied": "Copied",
+    "status": "Available"
   },
   "intro": {
     "scroll": "Scroll"
@@ -119,6 +125,16 @@
       "photo": "Photos",
       "video": "Videos",
       "note": "Notes"
+    },
+    "view": {
+      "label": "View as",
+      "gallery": "Gallery",
+      "index": "Index"
+    },
+    "cols": {
+      "name": "Name",
+      "kind": "Type",
+      "stack": "Stack"
     }
   },
   "cv": {
@@ -167,5 +183,24 @@
     },
     "download": "Download",
     "busy": "Generating…"
+  },
+  "palette": {
+    "open": "Search",
+    "placeholder": "Where to?",
+    "empty": "Nothing here.",
+    "copyEmail": "Copy email",
+    "copied": "Copied",
+    "language": "Change language",
+    "downloadCv": "Download CV",
+    "groups": {
+      "go": "Go to",
+      "pieces": "Projects",
+      "do": "Do"
+    },
+    "keys": {
+      "move": "move",
+      "run": "open",
+      "close": "close"
+    }
   }
 }

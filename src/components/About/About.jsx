@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useScroll, useMotionValueEvent, useReducedMotion } from 'framer-motion';
 import styles from './About.module.css';
 
-const LATELY = [
-  'about.skills.collab',
-  'about.skills.ownership',
-  'about.skills.learning',
-  'about.skills.async',
-  'about.skills.attention',
-];
+// Va con el bloque "lately" comentado más abajo; descomentar los dos juntos.
+// const LATELY = [
+//   'about.skills.collab',
+//   'about.skills.ownership',
+//   'about.skills.learning',
+//   'about.skills.async',
+//   'about.skills.attention',
+// ];
 
 // El texto se va prendiendo palabra por palabra a medida que bajás.
 export default function About() {

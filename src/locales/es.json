@@ -81,7 +81,10 @@
     },
     "blueprint": {
       "desc": "Un lienzo para dibujar cómo está hecho un proyecto, como si fuera un plano: arquitectura, frontend, bocetos, datos y flujos, cada uno en su hoja. Cada pieza lleva su archivo, el patrón que usa y links para aprenderlo. Trae plantillas de arquitecturas y patrones, exporta a JSON y funciona offline."
-    }
+    },
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "pager": "Otros proyectos"
   },
   "tech": {
     "label": "Herramientas",
@@ -96,7 +99,10 @@
     "title": "Hablemos",
     "tagline": "Si tenés una idea rara, un proyecto a medio armar o ganas de charlar, escribime. Contesto.",
     "location": "San Juan, Argentina",
-    "footer": "L20N · Lautaro Rodriguez Marcon · 2026"
+    "footer": "L20N · Lautaro Rodriguez Marcon · 2026",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "status": "Disponible"
   },
   "intro": {
     "scroll": "Bajá"
@@ -119,6 +125,16 @@
       "photo": "Fotos",
       "video": "Videos",
       "note": "Notas"
+    },
+    "view": {
+      "label": "Ver como",
+      "gallery": "Galería",
+      "index": "Índice"
+    },
+    "cols": {
+      "name": "Nombre",
+      "kind": "Tipo",
+      "stack": "Stack"
     }
   },
   "cv": {
@@ -167,5 +183,24 @@
     },
     "download": "Descargar",
     "busy": "Generando…"
+  },
+  "palette": {
+    "open": "Buscar",
+    "placeholder": "¿A dónde vamos?",
+    "empty": "Nada por acá.",
+    "copyEmail": "Copiar mail",
+    "copied": "Copiado",
+    "language": "Cambiar idioma",
+    "downloadCv": "Bajar CV",
+    "groups": {
+      "go": "Ir a",
+      "pieces": "Proyectos",
+      "do": "Hacer"
+    },
+    "keys": {
+      "move": "moverse",
+      "run": "abrir",
+      "close": "cerrar"
+    }
   }
 }

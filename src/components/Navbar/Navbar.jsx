@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import Signature from '../Signature/Signature';
 import { MOTHER } from '../../data/pieces';
 import { useCurrentPiece } from '../../lib/currentPiece';
+import { useLanded } from '../../lib/landing';
+import { openPalette } from '../../lib/palette';
 import styles from './Navbar.module.css';
 
 const HOME_LINKS = [
@@ -16,29 +18,32 @@ const HOME_LINKS = [
 
 export default function Navbar({ page = 'home' }) {
   const { t } = useTranslation();
-  const piece = useCurrentPiece();
-  const [past, setPast] = useState(page !== 'home');
+  const { piece, index, total } = useCurrentPiece();
+  const landed = useLanded();
+  // En home el logo aparece cuando la firma del intro aterriza en su lugar.
+  const past = page !== 'home' || landed;
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    if (page !== 'home') return undefined;
-    const onScroll = () => setPast(window.scrollY > window.innerHeight * 1.2);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [page]);
-
   const close = () => setMenuOpen(false);
-  const label = piece && past ? `${t('hero.signatureOf')} ${piece.name}` : 'L20N';
+  const showPiece = piece && past && page === 'home';
+  const label = showPiece ? `${t('hero.signatureOf')} ${piece.name}` : 'L20N';
+  const pad = n => String(n).padStart(2, '0');
 
   return (
     <header className={`${styles.header} ${past ? styles.past : ''}`}>
       <div className={`wrap ${styles.inner}`}>
-        <a href="/#top" className={styles.logo} onClick={close} aria-label="L20N" title={label}>
-          {piece && past && page === 'home'
-            ? <Signature seed={piece.name ?? piece.id} small />
-            : <Signature data={MOTHER} small />}
-        </a>
+        <div className={styles.brand}>
+          <a href="/#top" className={styles.logo} onClick={close} aria-label="L20N" title={label} data-logo>
+            {showPiece
+              ? <Signature seed={piece.name ?? piece.id} small />
+              : <Signature data={MOTHER} small />}
+          </a>
+          {showPiece && total > 0 && (
+            <span className={styles.count} aria-label={`${index + 1} / ${total}`}>
+              <span key={index} className={styles.countNow}>{pad(index + 1)}</span> / {pad(total)}
+            </span>
+          )}
+        </div>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
           {HOME_LINKS.map(({ key, href }) => (
@@ -52,12 +57,22 @@ export default function Navbar({ page = 'home' }) {
               {t(key)}
             </a>
           ))}
+          <button
+            type="button"
+            className={`${styles.link} ${styles.searchMobile}`}
+            onClick={() => { close(); openPalette(); }}
+          >
+            {t('palette.open')}
+          </button>
           <div className={styles.langMobile}>
             <LanguageSwitcher />
           </div>
         </nav>
 
         <div className={styles.actions}>
+          <button type="button" className={styles.palette} onClick={openPalette} aria-label={t('palette.open')}>
+            <kbd>{navigator.platform?.startsWith('Mac') ? '⌘' : 'Ctrl'}</kbd><kbd>K</kbd>
+          </button>
           <LanguageSwitcher />
           <button
             type="button"

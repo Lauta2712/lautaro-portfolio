@@ -19,6 +19,7 @@
   justify-items: center;
   padding: calc(var(--nav-height) + var(--space-6)) var(--gutter) var(--space-10);
   overflow: hidden;
+  contain: layout paint;
 }
 
 .signature {
@@ -33,6 +34,7 @@
   transform-origin: 50% 50%;
   will-change: transform, opacity;
   user-select: none;
+  contain: layout style;
 }
 
 .signature span {

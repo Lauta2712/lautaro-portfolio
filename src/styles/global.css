@@ -74,6 +74,33 @@ button {
   background: var(--color-accent);
 }
 
+/* ── Transición entre páginas: el navbar queda, el contenido cambia ── */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: 0.25s ease both vt-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.45s cubic-bezier(0.16, 1, 0.3, 1) both vt-in;
+}
+
+@keyframes vt-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-in {
+  from { opacity: 0; transform: translateY(1.5rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 /* ── Layout util ── */
 .container {
   width: 100%;
@@ -94,38 +121,6 @@ button {
   max-width: var(--wrap-max);
   margin-inline: auto;
   padding-inline: var(--gutter);
-}
-
-/* Líneas de la retícula, fijas detrás de todo */
-.gridlines {
-  /* display: none; */
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-bg);
-  pointer-events: none;
-}
-
-.gridlines > div {
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.gridlines span {
-  border-left: 1px solid var(--color-grid-line);
-}
-
-.gridlines span:last-child {
-  border-right: 1px solid var(--color-grid-line);
-}
-
-@media (max-width: 900px) {
-  .gridlines > div {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .gridlines span:nth-child(n + 3) {
-    display: none;
-  }
 }
 
 /* ── Section base ── */

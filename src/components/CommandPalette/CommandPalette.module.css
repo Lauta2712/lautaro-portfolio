@@ -1,0 +1,122 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 18vh var(--gutter) var(--space-6);
+  background: rgba(var(--color-bg-rgb), 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.panel {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  max-height: 64vh;
+  background: var(--color-bg-2);
+  border: 1px solid var(--color-border-accent);
+  font-family: var(--font-mono);
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-faint);
+}
+
+.prompt input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-sm);
+  caret-color: var(--color-text);
+}
+
+.prompt input::placeholder {
+  color: var(--color-text-faint);
+}
+
+.list {
+  overflow-y: auto;
+  padding-block: var(--space-2);
+}
+
+.group {
+  padding: var(--space-3) var(--space-5) var(--space-1);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-5);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: var(--text-sm);
+  text-align: left;
+}
+
+.item[aria-selected='true'] {
+  background: var(--color-text);
+  color: var(--color-on-accent);
+}
+
+.hint {
+  font-size: 0.68rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item[aria-selected='true'] .hint {
+  color: inherit;
+  opacity: 0.6;
+}
+
+.empty {
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+}
+
+.keys {
+  display: flex;
+  gap: var(--space-5);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.62rem;
+  color: var(--color-text-faint);
+}
+
+.keys kbd {
+  margin-right: 2px;
+  padding: 0 4px;
+  border: 1px solid var(--color-border-accent);
+  font: inherit;
+}
+
+@media (max-width: 640px) {
+  .backdrop {
+    padding-top: calc(var(--nav-height) + var(--space-4));
+  }
+  .keys {
+    display: none;
+  }
+}

@@ -9,6 +9,7 @@
   --color-border:      rgba(245, 245, 245, 0.10);
   --color-border-accent: rgba(245, 245, 245, 0.32);
   --color-grid-line:   rgba(245, 245, 245, 0.06);
+  --color-grid-dot:    rgba(245, 245, 245, 0.16);
 
   --color-text:        #F5F5F5;
   --color-text-muted:  #A3A39E;
