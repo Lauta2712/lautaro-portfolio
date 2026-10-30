@@ -34,7 +34,7 @@ export const PIECES = [
     descKey: 'projects.brief.desc',
     stack: ['React 19', 'TypeScript', 'Vite', 'CSS Modules', 'Supabase', 'Vercel Functions', 'Python', 'Docker', 'GitHub Actions', 'Groq'],
     github: null,
-    live: 'https://hibrief.vercel.app/',
+    live: 'https://hibrief.site/',
     status: 'projects.status.live',
     cover: 'image',
     image: briefImg,

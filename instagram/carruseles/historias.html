@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:wght,MONO@300..800,1&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=block">
+<style>
+  html,body{margin:0;background:#000}
+  body{display:flex;flex-direction:column;gap:40px}
+  /* Zonas seguras de historias: arriba la barra y el avatar, abajo la caja de respuesta. */
+  .post{width:1080px;height:1920px;box-sizing:border-box;padding:220px 64px 260px;background:#000;color:#fff;
+    display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
+  .mono{font-family:'Recursive',monospace;font-variation-settings:"MONO" 1;font-weight:400;
+    font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  .top{display:flex;justify-content:center;align-items:baseline}
+  .sig{font-family:'Roboto Flex';font-size:44px;line-height:1;color:#fff}
+  .sig span,.big span{display:inline-block}
+  .rule{height:1px;background:rgba(255,255,255,.35);margin:40px 0 28px}
+  .bottom{display:flex;justify-content:space-between}
+  /* todo centrado */
+  .body{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:48px}
+  .big{font-family:'Roboto Flex';line-height:.8;white-space:nowrap;letter-spacing:-.01em}
+  .lines{display:flex;flex-direction:column;gap:16px;color:#fff;font-size:28px}
+  .frame{border:1px solid rgba(255,255,255,.35);overflow:hidden;background:#111}
+  .frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top}
+  .item .frame{width:100%;box-sizing:border-box}
+  .item .frame img{height:auto}
+  .item .frame.phone{width:420px;aspect-ratio:390/700;border-radius:22px}
+  .item .frame.phone img{height:100%}
+  .item .n{font-family:'Roboto Flex';font-size:28px}
+  .num{margin:0}
+  .de{color:rgba(255,255,255,.55)}
+  .de b{font-weight:400;color:#fff}
+  .cierre .lines{font-size:34px;letter-spacing:.04em;text-transform:none}
+
+  /* tapa: solo el glifo, centrado para que sobreviva al recorte en círculo */
+  .tapa{padding:0;display:flex;align-items:center;justify-content:center}
+  .tapa .g{font-family:'Roboto Flex';font-size:560px;line-height:1}
+  .tapa .g span{display:inline-block}
+</style></head>
+<body>
+<script src="historias.js"></script>
+<script>
+function hash(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}
+h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);return h1>>>0;}
+function prng(seed){return()=>{seed=(seed+0x6d2b79f5)|0;let t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
+function data(seed,n){const r=prng(hash(String(seed)));return Array.from({length:n},()=>r());}
+// Misma regla que la firma: una letra fina (la de dato más bajo), el resto pesa y se ensancha según el dato.
+function letters(word,seed,thinW){
+  const L=[...word], d=data(seed,L.length*2), first=d.slice(0,L.length);
+  const thin=first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
+  return L.map((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?'\u00a0':ch;
+    const w=i===thin?thinW:500+d[i]*500, wd=40+d[i+L.length]*111;
+    s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${Math.round(wd)}, "opsz" 144`;return s;});
+}
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
+const img=src=>{const f=el('div','frame');const i=new Image();i.src=`capturas/${src}.webp`;f.append(i);return f;};
+function fit(word,seed,thinW,width,max){const b=el('div','big');const s=el('span');letters(word,seed,thinW).forEach(x=>s.append(x));b.append(s);
+  b.dataset.fit=width;b.dataset.max=max;return b;}
+
+const q=new URLSearchParams(location.search), key=q.get('p')||'servicios', H=window.HISTORIAS[key];
+
+H.slides.forEach((s,idx)=>{
+  const seed=`${key}-${idx}`, post=el('div',`post ${s.type}`);post.id=`s${idx+1}`;
+  if(s.type==='tapa'){
+    // Dos trazos de la misma letra: uno fino y uno que pesa, encimados apenas corridos.
+    const g=el('div','g');const a=el('span',null,s.g),b=el('span',null,s.g);
+    a.style.fontVariationSettings='"wght" 900, "wdth" 60, "opsz" 144';
+    b.style.cssText='font-variation-settings:"wght" 100, "wdth" 151, "opsz" 144;margin-left:-.02em';
+    g.append(a,b);post.append(g);document.body.append(post);return;
+  }
+  // Sin título fijo ni handle: arriba solo la bajada de la intro, si tiene.
+  const top=el('div','top');if(s.label)top.append(el('span','mono',s.label));
+  const body=el('div','body');
+  const foot=el('div');
+
+  if(s.type==='intro') body.append(fit(s.t,s.t,120,952,520));
+  if(s.type==='item'){
+    if(s.img){const f=img(s.img);if(s.crop==='phone')f.classList.add('phone');body.append(f);body.append(el('span','n mono',s.n));}
+    else{const n=fit(s.n,seed,100,600,700);n.classList.add('num');body.append(n);}
+    body.append(fit(s.t,s.t,120,952,420));
+    const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);
+    if(s.de)body.append(el('div','de mono',`en: ${s.de.map(x=>`<b>${x}</b>`).join(' · ')}`));
+  }
+  if(s.type==='cierre'){body.append(fit(s.t,s.t,120,952,420));
+    const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);}
+
+  post.append(top,body,foot);document.body.append(post);
+});
+Promise.all([document.fonts.ready,...[...document.images].map(i=>i.decode().catch(()=>{}))]).then(()=>{
+  document.querySelectorAll('[data-fit]').forEach(b=>{const s=b.firstChild;b.style.fontSize='100px';
+    const r=(+b.dataset.fit)/s.getBoundingClientRect().width;const fs=Math.min(100*r,+b.dataset.max);b.style.fontSize=fs+'px';
+    if(/[gjpqy]/.test(s.textContent))b.style.marginBottom=(fs*.2)+'px';});
+  document.title='ready';
+});
+</script></body></html>

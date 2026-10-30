@@ -1,0 +1,130 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:wght,MONO@300..800,1&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=block">
+<style>
+  html,body{margin:0;background:#000}
+  body{display:flex;flex-direction:column;gap:40px}
+  .post{width:1080px;height:1350px;box-sizing:border-box;padding:64px;background:#000;color:#fff;
+    display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
+  .mono{font-family:'Recursive',monospace;font-variation-settings:"MONO" 1;font-weight:400;
+    font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  .top{display:flex;justify-content:center;align-items:baseline}
+  .sig{font-family:'Roboto Flex';font-size:44px;line-height:1;color:#fff}
+  .sig span,.big span{display:inline-block}
+  .rule{height:1px;background:rgba(255,255,255,.35);margin:40px 0 28px}
+  .bottom{display:flex;justify-content:space-between}
+  /* todo centrado */
+  .body{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .big{font-family:'Roboto Flex';line-height:.8;white-space:nowrap;letter-spacing:-.01em}
+
+  /* cover */
+  /* las portadas usan todas el mismo tamaño (ver abajo) */
+
+  /* shot */
+  .frame{border:1px solid rgba(255,255,255,.35);overflow:hidden;background:#111}
+  .frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+  .shot .frame{width:100%;box-sizing:border-box}
+  /* la captura entera, sin recortar */
+  .shot .frame img{height:auto}
+  .shot .body{gap:32px}
+  .shot .frame:nth-last-child(2),.shot .frame:nth-last-child(2)~.frame{width:820px}
+
+  /* phones: escalonados, la del medio sube */
+  .phones .body{flex-direction:row;gap:28px}
+  .phones .frame{width:300px;aspect-ratio:390/844;border-radius:22px}
+  .phones.two .frame{width:430px}
+  .phones .frame:nth-child(2){transform:translateY(-70px)}
+  .phones .frame:nth-child(3){transform:translateY(40px)}
+
+  /* number */
+  .number .body{gap:56px}
+  .number .lines{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;color:#fff}
+  .number .lines span:first-child{color:#fff}
+
+  /* flow */
+  /* el diagrama se centra como bloque; adentro sigue alineado para que las líneas conecten */
+  .flow .body{align-items:stretch;padding:0 calc((952px - var(--flow-w,952px))/2);text-align:left}
+  .step{display:grid;grid-template-columns:80px auto 1fr;align-items:center;position:relative;height:118px}
+  .step .i{color:rgba(255,255,255,.4)}
+  .step .w{font-family:'Roboto Flex';font-size:60px;line-height:1;white-space:nowrap}
+  .step::before{content:'';position:absolute;left:12px;top:72px;height:62px;width:1px;background:rgba(255,255,255,.3)}
+  .step:last-child::before{display:none}
+  .side{display:flex;align-items:center;gap:18px;margin-left:36px;color:#fff}
+  .side i{display:block;width:90px;height:1px;background:rgba(255,255,255,.5);position:relative}
+  .side i::after{content:'';position:absolute;right:0;top:-4px;border:4px solid transparent;border-left:7px solid rgba(255,255,255,.7);border-right:0}
+
+  /* text */
+  .copy{font-family:'Roboto Flex';font-size:64px;line-height:1.08;font-variation-settings:"wght" 380,"wdth" 100,"opsz" 144;letter-spacing:-.01em}
+  .copy em{font-style:normal;font-variation-settings:"wght" 120,"wdth" 100,"opsz" 144}
+  .empty{width:100%;height:520px;border:1px dashed rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center}
+
+  /* end */
+  .end .body{gap:36px}
+  .end .url{font-family:'Recursive',monospace;font-variation-settings:"MONO" 1;font-size:100px;line-height:1;letter-spacing:-.02em;color:#fff;white-space:nowrap}
+</style></head>
+<body>
+<script src="data.js"></script>
+<script>
+function hash(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}
+h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);return h1>>>0;}
+function prng(seed){return()=>{seed=(seed+0x6d2b79f5)|0;let t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
+function data(seed,n){const r=prng(hash(String(seed)));return Array.from({length:n},()=>r());}
+// Misma regla que la firma y la portada: una letra fina (la de dato más bajo), el resto pesa y se ensancha según el dato.
+// fixedW: [ancho de la fina, ancho de las que pesan], fijo (en los números, para que se lean como uno solo).
+function letters(word,seed,thinW,fixedW){
+  const L=[...word], d=data(seed,L.length*2), first=d.slice(0,L.length);
+  const thin=first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
+  return L.map((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?' ':ch;
+    const w=i===thin?thinW:500+d[i]*500, wd=fixedW?fixedW[i===thin?0:1]:40+d[i+L.length]*111;
+    s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${Math.round(wd)}, "opsz" 144`;return s;});
+}
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
+const img=src=>{const f=el('div','frame');const i=new Image();i.src=`capturas/${src}.webp`;f.append(i);return f;};
+// Palabra suelta con la regla, a un tamaño que entre en `width`.
+function fit(word,seed,thinW,width,max,fixedW){const b=el('div','big');const s=el('span');letters(word,seed,thinW,fixedW).forEach(x=>s.append(x));b.append(s);
+  b.dataset.fit=width;b.dataset.max=max;return b;}
+
+const q=new URLSearchParams(location.search), key=q.get('p')||'brief', C=window.CARRUSELES[key];
+C.slides.forEach((s,idx)=>{
+  const seed=`${key}-${idx}`;
+  const post=el('div',`post ${s.type}`);post.id=`s${idx+1}`;
+  const top=el('div','top');top.append(el('span','mono',s.label||''));
+  const body=el('div','body');
+  const foot=el('div');
+
+  if(s.type==='cover'){const b=el('div','big cover-t');const sp=el('span');letters(s.t,s.t,120).forEach(x=>sp.append(x));b.append(sp);body.append(b);}
+  if(s.type==='shot')[].concat(s.img).forEach(i=>body.append(img(i)));
+  if(s.type==='phones'){s.imgs.forEach(i=>body.append(img(i)));if(s.imgs.length===2)post.classList.add('two');}
+  if(s.type==='number'){body.append(fit(s.value,seed,100,s.value.length>1?760:520,820,[100,50]));
+    const l=el('div','lines mono');(s.lines||[]).forEach(t=>l.append(el('span',null,t)));body.append(l);}
+  if(s.type==='flow'){
+    const w=s.steps.map((_,i)=>data(seed,s.steps.length)[i]);const thin=w.indexOf(Math.min(...w));
+    s.steps.forEach((t,i)=>{const r=el('div','step');r.append(el('span','mono i',String(i+1).padStart(2,'0')));
+      const word=el('span','w',t);const wd=i===thin?120:380+w[i]*300;
+      word.style.fontVariationSettings=`"wght" ${Math.round(wd)}, "wdth" ${i===thin?100:Math.round(70+w[i]*40)}, "opsz" 144`;r.append(word);
+      if(s.side&&s.side.at===i){const sd=el('div','side mono');sd.append(el('i'));s.side.steps.forEach(x=>sd.append(el('span',null,x)));r.append(sd);}
+      body.append(r);});}
+  if(s.type==='text') body.append(s.copy?el('div','copy',s.copy):el('div','empty mono','texto tuyo'));
+  if(s.type==='end'){body.append(el('div','mono','link'));const u=el('div','url',s.url);u.dataset.url='';body.append(u);}
+
+  post.append(top,body,foot);document.body.append(post);
+});
+Promise.all([document.fonts.ready,...[...document.images].map(i=>i.decode().catch(()=>{}))]).then(()=>{
+  document.querySelectorAll('[data-fit]').forEach(b=>{const s=b.firstChild;b.style.fontSize='100px';
+    const k=(+b.dataset.fit)/s.getBoundingClientRect().width;const fs=Math.min(100*k,+b.dataset.max);b.style.fontSize=fs+'px';
+    if(/[gjpqy]/.test(s.textContent))b.style.marginBottom=(fs*.2)+'px';});
+  // Portadas: todas al mismo tamaño, el más grande en el que entra la palabra más ancha de todos los carruseles.
+  const probe=el('div','big');probe.style.cssText='position:absolute;visibility:hidden;font-size:100px';document.body.append(probe);
+  const widest=Math.max(...Object.values(window.CARRUSELES).map(c=>c.slides.find(x=>x.type==='cover')).filter(Boolean).map(c=>{
+    probe.innerHTML='';const sp=el('span');letters(c.t,c.t,120).forEach(x=>sp.append(x));probe.append(sp);return sp.getBoundingClientRect().width;}));
+  probe.remove();
+  const coverFs=Math.min(100*952/widest,640);
+  document.querySelectorAll('.cover-t').forEach(b=>b.style.fontSize=coverFs+'px');
+  // el diagrama: medir su ancho para centrarlo como bloque
+  document.querySelectorAll('.flow .body').forEach(b=>{const w=Math.max(...[...b.children].map(r=>[...r.children].reduce((a,c)=>Math.max(a,c.getBoundingClientRect().right),0)-r.getBoundingClientRect().left));
+    b.style.setProperty('--flow-w',Math.min(w,952)+'px');});
+  // la URL en mono, lo más grande que entre en el ancho
+  document.querySelectorAll('[data-url]').forEach(u=>{u.style.fontSize=Math.min(100*952/u.scrollWidth,120)+'px';});
+  document.title='ready';
+});
+</script></body></html>
