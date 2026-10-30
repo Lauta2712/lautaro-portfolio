@@ -63,7 +63,7 @@ H.slides.forEach((s,idx)=>{
     // Dos trazos de la misma letra: uno fino y uno que pesa, encimados apenas corridos.
     const g=el('div','g');const a=el('span',null,s.g),b=el('span',null,s.g);
     a.style.fontVariationSettings='"wght" 900, "wdth" 60, "opsz" 144';
-    b.style.cssText='font-variation-settings:"wght" 100, "wdth" 151, "opsz" 144;margin-left:-.02em';
+    b.style.cssText='font-variation-settings:"wght" 320, "wdth" 151, "opsz" 144;margin-left:-.02em';
     g.append(a,b);post.append(g);document.body.append(post);return;
   }
   // Sin título fijo ni handle: arriba solo la bajada de la intro, si tiene.
@@ -71,15 +71,15 @@ H.slides.forEach((s,idx)=>{
   const body=el('div','body');
   const foot=el('div');
 
-  if(s.type==='intro') body.append(fit(s.t,s.t,120,952,520));
+  if(s.type==='intro') body.append(fit(s.t,s.t,320,952,520));
   if(s.type==='item'){
     if(s.img){const f=img(s.img);if(s.crop==='phone')f.classList.add('phone');body.append(f);body.append(el('span','n mono',s.n));}
-    else{const n=fit(s.n,seed,100,600,700);n.classList.add('num');body.append(n);}
-    body.append(fit(s.t,s.t,120,952,420));
+    else{const n=fit(s.n,seed,320,600,700);n.classList.add('num');body.append(n);}
+    body.append(fit(s.t,s.t,320,952,420));
     const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);
     if(s.de)body.append(el('div','de mono',`en: ${s.de.map(x=>`<b>${x}</b>`).join(' · ')}`));
   }
-  if(s.type==='cierre'){body.append(fit(s.t,s.t,120,952,420));
+  if(s.type==='cierre'){body.append(fit(s.t,s.t,320,952,420));
     const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);}
 
   post.append(top,body,foot);document.body.append(post);

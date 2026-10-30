@@ -55,7 +55,7 @@
 
   /* text */
   .copy{font-family:'Roboto Flex';font-size:64px;line-height:1.08;font-variation-settings:"wght" 380,"wdth" 100,"opsz" 144;letter-spacing:-.01em}
-  .copy em{font-style:normal;font-variation-settings:"wght" 120,"wdth" 100,"opsz" 144}
+  .copy em{font-style:normal;font-variation-settings:"wght" 320,"wdth" 100,"opsz" 144}
   .empty{width:100%;height:520px;border:1px dashed rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center}
 
   /* end */
@@ -71,13 +71,18 @@ function prng(seed){return()=>{seed=(seed+0x6d2b79f5)|0;let t=Math.imul(seed^(se
 function data(seed,n){const r=prng(hash(String(seed)));return Array.from({length:n},()=>r());}
 // Misma regla que la firma y la portada: una letra fina (la de dato más bajo), el resto pesa y se ensancha según el dato.
 // fixedW: [ancho de la fina, ancho de las que pesan], fijo (en los números, para que se lean como uno solo).
-function letters(word,seed,thinW,fixedW){
+// Peso de la letra fina: más bajo que esto ya no se lee.
+const THIN=320;
+function letters(word,seed,thinW,fixedW,thinAt){
   const L=[...word], d=data(seed,L.length*2), first=d.slice(0,L.length);
-  const thin=first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
+  const thin=thinAt??first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
   return L.map((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?' ':ch;
     const w=i===thin?thinW:500+d[i]*500, wd=fixedW?fixedW[i===thin?0:1]:40+d[i+L.length]*111;
     s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${Math.round(wd)}, "opsz" 144`;return s;});
 }
+// Portada: con la regla, o pareja (even) cuando el proyecto es de un cliente y el nombre se respeta tal cual.
+const coverLetters=c=>c.even?[...c.t].map(ch=>{const s=document.createElement('span');s.textContent=ch;
+  s.style.fontVariationSettings=`"wght" 800, "wdth" 100, "opsz" 144`;return s;}):letters(c.t,c.t,c.thinW??THIN,null,c.thin);
 const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
 const img=src=>{const f=el('div','frame');const i=new Image();i.src=`capturas/${src}.webp`;f.append(i);return f;};
 // Palabra suelta con la regla, a un tamaño que entre en `width`.
@@ -92,15 +97,15 @@ C.slides.forEach((s,idx)=>{
   const body=el('div','body');
   const foot=el('div');
 
-  if(s.type==='cover'){const b=el('div','big cover-t');const sp=el('span');letters(s.t,s.t,120).forEach(x=>sp.append(x));b.append(sp);body.append(b);}
+  if(s.type==='cover'){const b=el('div','big cover-t');const sp=el('span');coverLetters(s).forEach(x=>sp.append(x));b.append(sp);body.append(b);}
   if(s.type==='shot')[].concat(s.img).forEach(i=>body.append(img(i)));
   if(s.type==='phones'){s.imgs.forEach(i=>body.append(img(i)));if(s.imgs.length===2)post.classList.add('two');}
-  if(s.type==='number'){body.append(fit(s.value,seed,100,s.value.length>1?760:520,820,[100,50]));
+  if(s.type==='number'){body.append(fit(s.value,seed,THIN,s.value.length>1?760:520,820,[100,50]));
     const l=el('div','lines mono');(s.lines||[]).forEach(t=>l.append(el('span',null,t)));body.append(l);}
   if(s.type==='flow'){
     const w=s.steps.map((_,i)=>data(seed,s.steps.length)[i]);const thin=w.indexOf(Math.min(...w));
     s.steps.forEach((t,i)=>{const r=el('div','step');r.append(el('span','mono i',String(i+1).padStart(2,'0')));
-      const word=el('span','w',t);const wd=i===thin?120:380+w[i]*300;
+      const word=el('span','w',t);const wd=i===thin?THIN:380+w[i]*300;
       word.style.fontVariationSettings=`"wght" ${Math.round(wd)}, "wdth" ${i===thin?100:Math.round(70+w[i]*40)}, "opsz" 144`;r.append(word);
       if(s.side&&s.side.at===i){const sd=el('div','side mono');sd.append(el('i'));s.side.steps.forEach(x=>sd.append(el('span',null,x)));r.append(sd);}
       body.append(r);});}
@@ -116,7 +121,7 @@ Promise.all([document.fonts.ready,...[...document.images].map(i=>i.decode().catc
   // Portadas: todas al mismo tamaño, el más grande en el que entra la palabra más ancha de todos los carruseles.
   const probe=el('div','big');probe.style.cssText='position:absolute;visibility:hidden;font-size:100px';document.body.append(probe);
   const widest=Math.max(...Object.values(window.CARRUSELES).map(c=>c.slides.find(x=>x.type==='cover')).filter(Boolean).map(c=>{
-    probe.innerHTML='';const sp=el('span');letters(c.t,c.t,120).forEach(x=>sp.append(x));probe.append(sp);return sp.getBoundingClientRect().width;}));
+    probe.innerHTML='';const sp=el('span');coverLetters(c).forEach(x=>sp.append(x));probe.append(sp);return sp.getBoundingClientRect().width;}));
   probe.remove();
   const coverFs=Math.min(100*952/widest,640);
   document.querySelectorAll('.cover-t').forEach(b=>b.style.fontSize=coverFs+'px');
