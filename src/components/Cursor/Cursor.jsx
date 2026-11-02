@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Cursor.module.css';
 
-// Un punto que sigue al mouse y dice qué pasa si hacés clic (data-cursor).
+// Etiqueta que sigue al mouse y dice qué pasa si hacés clic (data-cursor).
+// Fuera de un [data-cursor] no se ve: el cursor de bloque de Gridlines hace ese trabajo.
 export default function Cursor() {
   const ref = useRef(null);
   const [label, setLabel] = useState('');
