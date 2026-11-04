@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Lautaro Rodriguez - CV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
+<style>
+  @page { size: A4; margin: 11mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Roboto Flex', 'Liberation Sans', Arial, sans-serif;
+    font-size: 9.1pt; line-height: 1.33; color: #1a1a1a;
+  }
+  a { color: inherit; text-decoration: none; }
+  header { margin-bottom: 6pt; }
+  h1 { font-size: 21pt; font-weight: 650; letter-spacing: -0.01em; line-height: 1.1; }
+  .role { font-size: 11pt; color: #555; margin-top: 2pt; }
+  .contact { margin-top: 6pt; color: #444; font-size: 9pt; }
+  .contact span + span::before { content: "  ·  "; color: #aaa; }
+  h2 {
+    font-size: 8.4pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #1a1a1a; border-bottom: 0.6pt solid #cfcfcf; padding-bottom: 3pt;
+    margin: 9pt 0 5pt; break-after: avoid;
+  }
+  .entry { margin-bottom: 7pt; break-inside: avoid; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+  .head strong { font-weight: 650; }
+  .head .org { color: #444; }
+  .date { color: #666; font-size: 8.8pt; white-space: nowrap; }
+  .desc { color: #444; margin-top: 1pt; }
+  ul { margin-top: 3pt; padding-left: 11pt; }
+  li { margin-bottom: 1pt; }
+  li::marker { color: #999; }
+  .proj { margin-bottom: 4pt; break-inside: avoid; }
+  .proj strong { font-weight: 650; }
+  .link { color: #666; font-size: 8.8pt; }
+  .skills p { margin-bottom: 1.5pt; }
+  .skills strong { font-weight: 650; }
+  p.summary { color: #2a2a2a; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lautaro Rodriguez</h1>
+  <div class="role">Software Engineer · Datos y automatización</div>
+  <div class="contact">
+    <span>San Juan, Argentina</span><span>+54 264 5189148</span><span>lautarorodriguez887@gmail.com</span>
+  </div>
+  <div class="contact">
+    <span>linkedin.com/in/lautaro-rodriguez-marcon</span><span>github.com/Lauta2712</span><span>lautaro-portfolio-dev.vercel.app</span>
+  </div>
+</header>
+
+<h2>Perfil</h2>
+<p class="summary">
+  Software Engineer con 3+ años desarrollando sistemas que automatizan procesos, integran fuentes de información
+  y convierten datos en reportes y dashboards para la toma de decisiones. Experiencia en modelado de bases de datos
+  relacionales (PostgreSQL, SQL Server), pipelines ETL que recolectan y normalizan información de múltiples fuentes,
+  extracción automatizada de datos web y control de acceso a la información (Row Level Security, autenticación).
+  Estudiante avanzado de Licenciatura en Sistemas de Información (UNSJ). Inglés C1.
+</p>
+
+<h2>Experiencia</h2>
+
+<div class="entry">
+  <div class="head"><div><strong>Co-Founder &amp; Software Engineer</strong> <span class="org">· Pulso Studio</span></div><span class="date">feb 2026 – actualidad</span></div>
+  <div class="desc">Estudio de consultoría técnica y desarrollo de soluciones operativas B2B. pulsostudio.site</div>
+  <ul>
+    <li>Defino la arquitectura y el stack de cada solución junto al cliente, evaluando costo, escalabilidad y mantenibilidad.</li>
+    <li><strong>Crew:</strong> evolucioné la herramienta interna de un gimnasio de escalada a un SaaS multi-tenant de accesos y turnos con códigos QR dinámicos y suscripciones recurrentes vía Mercado Pago.</li>
+    <li><strong>Compass:</strong> plataforma interna que centraliza clientes, proyectos, finanzas y credenciales; esquema multi-tenant en PostgreSQL con Row Level Security para aislar la información de cada cliente.</li>
+    <li><strong>Monteca:</strong> sistema de gestión de pólizas (React + Supabase), landing B2B y pipelines en n8n que automatizan mensajería y avisos a clientes.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="head"><div><strong>Full Stack Developer</strong> <span class="org">· ANT Automation</span></div><span class="date">jul 2023 – mar 2026</span></div>
+  <div class="desc">Dashboards corporativos y servicios backend para plataformas internas de automatización industrial.</div>
+  <ul>
+    <li>Desarrollé dashboards que exponen métricas operativas en tiempo real para el seguimiento y la toma de decisiones (React, Highcharts).</li>
+    <li>Diseñé servicios backend en C# / .NET con Entity Framework sobre SQL Server, optimizando queries críticas en reportes de alto volumen; modelé los esquemas relacionales de múltiples módulos.</li>
+    <li>Implementé plugins a medida con integración de APIs externas y estandaricé entornos con Docker.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="head"><div><strong>Full Stack Developer</strong> <span class="org">· Coneq</span></div><span class="date">dic 2024 – ene 2025</span></div>
+  <div class="desc">Sitio corporativo responsive y multilenguaje (i18n) para una empresa de ingeniería, con SEO, formularios y mapas interactivos.</div>
+</div>
+
+<div class="entry">
+  <div class="head"><div><strong>Front End Developer</strong> <span class="org">· QXM (Quien x mi)</span></div><span class="date">sept 2023 – dic 2023</span></div>
+  <div class="desc">Landing pages y dashboards con componentes reutilizables en React y Angular, integrados con un backend en NestJS.</div>
+</div>
+
+<h2>Proyectos</h2>
+
+<div class="proj">
+  <strong>Brief</strong> — Pipeline ETL en n8n que recolecta y normaliza noticias de múltiples fuentes, las guarda en PostgreSQL y envía una selección diaria de las más relevantes.
+</div>
+<div class="proj">
+  <strong>Mountain Project Scraper</strong> — Extracción automatizada de datos web con Playwright, tolerante a cambios de estructura del sitio. <span class="link">github.com/Lauta2712/mountain-project-scraper</span>
+</div>
+<div class="proj">
+  <strong>Agente conversacional B2B</strong> — Agente de IA en n8n con Claude API sobre Telegram, integrado con Salesforce (REST, SOQL, Apex) para consultar catálogo y registrar pedidos en tiempo real.
+</div>
+<div class="proj">
+  <strong>Algorithmic Benchmark Tool</strong> (en desarrollo) — CLI open source que mide la complejidad de algoritmos y la contrasta con el análisis teórico.
+</div>
+
+<h2>Habilidades</h2>
+<div class="skills">
+  <p><strong>Datos:</strong> SQL, PostgreSQL, SQL Server, Supabase, modelado de datos, pipelines ETL, web scraping (Playwright), dashboards</p>
+  <p><strong>Automatización e IA:</strong> n8n, agentes de IA (Claude API), integraciones REST, Salesforce (Apex, SOQL)</p>
+  <p><strong>Desarrollo:</strong> Python, C#, .NET, Node.js, React, Next.js, TypeScript, JavaScript, C++</p>
+  <p><strong>Herramientas:</strong> Linux, Docker, Git, Jira, Microsoft Office y Google Workspace (nivel avanzado)</p>
+  <p><strong>Idiomas:</strong> Español nativo · Inglés C1 · Italiano A2 · Alemán A1</p>
+</div>
+
+<h2>Educación</h2>
+<div class="entry" style="margin-bottom:2pt">
+  <div class="head"><div><strong>Licenciatura en Sistemas de Información</strong> <span class="org">· Universidad Nacional de San Juan</span></div><span class="date">2024 – actualidad</span></div>
+</div>
+<div class="entry">
+  <div class="head"><div><strong>Full Stack Web Developer</strong> <span class="org">· Henry Bootcamp (800 h)</span></div><span class="date">2023</span></div>
+</div>
+
+
+</body>
+</html>
