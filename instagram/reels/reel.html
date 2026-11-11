@@ -1,0 +1,109 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:wght,MONO@300..800,1&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=block">
+<style>
+  html,body{margin:0;background:#000;overflow:hidden}
+  /* Zonas seguras de reels/TikTok: arriba la barra, abajo el texto y los botones, a la derecha los íconos. */
+  #stage{width:1080px;height:1920px;position:relative;overflow:hidden;background:#000;color:#fff}
+  .scene{position:absolute;inset:0;padding:260px 140px 460px 120px;box-sizing:border-box;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:56px;opacity:0}
+  .mono{font-family:'Recursive',monospace;font-variation-settings:"MONO" 1;font-weight:400;text-transform:uppercase;letter-spacing:.12em}
+  .big{font-family:'Roboto Flex';line-height:.8;white-space:nowrap}
+  .big span{display:inline-block}
+  .label{font-size:32px;color:rgba(255,255,255,.6);text-align:center;line-height:1.5}
+  .cta{font-size:34px;color:#fff;text-align:center}
+
+  .log{width:100%;font-size:30px;display:flex;flex-direction:column;gap:30px}
+  .log .row{display:flex;gap:32px;white-space:nowrap}
+  .log .time{color:rgba(255,255,255,.45);flex:none}
+  .log .cur{display:inline-block;width:.6em;height:1em;background:#fff;vertical-align:-.12em;margin-left:.1em}
+
+  .list{width:100%;font-size:26px;display:flex;flex-direction:column;gap:34px}
+  .list .item{position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .list .txt{position:relative;white-space:nowrap}
+  .list .strike{position:absolute;left:0;top:52%;height:3px;background:#fff;width:0}
+  .list .tag{font-size:22px;border:1px solid #fff;padding:6px 10px;flex:none}
+
+  .flow{display:flex;flex-direction:column;align-items:center;width:100%}
+  .flow .node{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.35);padding:30px 20px;text-align:center;font-size:27px;color:rgba(255,255,255,.55)}
+  .flow .node.on{background:#fff;color:#000;border-color:#fff}
+  .flow .wire{width:1px;height:64px;background:rgba(255,255,255,.35);position:relative}
+  .flow .dot{position:absolute;left:-8px;width:17px;height:17px;border-radius:50%;background:#fff;display:none}
+</style></head>
+<body><div id="stage"></div>
+<script src="reels.js"></script>
+<script>
+function hash(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}
+h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);return h1>>>0;}
+function prng(seed){return()=>{seed=(seed+0x6d2b79f5)|0;let t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
+function data(seed,n){const r=prng(hash(String(seed)));return Array.from({length:n},()=>r());}
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>1-Math.pow(1-clamp(x),3);
+
+// Palabra con la regla de la firma (una letra fina, el resto pesa según el dato) que además
+// respira: el peso de cada letra va y viene entre dos semillas. Se ajusta una vez al ancho.
+function word(text,maxW,maxSize){
+  const L=[...text], A=data(text,L.length*2), B=data(text+'·',L.length);
+  const first=A.slice(0,L.length);
+  const thin=first.indexOf(Math.min(...first.filter((_,i)=>L[i].trim())));
+  const box=el('div','big'), line=el('span');box.append(line);
+  const spans=L.map((ch,i)=>{const s=el('span');s.textContent=ch===' '?' ':ch;line.append(s);return s;});
+  const wd=i=>Math.round(40+A[i+L.length]*111);
+  const set=k=>spans.forEach((s,i)=>{
+    const w=i===thin?140:(500+A[i]*500)*(1-k)+(500+B[i]*500)*k;
+    s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${wd(i)}, "opsz" 144`;});
+  return {el:box,
+    fit(){spans.forEach((s,i)=>{if(i!==thin)s.style.fontVariationSettings=`"wght" 1000, "wdth" ${wd(i)}, "opsz" 144`;});
+      box.style.fontSize='100px';const w=line.getBoundingClientRect().width;
+      const fs=Math.min(100*maxW/w,maxSize);box.style.fontSize=fs+'px';
+      if(/[gjpqy]/.test(text))box.style.marginBottom=(fs*.2)+'px';},
+    update(t){set(.5-.5*Math.cos(t*Math.PI/1.6));}};
+}
+
+const BUILD={
+  word(s){const n=el('div','scene'),w=word(s.t,820,380);const lab=s.label&&el('div','label mono',s.label);
+    if(lab&&s.above)n.append(lab);n.append(w.el);if(lab&&!s.above)n.append(lab);
+    return {el:n,fits:[w],update(t){w.update(t);}};},
+  end(s){const n=el('div','scene'),w=word(s.t,820,380);n.append(w.el,el('div','cta mono',s.cta));
+    return {el:n,fits:[w],update(t){w.update(t);}};},
+  log(s){const n=el('div','scene'),box=el('div','log mono');n.append(box);
+    const rows=s.rows.map(([h,txt])=>{const r=el('div','row');const tm=el('span','time',h),tx=el('span');r.append(tm,tx);box.append(r);return {r,tx,txt};});
+    const step=(s.dur*.78)/rows.length;
+    return {el:n,update(t){let last=-1;rows.forEach((o,k)=>{const a=.25+k*step,p=clamp((t-a)/.45);
+      o.r.style.visibility=t>=a?'visible':'hidden';o.tx.textContent=o.txt.slice(0,Math.round(o.txt.length*p));if(t>=a)last=k;});
+      box.querySelectorAll('.cur').forEach(c=>c.remove());
+      if(last>=0&&Math.floor(t*2.5)%2===0)rows[last].tx.append(el('span','cur'));}};},
+  list(s){const n=el('div','scene'),box=el('div','list mono');n.append(box);
+    const items=s.items.map(txt=>{const it=el('div','item'),tx=el('span','txt',txt),st=el('span','strike'),tag=el('span','tag','solo');
+      tx.append(st);it.append(tx,tag);box.append(it);return {it,tx,st,tag};});
+    const step=(s.dur-1.9)/items.length;
+    return {el:n,update(t){items.forEach((o,k)=>{const inP=ease((t-k*.14)/.3);o.it.style.opacity=inP;o.it.style.transform=`translateY(${(1-inP)*20}px)`;
+      const p=ease((t-1.3-k*step)/.4);o.st.style.width=(p*100)+'%';o.tx.style.color=`rgba(255,255,255,${1-.6*p})`;o.tag.style.opacity=p;});}};},
+  flow(s){const n=el('div','scene');if(s.label)n.append(el('div','label mono',s.label));
+    const box=el('div','flow mono');n.append(box);const nodes=[],wires=[];
+    s.nodes.forEach((txt,i)=>{if(i){const w=el('div','wire'),d=el('div','dot');w.append(d);box.append(w);wires.push(d);}const nd=el('div','node',txt);box.append(nd);nodes.push(nd);});
+    const T=s.dur*.8;
+    return {el:n,update(t){const q=clamp((t-.3)/T)*(nodes.length-1);
+      nodes.forEach((nd,i)=>nd.classList.toggle('on',t>=.3&&q>=i-1e-6));
+      wires.forEach((d,i)=>{const f=q-i;d.style.display=f>0&&f<1?'block':'none';d.style.top=(f*64-8)+'px';});}};},
+};
+
+let SC=[],TOTAL=0;
+window.load=async key=>{
+  await Promise.all(['100px "Roboto Flex"','30px "Recursive"'].map(f=>document.fonts.load(f)));
+  const R=window.REELS[key],stage=document.getElementById('stage');stage.innerHTML='';SC=[];TOTAL=0;
+  R.scenes.forEach(s=>{const b=BUILD[s.type](s);b.start=TOTAL;b.dur=s.dur;TOTAL+=s.dur;stage.append(b.el);SC.push(b);});
+  await document.fonts.ready;
+  SC.forEach(b=>{b.el.style.opacity=1;(b.fits||[]).forEach(f=>f.fit());b.el.style.opacity=0;});
+  return TOTAL;
+};
+// La primera escena arranca visible (el primer cuadro es la portada); las demás entran con un fundido corto.
+window.render=t=>{SC.forEach((b,i)=>{const lt=t-b.start,on=lt>=0&&lt<b.dur;
+  b.el.style.opacity=on?(i===0?1:ease(lt/.18)):0;if(on)b.update(lt);});};
+document.fonts.ready.then(()=>{document.title='ready';});
+// Vista previa en el navegador: reel.html?p=01-seguros-registro
+const q=new URLSearchParams(location.search);
+if(q.get('p'))window.load(q.get('p')).then(total=>{const t0=performance.now();
+  const tick=()=>{render(((performance.now()-t0)/1000)%total);requestAnimationFrame(tick);};tick();});
+</script></body></html>

@@ -3,128 +3,77 @@
 <head>
 <meta charset="utf-8">
 <title>Lautaro Rodriguez - CV</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
-<style>
-  @page { size: A4; margin: 11mm 15mm; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Roboto Flex', 'Liberation Sans', Arial, sans-serif;
-    font-size: 9.1pt; line-height: 1.33; color: #1a1a1a;
-  }
-  a { color: inherit; text-decoration: none; }
-  header { margin-bottom: 6pt; }
-  h1 { font-size: 21pt; font-weight: 650; letter-spacing: -0.01em; line-height: 1.1; }
-  .role { font-size: 11pt; color: #555; margin-top: 2pt; }
-  .contact { margin-top: 6pt; color: #444; font-size: 9pt; }
-  .contact span + span::before { content: "  ·  "; color: #aaa; }
-  h2 {
-    font-size: 8.4pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #1a1a1a; border-bottom: 0.6pt solid #cfcfcf; padding-bottom: 3pt;
-    margin: 9pt 0 5pt; break-after: avoid;
-  }
-  .entry { margin-bottom: 7pt; break-inside: avoid; }
-  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
-  .head strong { font-weight: 650; }
-  .head .org { color: #444; }
-  .date { color: #666; font-size: 8.8pt; white-space: nowrap; }
-  .desc { color: #444; margin-top: 1pt; }
-  ul { margin-top: 3pt; padding-left: 11pt; }
-  li { margin-bottom: 1pt; }
-  li::marker { color: #999; }
-  .proj { margin-bottom: 4pt; break-inside: avoid; }
-  .proj strong { font-weight: 650; }
-  .link { color: #666; font-size: 8.8pt; }
-  .skills p { margin-bottom: 1.5pt; }
-  .skills strong { font-weight: 650; }
-  p.summary { color: #2a2a2a; }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=block">
+<link rel="stylesheet" href="cv.css">
 </head>
 <body>
 
 <header>
   <h1>Lautaro Rodriguez</h1>
-  <div class="role">Software Engineer</div>
-  <div class="contact">
-    <span>San Juan, Argentina</span><span>+54 264 5189148</span><span>lautarorodriguez887@gmail.com</span>
-  </div>
-  <div class="contact">
-    <span>linkedin.com/in/lautaro-rodriguez-marcon</span><span>github.com/Lauta2712</span><span>lautaro-portfolio-dev.vercel.app</span>
-  </div>
+  <div class="contact"><span>San Juan, Argentina</span><span>+54 264 5189148</span><span>lautarorodriguez887@gmail.com</span></div>
+  <div class="contact"><span>linkedin.com/in/lautaro-rodriguez-marcon</span><span>github.com/Lauta2712</span><span>portfolio: <a class="u" href="https://l20n.vercel.app">l20n.vercel.app</a></span></div>
 </header>
 
-<h2>Summary</h2>
-<p class="summary">
-  Software Engineer with 3+ years designing full-stack solutions for business process automation,
-  B2B integrations and transactional flows (payments, CRM, messaging). Experienced in relational and
-  multi-tenant data modeling (PostgreSQL, SQL Server) and in leading end-to-end solutions with React, Next.js,
-  Node.js and C#/.NET. Co-founder of Pulso Studio. English C1.
-</p>
+<h2>Professional summary</h2>
+<p class="summary">Software Engineer with 3+ years designing full-stack systems for business process automation, B2B integrations, and transactional flows (payments, CRM, messaging). Experienced in relational and multi-tenant data modeling (PostgreSQL, SQL Server) and leading end-to-end web architectures with React, Next.js, Node.js, and C#/.NET. Co-founder of Pulso Studio.</p>
 
 <h2>Experience</h2>
 
 <div class="entry">
-  <div class="head"><div><strong>Co-Founder &amp; Software Engineer</strong> <span class="org">· Pulso Studio</span></div><span class="date">Feb 2026 – Present</span></div>
-  <div class="desc">Technical consulting studio building B2B operational solutions. pulsostudio.site</div>
+  <div class="head"><span>Co-Founder &amp; Software Engineer · Pulso Studio</span><span class="date">Feb 2026 – Present</span></div>
+  <div class="desc">Technical consulting studio building B2B operational solutions and software architectures (pulsostudio.site).</div>
   <ul>
-    <li>Define the architecture and stack of each solution with the client, weighing cost, scalability and maintainability.</li>
-    <li><strong>Crew:</strong> evolved an in-house tool for a climbing gym into a multi-tenant SaaS for access control and bookings, with dynamic QR codes and recurring subscriptions via Mercado Pago.</li>
-    <li><strong>Compass:</strong> internal platform unifying CRM, projects and finances; multi-tenant PostgreSQL schema with Row Level Security and optimistic updates with TanStack Query.</li>
-    <li><strong>Monteca:</strong> insurance policy management system (React + Supabase), B2B landing page and n8n pipelines that automate client messaging and notifications.</li>
+    <li>Define system architecture and technical stack with clients, balancing operational costs, scalability, and maintainability.</li>
+    <li><strong>Monteca</strong> (in production): management system for insurance advisors (React + Supabase) with clients, vehicles, policies, barcode PDF receipts, cash register and roles, covered by 53 Vitest tests. Daily email reminders for upcoming installments and policy renewals that are never sent twice (n8n, migrating to a Python service with Docker and a Kubernetes CronJob).</li>
+    <li><strong>Crew:</strong> Scaled an internal tool for a climbing gym into a multi-tenant SaaS for access control and reservations, featuring dynamic QR codes and recurring subscription billing via Mercado Pago API.</li>
+    <li><strong>Compass:</strong> Built an internal operations platform centralizing CRM, agile projects, and financial records using a multi-tenant PostgreSQL schema with Row Level Security (RLS) and TanStack Query optimistic updates.</li>
   </ul>
 </div>
 
 <div class="entry">
-  <div class="head"><div><strong>Full Stack Developer</strong> <span class="org">· ANT Automation</span></div><span class="date">Jul 2023 – Mar 2026</span></div>
+  <div class="head"><span>Full Stack Developer · ANT Automation</span><span class="date">Jul 2023 – Mar 2026</span></div>
   <div class="desc">Corporate dashboards and backend services for internal industrial automation platforms.</div>
   <ul>
-    <li>Built real-time operational metrics dashboards (React, Redux, Material UI, Highcharts).</li>
-    <li>Designed backend services in C# / .NET with Entity Framework over SQL Server, optimizing critical queries for high-volume reports.</li>
-    <li>Modeled and maintained relational schemas across multiple internal modules.</li>
-    <li>Implemented custom plugins integrating external APIs and standardized environments with Docker.</li>
+    <li>Built real-time operational metric dashboards utilizing React, Redux, Material UI, and Highcharts.</li>
+    <li>Designed backend services in C# / .NET with Entity Framework over SQL Server, optimizing critical queries for high-volume reporting.</li>
+    <li>Modeled and maintained normalized relational databases across multiple operational modules.</li>
+    <li>Implemented custom integration plugins for external third-party APIs and containerized local environments with Docker.</li>
   </ul>
 </div>
 
 <div class="entry">
-  <div class="head"><div><strong>Full Stack Developer</strong> <span class="org">· Coneq</span></div><span class="date">Dec 2024 – Jan 2025</span></div>
-  <div class="desc">Responsive, multilingual (i18n) corporate website for an engineering firm, with SEO, forms and interactive maps.</div>
+  <div class="head"><span>Full Stack Developer · Coneq</span><span class="date">Dec 2024 – Jan 2025</span></div>
+  <ul><li>Engineered a responsive, multilingual (i18n) corporate web platform for an engineering firm with SEO and interactive maps.</li></ul>
 </div>
 
 <div class="entry">
-  <div class="head"><div><strong>Front End Developer</strong> <span class="org">· QXM (Quien x mi)</span></div><span class="date">Sep 2023 – Dec 2023</span></div>
-  <div class="desc">Landing pages and dashboards with reusable components in React and Angular, integrated with a NestJS backend.</div>
+  <div class="head"><span>Front End Developer · QXM (Quien x mi)</span><span class="date">Sep 2023 – Dec 2023</span></div>
+  <ul><li>Developed landing pages and operational dashboards with modular reusable components in React/Angular and NestJS backend.</li></ul>
 </div>
 
-<h2>Projects</h2>
+<h2>Selected projects</h2>
+<ul>
+  <li><strong>Brief</strong> (in production): news from almost forty outlets, summarized and classified with AI into a daily digest in Spanish and English, with a morning newsletter. n8n pipeline running three times a day, migrating to a Python service (Groq, pytest, mypy, GitHub Actions CI, Docker). <a href="https://hibrief.site">hibrief.site</a></li>
+  <li><strong>Blueprint:</strong> a canvas to document how a project is built, like a blueprint: architecture, frontend, data and flows on separate sheets, with pattern templates, JSON export and offline use (PWA). <a href="https://blueprint-l20n.vercel.app">blueprint-l20n.vercel.app</a></li>
+  <li><strong>Noodle:</strong> an app for learning guitar and music theory by ear: tuner, interactive fretboard, songbook with transposition and ear trainer (Web Audio API, offline). <a href="https://noodle-music.vercel.app">noodle-music.vercel.app</a></li>
+</ul>
 
-<div class="proj">
-  <strong>B2B conversational agent</strong> — n8n agent with Claude API on Telegram, integrated with Salesforce (REST, SOQL, Apex) to query the catalog and create orders in real time.
-</div>
-<div class="proj">
-  <strong>Brief</strong> — Automated news platform: n8n ETL pipeline, PostgreSQL (Supabase) and a daily newsletter with no manual intervention.
-</div>
-<div class="proj">
-  <strong>Mountain Project Scraper</strong> — Playwright scraper with exponential backoff retries and fallback selectors. <span class="link">github.com/Lauta2712/mountain-project-scraper</span>
-</div>
-<div class="proj">
-  <strong>Algorithmic Benchmark Tool</strong> (in progress) — Open source CLI that measures time and space complexity empirically and checks it against theoretical analysis (Big O).
-</div>
-
-<h2>Skills</h2>
+<h2>Technical skills</h2>
 <div class="skills">
-  <p><strong>Backend:</strong> C#, .NET, Node.js, Express, NestJS, Python, C++</p>
-  <p><strong>Frontend:</strong> React, Next.js, TypeScript, JavaScript, Vite, TanStack Query, Zustand</p>
-  <p><strong>Data &amp; integrations:</strong> PostgreSQL, SQL Server, Supabase, REST APIs, n8n, Salesforce (Apex, SOQL), Mercado Pago API</p>
-  <p><strong>Architecture &amp; tools:</strong> Multi-tenant architecture, data modeling, ETL pipelines, Docker, Cloudflare, Git, Jira</p>
-  <p><strong>Languages:</strong> Spanish (native) · English C1 · Italian A2 · German A1</p>
+  <p><strong>Backend:</strong> C#, .NET, Node.js, Express, NestJS, Python, C++, REST APIs.</p>
+  <p><strong>Frontend:</strong> React, Next.js, TypeScript, JavaScript (ES6+), Vite, TanStack Query, Zustand, Tailwind CSS.</p>
+  <p><strong>Data &amp; Integrations:</strong> PostgreSQL, SQL Server, Supabase, n8n, Salesforce (Apex, SOQL), Mercado Pago API.</p>
+  <p><strong>Architecture &amp; Tools:</strong> Multi-tenant systems, relational data modeling, ETL pipelines, Docker, GitHub Actions, Vercel, Cloudflare, Git.</p>
+  <p><strong>AI:</strong> agents with Claude API and AI-assisted development with Claude Code, reviewing and testing what it generates.</p>
+  <p><strong>Languages:</strong> Spanish (Native) · English (B2 / Professional Working Proficiency) · Italian (A2) · German (A1).</p>
 </div>
 
 <h2>Education</h2>
-<div class="entry" style="margin-bottom:2pt">
-  <div class="head"><div><strong>B.Sc. in Information Systems</strong> <span class="org">· Universidad Nacional de San Juan</span></div><span class="date">2024 – Present</span></div>
-</div>
-<div class="entry">
-  <div class="head"><div><strong>Full Stack Web Developer</strong> <span class="org">· Henry Bootcamp (800 h)</span></div><span class="date">2023</span></div>
+<div class="entry edu">
+  <div class="head"><span>B.Sc. in Information Systems (Licenciatura en Sistemas de Información)</span><span class="date">2024 – Present (3rd Year)</span></div>
+  <div class="sub">Universidad Nacional de San Juan (UNSJ)</div>
 </div>
 
+<footer><span>Lautaro Rodriguez · Curriculum Vitae</span><span>Page 1 of 1</span></footer>
 </body>
 </html>

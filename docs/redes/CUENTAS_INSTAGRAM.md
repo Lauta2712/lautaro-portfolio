@@ -2,7 +2,7 @@
 
 Oct 9, 2026 · para @l20n.archive
 
-> Una lista viva de cuentas para seguir desde la cuenta nueva, agrupadas por interés. Sirve para armar el feed (lo que veo moldea lo que hago) y para encontrar gente con quien conectar o compartir. Ver también [`MARCA_PERSONAL.md`](MARCA_PERSONAL.md).
+> Una lista viva de cuentas para seguir desde la cuenta nueva, agrupadas por interés. Sirve para armar el feed (lo que veo moldea lo que hago) y para encontrar gente con quien conectar o compartir. Ver también [`MARCA_PERSONAL.md`](../marca/MARCA_PERSONAL.md).
 
 **Cómo se verificó:** cada handle de las tablas sale del link a Instagram que tiene la web oficial de esa cuenta (chequeado el 9 de octubre de 2026). Los que no se pudieron confirmar están al final, sin handle, para buscarlos a mano.
 

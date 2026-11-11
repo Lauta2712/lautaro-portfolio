@@ -2,7 +2,7 @@
 
 Lista armada el 8 de octubre de 2026 para L20N. Junta documentación para subir el nivel de frontend, mapping, lecturas, revistas, estudios, personas para seguir o contactar y cuentas de Instagram.
 
-Complementa [`~/Escritorio/Lecturas.md`](../../Escritorio/Lecturas.md) y no repite lo que ya está ahí. Marcá lo que vayas leyendo.
+Complementa [`~/Escritorio/Lecturas.md`](../../../../Escritorio/Lecturas.md) y no repite lo que ya está ahí. Marcá lo que vayas leyendo.
 
 > Los cargos y ciudades de la sección de contactos cambian seguido. Revisá el perfil de LinkedIn de cada persona antes de escribirle.
 

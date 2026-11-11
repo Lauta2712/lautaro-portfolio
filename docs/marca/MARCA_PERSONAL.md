@@ -3,7 +3,7 @@
 Oct 7, 2026 · @Lauta · actualizado el 9 de octubre de 2026
 
 > Copia en Markdown del doc vivo "Marca personal — Concepto": https://claude.ai/code/artifact/ec440cb6-f831-4074-be63-98ab0537dc96
-> Alias confirmado: **l20n**. Firma: **l5o**. Instagram: **@l20n.archive**. Ver también [`GUIA_LEGAL.md`](GUIA_LEGAL.md), [`PENDIENTES.md`](PENDIENTES.md) y [`CUENTAS_INSTAGRAM.md`](CUENTAS_INSTAGRAM.md).
+> Alias confirmado: **l20n**. Firma: **l5o**. Instagram: **@l20n.archive**. Ver también [`GUIA_LEGAL.md`](GUIA_LEGAL.md), [`PENDIENTES.md`](PENDIENTES.md) y [`CUENTAS_INSTAGRAM.md`](../redes/CUENTAS_INSTAGRAM.md).
 
 
 ## Punto de partida
@@ -844,7 +844,7 @@ Misma regla que la grilla: placa con una palabra que nombra el momento, adentro 
 - **Orden:** alternar lo de laburo (Compass, Monteca) con lo personal (Crew y escalada, Ziel y montaña, Noodle y música) para que la grilla no se lea como portfolio. Entre medio, posts de montaña sin placa.
 - **Para decidir:** si estos son los destacados (¿Monteca entra, siendo de un cliente?) y si las herramientas de Útiles llevan algo tipo "está en el link". La voz de L20N es implícita, sin llamados a la acción; eso queda para Pulso.
 
-**A quién seguir:** ver [`CUENTAS_INSTAGRAM.md`](CUENTAS_INSTAGRAM.md).
+**A quién seguir:** ver [`CUENTAS_INSTAGRAM.md`](../redes/CUENTAS_INSTAGRAM.md).
 
 ## Feedback y riesgos
 

@@ -2,7 +2,7 @@
 
 Oct 11, 2026 · borrador para reescribir
 
-> Tres posts para LinkedIn: el rebranding, Brief y Compass. Las imágenes se arman en Compass: capturas reales dentro del marco del archivo (#número + firma de la pieza), en 1080 × 1350. Los textos de acá son **un punto de partida para reescribir con mi voz**, no texto final. Lo que va entre [corchetes] lo tengo que completar yo. Ver también [`MARCA_PERSONAL.md`](MARCA_PERSONAL.md) y [`CONTACTOS_LINKEDIN.md`](CONTACTOS_LINKEDIN.md).
+> Tres posts para LinkedIn: el rebranding, Brief y Compass. Las imágenes se arman en Compass: capturas reales dentro del marco del archivo (#número + firma de la pieza), en 1080 × 1350. Los textos de acá son **un punto de partida para reescribir con mi voz**, no texto final. Lo que va entre [corchetes] lo tengo que completar yo. Ver también [`MARCA_PERSONAL.md`](../marca/MARCA_PERSONAL.md) y [`CONTACTOS_LINKEDIN.md`](CONTACTOS_LINKEDIN.md).
 
 **Reglas que valen también acá:** no explicar de dónde sale L20N, no citar autores, no ponerme etiquetas de rol y que suene corto y concreto. LinkedIn tolera un poco más de contexto laboral que Instagram, pero sin caer en el "Estoy feliz de anunciar…".
 

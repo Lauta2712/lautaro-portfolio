@@ -28,12 +28,26 @@
   .num{margin:0}
   .de{color:rgba(255,255,255,.55)}
   .de b{font-weight:400;color:#fff}
-  .cierre .lines{font-size:34px;letter-spacing:.04em;text-transform:none}
+  .cierre .lines{font-size:30px}
 
   /* tapa: solo el glifo, centrado para que sobreviva al recorte en círculo */
   .tapa{padding:0;display:flex;align-items:center;justify-content:center}
   .tapa .g{font-family:'Roboto Flex';font-size:560px;line-height:1}
   .tapa .g span{display:inline-block}
+  /* flujo: nodos de interfaz oscura unidos por una línea */
+  .flow{width:100%;display:flex;align-items:center;font-size:22px}
+  .flow .node{border:1px solid rgba(255,255,255,.35);background:#111;padding:26px 18px;color:#fff;flex:none}
+  .flow .wire{flex:1;height:1px;background:rgba(255,255,255,.35);position:relative}
+  .flow .wire::after{content:'';position:absolute;right:0;top:-4px;width:9px;height:9px;border-radius:50%;background:#fff}
+  /* anuncio de muestra 4:5 */
+  .mock{width:600px;aspect-ratio:4/5;border:1px solid rgba(255,255,255,.35);background:#0b0b0b;box-sizing:border-box;
+    display:grid;grid-template-rows:auto 1fr auto}
+  .mock .tag{padding:22px 26px;text-align:left;font-size:18px}
+  .mock .in{display:flex;align-items:center;justify-content:center}
+  .mock .bar{border-top:1px solid rgba(255,255,255,.35);padding:24px 26px;display:flex;justify-content:space-between;color:#fff;font-size:20px}
+  /* cierre: flecha a la caja de respuesta */
+  .cta{display:flex;flex-direction:column;align-items:center;gap:18px;color:#fff;font-size:26px}
+  .cta .arrow{font-family:'Roboto Flex';font-size:120px;line-height:.8;font-variation-settings:"wght" 200,"wdth" 100,"opsz" 144}
 </style></head>
 <body>
 <script src="historias.js"></script>
@@ -73,14 +87,20 @@ H.slides.forEach((s,idx)=>{
 
   if(s.type==='intro') body.append(fit(s.t,s.t,320,952,520));
   if(s.type==='item'){
-    if(s.img){const f=img(s.img);if(s.crop==='phone')f.classList.add('phone');body.append(f);body.append(el('span','n mono',s.n));}
+    if(s.flow){const f=el('div','flow mono');s.flow.forEach((t,i)=>{if(i)f.append(el('div','wire'));f.append(el('div','node',t));});
+      body.append(f);body.append(el('span','n mono',s.n));}
+    else if(s.mock){const m=el('div','mock');m.append(el('div','tag mono',s.mock.tag));
+      const inn=el('div','in');inn.append(fit(s.mock.t,s.mock.t,320,500,300));m.append(inn);
+      m.append(el('div','bar mono',`<span>${s.mock.cta}</span><span>→</span>`));body.append(m);body.append(el('span','n mono',s.n));}
+    else if(s.img){const f=img(s.img);if(s.crop==='phone')f.classList.add('phone');body.append(f);body.append(el('span','n mono',s.n));}
     else{const n=fit(s.n,seed,320,600,700);n.classList.add('num');body.append(n);}
     body.append(fit(s.t,s.t,320,952,420));
     const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);
     if(s.de)body.append(el('div','de mono',`en: ${s.de.map(x=>`<b>${x}</b>`).join(' · ')}`));
   }
   if(s.type==='cierre'){body.append(fit(s.t,s.t,320,952,420));
-    const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);}
+    if(s.lines){const l=el('div','lines mono');s.lines.forEach(t=>l.append(el('span',null,t)));body.append(l);}
+    if(s.cta){const c=el('div','cta mono');c.append(el('span',null,s.cta),el('span','arrow','↓'));foot.append(c);}}
 
   post.append(top,body,foot);document.body.append(post);
 });

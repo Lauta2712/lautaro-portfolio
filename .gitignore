@@ -25,3 +25,12 @@ dist-ssr
 
 # Notas personales (no publicar)
 BUSQUEDA_TRABAJO.md
+
+# Negocio y contactos: el repo es público
+docs/negocio/
+docs/redes/CONTACTOS_LINKEDIN.md
+docs/redes/BUSQUEDAS_LINKEDIN.txt
+docs/marca/PENDIENTES.md
+
+# Se regeneran con instagram/reels/render.py
+instagram/reels/mp4/

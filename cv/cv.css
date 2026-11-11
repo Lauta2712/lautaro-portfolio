@@ -1,0 +1,41 @@
+/* Estilo compartido de los tres CV (es, en, side). Render: ./render.sh */
+@page { size: A4; margin: 11mm 14mm 15mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: 'Roboto', 'Liberation Sans', Arial, sans-serif;
+  font-size: 8.7pt; line-height: 1.3; color: #111;
+  font-kerning: normal; text-rendering: geometricPrecision;
+}
+a { color: inherit; text-decoration: none; }
+a.u { text-decoration: underline; text-underline-offset: 1.5pt; }
+
+header { margin-bottom: 8pt; }
+h1 { font-size: 19pt; font-weight: 700; text-transform: uppercase; text-align: center; letter-spacing: .02em; line-height: 1.1; margin-bottom: 6pt; }
+.contact { font-size: 8.6pt; }
+.contact span + span::before { content: " · "; }
+
+h2 {
+  font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
+  border-bottom: .9pt solid #111; padding-bottom: 2pt; margin: 9pt 0 4pt; break-after: avoid;
+}
+p.summary { text-align: justify; }
+
+.entry { margin-bottom: 7pt; break-inside: avoid; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; font-weight: 700; }
+.date { white-space: nowrap; }
+.desc { font-style: italic; }
+ul { margin-top: 1.5pt; padding-left: 13pt; }
+li { margin-bottom: 1.5pt; text-align: justify; }
+li strong, .skills strong { font-weight: 700; }
+
+.skills p { margin-bottom: 3.5pt; }
+.edu .sub { font-weight: 400; }
+
+/* El pie va al fondo de la hoja: el body ocupa el alto útil de la página A4. */
+body { height: 270mm; display: flex; flex-direction: column; }
+footer {
+  margin-top: auto;
+  display: flex; justify-content: space-between;
+  font-size: 7.8pt; color: #666; border-top: .5pt solid #ccc; padding-top: 3pt;
+}
