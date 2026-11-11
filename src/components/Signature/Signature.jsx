@@ -1,8 +1,8 @@
-import { dataFromSeed, signatureLetters } from './signature';
+import { THIN, THIN_SMALL, dataFromSeed, signatureLetters } from './signature';
 import styles from './Signature.module.css';
 
 export default function Signature({ seed, data, shared = false, small = false, className = '', as: Tag = 'span' }) {
-  const letters = signatureLetters(data ?? dataFromSeed(seed), { shared, thinWeight: small ? 300 : 140 });
+  const letters = signatureLetters(data ?? dataFromSeed(seed), { shared, thinWeight: small ? THIN_SMALL : THIN });
   return (
     <Tag className={`${styles.signature} ${className}`} aria-label="L20N" role="img">
       {letters.map(({ letter, style }, i) => (

@@ -51,10 +51,10 @@ function word(text,maxW,maxSize){
   const spans=L.map((ch,i)=>{const s=el('span');s.textContent=ch===' '?' ':ch;line.append(s);return s;});
   const wd=i=>Math.round(40+A[i+L.length]*111);
   const set=k=>spans.forEach((s,i)=>{
-    const w=i===thin?140:(500+A[i]*500)*(1-k)+(500+B[i]*500)*k;
+    const w=i===thin?260:(500+A[i]*320)*(1-k)+(500+B[i]*320)*k;
     s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${wd(i)}, "opsz" 144`;});
   return {el:box,
-    fit(){spans.forEach((s,i)=>{if(i!==thin)s.style.fontVariationSettings=`"wght" 1000, "wdth" ${wd(i)}, "opsz" 144`;});
+    fit(){spans.forEach((s,i)=>{if(i!==thin)s.style.fontVariationSettings=`"wght" 820, "wdth" ${wd(i)}, "opsz" 144`;});
       box.style.fontSize='100px';const w=line.getBoundingClientRect().width;
       const fs=Math.min(100*maxW/w,maxSize);box.style.fontSize=fs+'px';
       if(/[gjpqy]/.test(text))box.style.marginBottom=(fs*.2)+'px';},

@@ -32,14 +32,14 @@ function letters(word,seed,thinW){
   const L=[...word], d=data(seed,L.length*2), first=d.slice(0,L.length);
   const thin=first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
   return L.map((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?' ':ch;
-    const w=i===thin?thinW:500+d[i]*500, wd=40+d[i+L.length]*111;
+    const w=i===thin?thinW:500+d[i]*320, wd=40+d[i+L.length]*111;
     s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${Math.round(wd)}, "opsz" 144`;return s;});
 }
 const q=new URLSearchParams(location.search), word=q.get('t')||'intro', seed=q.get('s')||word;
 document.getElementById('num').textContent=q.get('n')||'#001';
 document.getElementById('foot').textContent=q.get('f')||'';
-letters('L20N',seed,180).forEach(s=>document.getElementById('sig').append(s));
-const t=document.getElementById('title');letters(word,seed,120).forEach(s=>t.append(s));
+letters('L20N',seed,300).forEach(s=>document.getElementById('sig').append(s));
+const t=document.getElementById('title');letters(word,seed,260).forEach(s=>t.append(s));
 document.fonts.ready.then(()=>{t.style.fontSize='100px';const k=(1080-128)/t.getBoundingClientRect().width;
   const fs=Math.min(100*k,640);t.style.fontSize=fs+'px';if(/[gjpqy]/.test(word))t.parentNode.style.marginBottom=(fs*.2)+'px';document.title='ready';});
 </script></body></html>

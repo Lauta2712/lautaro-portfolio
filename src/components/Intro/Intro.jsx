@@ -2,13 +2,13 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScroll, useMotionValueEvent, useReducedMotion } from 'framer-motion';
 import { MOTHER } from '../../data/pieces';
+import { THIN, HEAVY_MAX, heavy } from '../Signature/signature';
 import { setLanded } from '../../lib/landing';
 import styles from './Intro.module.css';
 
 const LETTERS = [...'L20N'];
-const BASE_WGHT = [1000, 1000, 1000, 500 + MOTHER[3] * 500];
+const BASE_WGHT = [HEAVY_MAX, HEAVY_MAX, HEAVY_MAX, heavy(MOTHER[3])];
 const BASE_WDTH = [4, 5, 6, 7].map(i => 40 + MOTHER[i] * 111);
-const THIN = 140;
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const smooth = v => v * v * (3 - 2 * v);

@@ -23,7 +23,7 @@
 
 .word > span {
   display: inline-block;
-  font-variation-settings: "wght" 300, "wdth" 40, "opsz" 144;
+  font-variation-settings: "wght" 340, "wdth" 40, "opsz" 144;
   transition: font-variation-settings 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

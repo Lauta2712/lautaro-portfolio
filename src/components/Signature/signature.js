@@ -28,13 +28,20 @@ export function dataFromSeed(seed) {
   return Array.from({ length: 8 }, () => rand());
 }
 
+// Rango de pesos de la marca: la fina no llega a hilo y las que pesan no llegan a negrísima.
+export const THIN = 260;
+export const THIN_SMALL = 340;
+export const HEAVY_MIN = 500;
+export const HEAVY_MAX = 820;
+export const heavy = d => HEAVY_MIN + d * (HEAVY_MAX - HEAVY_MIN);
+
 // Las firmas chicas usan una línea fina más gruesa para que no desaparezca.
-export function signatureLetters(data, { shared = false, thinWeight = 140 } = {}) {
+export function signatureLetters(data, { shared = false, thinWeight = THIN } = {}) {
   const first = data.slice(0, 4);
   const thinIndex = first.indexOf(Math.min(...first));
   return [...'L20N'].map((letter, i) => {
     const thin = shared || i === thinIndex;
-    const wght = thin ? thinWeight : 500 + data[i] * 500;
+    const wght = thin ? thinWeight : heavy(data[i]);
     const wdth = 40 + data[(i + 4) % 8] * 111;
     return {
       letter,

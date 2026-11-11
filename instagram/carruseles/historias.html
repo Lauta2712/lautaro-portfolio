@@ -47,7 +47,7 @@
   .mock .bar{border-top:1px solid rgba(255,255,255,.35);padding:24px 26px;display:flex;justify-content:space-between;color:#fff;font-size:20px}
   /* cierre: flecha a la caja de respuesta */
   .cta{display:flex;flex-direction:column;align-items:center;gap:18px;color:#fff;font-size:26px}
-  .cta .arrow{font-family:'Roboto Flex';font-size:120px;line-height:.8;font-variation-settings:"wght" 200,"wdth" 100,"opsz" 144}
+  .cta .arrow{font-family:'Roboto Flex';font-size:120px;line-height:.8;font-variation-settings:"wght" 260,"wdth" 100,"opsz" 144}
 </style></head>
 <body>
 <script src="historias.js"></script>
@@ -61,7 +61,7 @@ function letters(word,seed,thinW){
   const L=[...word], d=data(seed,L.length*2), first=d.slice(0,L.length);
   const thin=first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
   return L.map((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?'\u00a0':ch;
-    const w=i===thin?thinW:500+d[i]*500, wd=40+d[i+L.length]*111;
+    const w=i===thin?thinW:500+d[i]*320, wd=40+d[i+L.length]*111;
     s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${Math.round(wd)}, "opsz" 144`;return s;});
 }
 const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
@@ -76,8 +76,8 @@ H.slides.forEach((s,idx)=>{
   if(s.type==='tapa'){
     // Dos trazos de la misma letra: uno fino y uno que pesa, encimados apenas corridos.
     const g=el('div','g');const a=el('span',null,s.g),b=el('span',null,s.g);
-    a.style.fontVariationSettings='"wght" 900, "wdth" 60, "opsz" 144';
-    b.style.cssText='font-variation-settings:"wght" 320, "wdth" 151, "opsz" 144;margin-left:-.02em';
+    a.style.fontVariationSettings='"wght" 820, "wdth" 60, "opsz" 144';
+    b.style.cssText='font-variation-settings:"wght" 340, "wdth" 151, "opsz" 144;margin-left:-.02em';
     g.append(a,b);post.append(g);document.body.append(post);return;
   }
   // Sin título fijo ni handle: arriba solo la bajada de la intro, si tiene.

@@ -770,6 +770,7 @@ Lo de arriba se pensó para la etapa rayado/bardo. Esta ronda parte del alias.
 2. Siempre hay una letra en línea fina (la finesse). Cuál es la decide el dato más bajo.
 3. Si la pieza es de otra persona, toda la firma va en línea fina.
 4. La marca es blanco sobre negro. El color lo pone el contenido.
+5. **Pesos (11 de noviembre de 2026):** nada de extremos. Las letras que pesan van de 500 a 820 (antes llegaban a 1000) y la fina va en 260 (antes 100 a 140); en tamaños chicos, 340. En la web están en `src/components/Signature/signature.js` y en `--weight-thin` / `--weight-heavy` de `tokens.css`.
 
 ## Bajada a medios: todo como una revista
 

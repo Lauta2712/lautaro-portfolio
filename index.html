@@ -69,10 +69,10 @@
         transform: translateY(0.35em);
         transition: font-variation-settings 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .ll-mark span:nth-child(1) { --w: 1000; --d: 101; --i: 0; }
-      .ll-mark span:nth-child(2) { --w: 1000; --d: 101; --i: 1; }
-      .ll-mark span:nth-child(3) { --w: 1000; --d: 125; --i: 2; }
-      .ll-mark span:nth-child(4) { --w: 950;  --d: 101; --i: 3; }
+      .ll-mark span:nth-child(1) { --w: 820; --d: 101; --i: 0; }
+      .ll-mark span:nth-child(2) { --w: 820; --d: 101; --i: 1; }
+      .ll-mark span:nth-child(3) { --w: 820; --d: 125; --i: 2; }
+      .ll-mark span:nth-child(4) { --w: 780;  --d: 101; --i: 3; }
       /* Entra cuando la fuente está lista: nunca se ve la de reemplazo */
       html.ll-font .ll-mark span {
         animation:
@@ -81,17 +81,17 @@
       }
       /* Al terminar queda la firma madre: el 0 fino */
       #l20n-loader.is-settled .ll-mark span { animation: none; opacity: 1; transform: none; }
-      #l20n-loader.is-settled .ll-mark span:nth-child(3) { --w: 140; }
+      #l20n-loader.is-settled .ll-mark span:nth-child(3) { --w: 260; }
       @keyframes ll-rise { to { opacity: 1; transform: none; } }
       @keyframes ll-thin {
         0%, 40%, 100% { font-variation-settings: "wght" var(--w), "wdth" var(--d), "opsz" 144; }
-        14% { font-variation-settings: "wght" 140, "wdth" calc(var(--d) + 24), "opsz" 144; }
+        14% { font-variation-settings: "wght" 260, "wdth" calc(var(--d) + 24), "opsz" 144; }
       }
       @keyframes ll-failsafe { to { visibility: hidden; } }
       @media (prefers-reduced-motion: reduce) {
         #l20n-loader, .ll-mark { transition-duration: 0.01s; }
         html.ll-font .ll-mark span { animation: none; opacity: 1; transform: none; }
-        .ll-mark span:nth-child(3) { --w: 140; }
+        .ll-mark span:nth-child(3) { --w: 260; }
       }
     </style>
     <noscript><style>#l20n-loader { display: none; } html.is-loading { overflow: auto; }</style></noscript>

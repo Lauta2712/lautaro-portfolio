@@ -58,7 +58,7 @@ function WideWord({ text }) {
       const r = el.getBoundingClientRect();
       const d = Math.abs(e.clientX - (r.left + r.width / 2)) / window.innerWidth;
       const k = Math.max(0, 1 - d * 4);
-      el.style.fontVariationSettings = `"wght" ${Math.round(300 + 700 * k)}, "wdth" ${Math.round(40 + 111 * k)}, "opsz" 144`;
+      el.style.fontVariationSettings = `"wght" ${Math.round(340 + 480 * k)}, "wdth" ${Math.round(40 + 111 * k)}, "opsz" 144`;
     });
   }
 

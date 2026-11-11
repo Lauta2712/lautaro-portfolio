@@ -72,12 +72,12 @@ function data(seed,n){const r=prng(hash(String(seed)));return Array.from({length
 // Misma regla que la firma y la portada: una letra fina (la de dato más bajo), el resto pesa y se ensancha según el dato.
 // fixedW: [ancho de la fina, ancho de las que pesan], fijo (en los números, para que se lean como uno solo).
 // Peso de la letra fina: más bajo que esto ya no se lee.
-const THIN=320;
+const THIN=340;
 function letters(word,seed,thinW,fixedW,thinAt){
   const L=[...word], d=data(seed,L.length*2), first=d.slice(0,L.length);
   const thin=thinAt??first.indexOf(Math.min(...first.filter((_,i)=>L[i]!==' ')));
   return L.map((ch,i)=>{const s=document.createElement('span');s.textContent=ch===' '?' ':ch;
-    const w=i===thin?thinW:500+d[i]*500, wd=fixedW?fixedW[i===thin?0:1]:40+d[i+L.length]*111;
+    const w=i===thin?thinW:500+d[i]*320, wd=fixedW?fixedW[i===thin?0:1]:40+d[i+L.length]*111;
     s.style.fontVariationSettings=`"wght" ${Math.round(w)}, "wdth" ${Math.round(wd)}, "opsz" 144`;return s;});
 }
 // Portada: con la regla, o pareja (even) cuando el proyecto es de un cliente y el nombre se respeta tal cual.

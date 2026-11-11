@@ -48,6 +48,9 @@
   --weight-semibold: 600;
   --weight-bold:     700;
   --weight-extrabold:800;
+  /* Rango de la marca para títulos y firma: ni negrísima ni hilo */
+  --weight-thin:     260;
+  --weight-heavy:    820;
 
   --leading-tight:  1.2;
   --leading-snug:   1.375;

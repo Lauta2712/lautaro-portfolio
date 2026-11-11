@@ -36,7 +36,7 @@
 
 .pilcrow {
   color: var(--color-text-faint);
-  font-weight: 200;
+  font-weight: var(--weight-thin);
 }
 
 .lately {

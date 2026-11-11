@@ -1,5 +1,5 @@
-// Reels para @l20n.archive y TikTok (en exploración). 1080×1920, 30 fps, sin audio:
-// el audio se elige en la app (los sonidos en tendencia ayudan al alcance).
+// Reels para @l20n.archive y TikTok (en exploración). 1080×1920, 30 fps.
+// music: { track, bar } → pista de musica/ (ver music.py) y compás en el que arranca.
 // El copy es BORRADOR: reescribilo a tu manera y volvé a renderizar.
 //
 // Escenas (dur en segundos):
@@ -12,6 +12,7 @@
 
 window.REELS = {
   '01-seguros-registro': {
+    music: { track: 'noche', bar: 4 },
     caption: 'Un productor de seguros no debería acordarse de cada vencimiento. Avisos y reportes que salen solos, todos los días. Escribime "avisos" por DM.',
     scenes: [
       { type: 'word', t: '08:00', label: 'mientras dormías', dur: 2.4 },
@@ -32,9 +33,10 @@ window.REELS = {
   },
 
   '02-a-mano': {
-    caption: 'Si alguna de estas te come la semana, se puede automatizar. Escribime por DM y vemos cuál primero.',
+    music: { track: 'progresivo', bar: 8 },
+    caption: 'Copiar, pegar, perseguir, repetir. Si todavía hacés esto a mano, escribime por DM.',
     scenes: [
-      { type: 'word', t: 'a mano', label: 'si todavía hacés esto', dur: 2.4 },
+      { type: 'word', t: 'en loop', label: 'tu semana:', above: true, dur: 2.4 },
       {
         type: 'list', dur: 7,
         items: [
@@ -51,6 +53,7 @@ window.REELS = {
   },
 
   '03-turnos-estetica': {
+    music: { track: 'brillante', bar: 4 },
     caption: 'Peluquerías, estética, masajes: turnos, señas y recordatorios que no dependen de que te acuerdes. Escribime "turnos" por DM.',
     scenes: [
       { type: 'word', t: 'turnos', label: 'peluquerías · estética · masajes', dur: 2.4 },
@@ -63,6 +66,7 @@ window.REELS = {
   },
 
   '04-consultas-inmobiliaria': {
+    music: { track: 'tenso', bar: 6 },
     caption: 'La consulta que se responde en tres horas ya se fue con otra inmobiliaria. Respuesta, visita y seguimiento sin perseguir a nadie. Escribime por DM.',
     scenes: [
       { type: 'word', t: 'consultas', label: 'inmobiliarias', dur: 2.4 },
@@ -75,6 +79,7 @@ window.REELS = {
   },
 
   '05-cuotas-desarrolladora': {
+    music: { track: 'tranqui', bar: 4 },
     caption: 'Cuotas, recibos y avance de obra sin planillas cruzadas ni mensajes uno por uno. Escribime "cuotas" por DM.',
     scenes: [
       { type: 'word', t: 'cuotas', label: 'desarrolladoras · constructoras', dur: 2.4 },
