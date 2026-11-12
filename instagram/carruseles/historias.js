@@ -10,33 +10,38 @@ window.HISTORIAS = {
   // v3 (2026-11-10): embudo por DM. Sin sitios/landings ni publicidad (en pausa). Copy = borrador para que lo reescribas.
   servicios: {
     slides: [
-      { type: 'tapa', g: 'S' },
+      { type: 'cierre', t: 'laburo' },
       { type: 'intro', t: 'sistemas', label: 'operación · integración · automatización' },
       {
         type: 'item', n: '01', t: 'conectar',
-        lines: ['planillas, chats, cobros, crm', 'que se pasen los datos solos', 'nadie más copiando y pegando'],
-        flow: ['planilla', 'whatsapp', 'cobros', 'crm'], de: ['monteca', 'compass'],
+        lines: ['planillas, mails, cobros, crm', 'que se pasen los datos solos', 'nadie más copiando y pegando'],
+        flow: ['planilla', 'email', 'cobros', 'crm'], de: ['monteca'],
       },
       {
         type: 'item', n: '02', t: 'automático',
         lines: ['pólizas que avisan antes de vencer', 'reportes que llegan sin pedirlos', 'datos al día, todos los días'],
-        img: 'brief-m-1', crop: 'phone', de: ['notificador monteca', 'brief'],
+        flow: ['pólizas', 'por vencer', 'aviso', 'reporte'], de: ['notificador monteca'],
       },
       {
         type: 'item', n: '03', t: 'gestión',
-        lines: ['clientes, cobros, turnos, roles', 'un sistema hecho a cómo trabajás', 'llave en mano'],
+        lines: ['clientes, proyectos, cobros, roles', 'un sistema hecho a como trabajás', 'llave en mano'],
         img: 'compass-app', de: ['compass', 'monteca', 'crew'],
       },
       {
         type: 'item', n: '04', t: 'ia',
-        lines: ['resumir, clasificar, responder', 'pedidos y soporte', 'donde suma, no para decorar'],
-        img: 'brief-d-1', de: ['brief'],
+        lines: ['resumir, clasificar, ordenar', 'casi cuarenta medios, un resumen', 'donde suma, no para decorar'],
+        img: 'brief-m-1', crop: 'phone', de: ['brief'],
       },
       {
-        type: 'item', n: '05', t: 'guardia',
+        type: 'item', n: '05', t: 'pipeline',
+        lines: ['tres veces por día, sin tocarlo', 'filtra, resume y traduce', 'a la mañana sale el newsletter'],
+        flow: ['39 medios', 'filtro', 'resumen', 'newsletter'], de: ['brief'],
+      },
+      {
+        type: 'item', n: '06', t: 'respaldo',
         lines: ['si algo falla, me entero yo primero', 'mantenimiento y mejoras cada mes', 'datos ordenados, no parches'],
       },
-      { type: 'cierre', t: 'trabajemos' },
+      { type: 'cierre', t: 'escribime' },
     ],
   },
 

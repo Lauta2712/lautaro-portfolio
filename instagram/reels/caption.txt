@@ -1,0 +1,14 @@
+01-seguros-registro
+Un productor de seguros no debería acordarse de cada vencimiento. Mientras dormís, a las 08:00 ya salieron los avisos. Escribime "avisos" por DM.
+
+02-a-mano (publicado)
+Copiás de la planilla, pegás en el chat, perseguís la seña. Y el lunes que viene, de nuevo. Escribime "loop" por DM y lo cortamos.
+
+03-turnos-estetica
+Peluquerías, estética, masajes. La seña, el recordatorio y la reseña no tendrían que depender de que te acuerdes. Escribime "turnos" por DM.
+
+04-consultas-inmobiliaria
+La consulta que contestás tres horas después ya se fue con otra inmobiliaria. Respuesta, visita y seguimiento sin perseguir a nadie. Escribime "consultas" por DM.
+
+05-cuotas-desarrolladora
+Cuotas, recibos y avance de obra sin planillas cruzadas ni mensajes uno por uno. Escribime "cuotas" por DM.

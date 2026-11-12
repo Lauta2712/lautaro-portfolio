@@ -25,7 +25,7 @@ async def main():
                     continue
                 await page.goto(f"file://{HERE / html}?p={key}")
                 await page.wait_for_function("document.title === 'ready'")
-                out = HERE / "png" / key
+                out = HERE / "exportar" / key
                 out.mkdir(parents=True, exist_ok=True)
                 for f in out.glob("*.png"):
                     f.unlink()
